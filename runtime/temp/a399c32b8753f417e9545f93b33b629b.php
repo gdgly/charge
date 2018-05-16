@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:92:"D:\phpStudy\PHPTutorial\WWW\month12\charge\public/../application/index\view\users\index.html";i:1526469528;s:84:"D:\phpStudy\PHPTutorial\WWW\month12\charge\application\index\view\layout\layout.html";i:1526461474;s:84:"D:\phpStudy\PHPTutorial\WWW\month12\charge\application\index\view\layout\header.html";i:1526461474;s:84:"D:\phpStudy\PHPTutorial\WWW\month12\charge\application\index\view\layout\footer.html";i:1526461474;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:96:"D:\phpStudy\PHPTutorial\WWW\month12\charge\public/../application/index\view\account\balance.html";i:1526469528;s:84:"D:\phpStudy\PHPTutorial\WWW\month12\charge\application\index\view\layout\layout.html";i:1526461474;s:84:"D:\phpStudy\PHPTutorial\WWW\month12\charge\application\index\view\layout\header.html";i:1526461474;s:84:"D:\phpStudy\PHPTutorial\WWW\month12\charge\application\index\view\layout\footer.html";i:1526461474;}*/ ?>
 
 <!DOCTYPE html>
 <base href="/index/" />
@@ -22,35 +22,25 @@
 </head>
 <body  >
 
-	
-<div class="container" id="container"> 
-<div class="my-face">
-  <div class="my-face-con">
-    <div class="my-face-pic">
-    	<?php if($data['u_img']==""){?>
-    		<a href="users/myImg"><img src="images/my-face-pic.jpg"></a>
-    	<?php }else{?>
-    		<a href="users/myImg"><img src="<?php echo $data['u_img']; ?>"></a>
-    	<?php }?>
-    </div>
-    <p><a href="users/myNick" style="color: black;"><?php echo $data['u_nick']; ?></a></p>
-  </div>
-</div>
+	<header class="header" id="header">
+<a href="javascript:history.go(-1)" target=_self class="back">返回</a>
+<h1>我的账户</h1>
+<a href="account/billShow" style="padding-right: 20px;"><span>账户明细</span></a>
+</header>
 
-<div class="personal-list">
-     <ul>
-       <li><a class="my-icon-wddd" href="<?php echo url('index/order/order'); ?>">我的订单</a></li>
-       <li><a class="my-icon-grzl" href="users/userMsg">个人资料</a></li>
-     </ul>
-      <ul>
-      	<li><a class="my-icon-kfzx" href="<?php echo url('build/mypile'); ?>">我的电桩</a></li>
-       <li><a class="my-icon-yhq" href="account/balance">我的账户</a></li>
-       <li><a class="my-icon-wdjf" href="integral/index">我的积分</a></li>
-        <li><a class="my-icon-gsjj" href="users/loginout">退出登录</a></li>
-     	</ul>
-  </div>
-
-
+<div class="container" id="container">
+	<center>
+		<div class="balance" style="font-size: 16px;">
+	        <img src="images/account_img.jpg" style="width: 200px;height: 150px;margin-top: 50px;">
+	        <span>我的账户</span>
+	        <p>
+	        	<span >¥<?php echo $money; ?></span>
+	        </p>
+	    </div>
+		<a href="account/recharge" class="submit-btn">充值</a>
+		<a href="account/forward" class="submit-btn">提现</a>
+	</center>
+    
 </div>
 
 <footer class="footer" id="footer">

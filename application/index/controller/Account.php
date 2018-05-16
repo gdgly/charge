@@ -28,17 +28,19 @@ class Account extends Common
 		
 		if(Request::instance()->isPost()){
 			$data = $_POST;
+			
+//			var_dump($data);exit;
 			$money = $data['money'];
 			$usermsg = new UserMsg();
 			$res = $usermsg->moneyInc($u_id,$money);
 //			添加记录
 			if($res){
-				$data['actime'] = time();
-				$data['money'] = '+'.$data['money'];
-				$data['u_id'] = $u_id;
-				$data['way'] = 1;
+				$arr['actime'] = time();
+				$arr['money'] = '+'.$data['money'];
+				$arr['u_id'] = $u_id;
+				$arr['way'] = 1;
 				$bill = new Bills();
-				$bill->billAdd($data);
+				$bill->billAdd($arr);
 			}
 			return $this->redirect('balance');
 		}

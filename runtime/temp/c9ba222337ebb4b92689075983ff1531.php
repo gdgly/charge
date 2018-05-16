@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:92:"D:\phpStudy\PHPTutorial\WWW\month12\charge\public/../application/index\view\users\index.html";i:1526469528;s:84:"D:\phpStudy\PHPTutorial\WWW\month12\charge\application\index\view\layout\layout.html";i:1526461474;s:84:"D:\phpStudy\PHPTutorial\WWW\month12\charge\application\index\view\layout\header.html";i:1526461474;s:84:"D:\phpStudy\PHPTutorial\WWW\month12\charge\application\index\view\layout\footer.html";i:1526461474;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:98:"D:\phpStudy\PHPTutorial\WWW\month12\charge\public/../application/index\view\account\bill_show.html";i:1526469528;s:84:"D:\phpStudy\PHPTutorial\WWW\month12\charge\application\index\view\layout\layout.html";i:1526461474;s:84:"D:\phpStudy\PHPTutorial\WWW\month12\charge\application\index\view\layout\header.html";i:1526461474;s:84:"D:\phpStudy\PHPTutorial\WWW\month12\charge\application\index\view\layout\footer.html";i:1526461474;}*/ ?>
 
 <!DOCTYPE html>
 <base href="/index/" />
@@ -22,37 +22,30 @@
 </head>
 <body  >
 
-	
+	<header class="header" id="header">
+<a href="javascript:history.go(-1)" target=_self class="back">返回</a>
+<h1>账单明细</h1>
+</header>
 <div class="container" id="container"> 
-<div class="my-face">
-  <div class="my-face-con">
-    <div class="my-face-pic">
-    	<?php if($data['u_img']==""){?>
-    		<a href="users/myImg"><img src="images/my-face-pic.jpg"></a>
-    	<?php }else{?>
-    		<a href="users/myImg"><img src="<?php echo $data['u_img']; ?>"></a>
-    	<?php }?>
-    </div>
-    <p><a href="users/myNick" style="color: black;"><?php echo $data['u_nick']; ?></a></p>
-  </div>
-</div>
 
-<div class="personal-list">
-     <ul>
-       <li><a class="my-icon-wddd" href="<?php echo url('index/order/order'); ?>">我的订单</a></li>
-       <li><a class="my-icon-grzl" href="users/userMsg">个人资料</a></li>
-     </ul>
-      <ul>
-      	<li><a class="my-icon-kfzx" href="<?php echo url('build/mypile'); ?>">我的电桩</a></li>
-       <li><a class="my-icon-yhq" href="account/balance">我的账户</a></li>
-       <li><a class="my-icon-wdjf" href="integral/index">我的积分</a></li>
-        <li><a class="my-icon-gsjj" href="users/loginout">退出登录</a></li>
-     	</ul>
-  </div>
-
+<ul class="order-price clearfix">
+	<?php foreach($data as $v): ?>
+		<li>
+			<h2>
+				<?php switch($name=$v['way']): case "1": ?>充值<?php break; case "2": ?>提现<?php break; case "3": ?>在线支付<?php break; case "4": ?>积分兑换<?php break; default: ?>默认情况
+				<?php endswitch; ?>
+				<span style="display: inline;font-size:20px ;color: #808080;"><?php echo date("Y-m-d H:i:s",$v['actime']); ?></span>
+			</h2>
+			<?php if(substr($v['money'],0,1)=='-'){?>
+				<span style="color: black;"><?php echo $v['money']; ?></span>
+			<?php }else{?>
+				<span><?php echo $v['money']; ?></span>
+			<?php }?>
+		</li>
+	<?php endforeach; ?>
+</li>
 
 </div>
-
 <footer class="footer" id="footer">
   <ul class="footnav box-flex">
   <?php
