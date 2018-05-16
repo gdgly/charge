@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:72:"D:\www\wamp\www\charge\public/../application/index\view\users\index.html";i:1526469346;s:64:"D:\www\wamp\www\charge\application\index\view\layout\layout.html";i:1526468911;s:64:"D:\www\wamp\www\charge\application\index\view\layout\header.html";i:1526468911;s:64:"D:\www\wamp\www\charge\application\index\view\layout\footer.html";i:1526468911;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:97:"D:\phpStudy\PHPTutorial\WWW\month12\charge\public/../application/index\view\account\card_add.html";i:1526469528;s:84:"D:\phpStudy\PHPTutorial\WWW\month12\charge\application\index\view\layout\layout.html";i:1526461474;s:84:"D:\phpStudy\PHPTutorial\WWW\month12\charge\application\index\view\layout\header.html";i:1526461474;s:84:"D:\phpStudy\PHPTutorial\WWW\month12\charge\application\index\view\layout\footer.html";i:1526461474;}*/ ?>
 
 <!DOCTYPE html>
 <base href="/index/" />
@@ -22,37 +22,13 @@
 </head>
 <body  >
 
-	
-<div class="container" id="container"> 
-<div class="my-face">
-  <div class="my-face-con">
-    <div class="my-face-pic">
-    	<?php if($data['u_img']==""){?>
-    		<a href="users/myImg"><img src="images/my-face-pic.jpg"></a>
-    	<?php }else{?>
-    		<a href="users/myImg"><img src="<?php echo $data['u_img']; ?>"></a>
-    	<?php }?>
-    </div>
-    <p><a href="users/myNick" style="color: black;"><?php echo $data['u_nick']; ?></a></p>
-  </div>
-</div>
-
-<div class="personal-list">
-     <ul>
-       <li><a class="my-icon-wddd" href="<?php echo url('index/order/order'); ?>">我的订单</a></li>
-       <li><a class="my-icon-grzl" href="users/userMsg">个人资料</a></li>
-     </ul>
-      <ul>
-      	<li><a class="my-icon-kfzx" href="<?php echo url('build/mypile'); ?>">我的电桩</a></li>
-       <li><a class="my-icon-yhq" href="account/balance">我的账户</a></li>
-       <li><a class="my-icon-wdjf" href="integral/index">我的积分</a></li>
-        <li><a class="my-icon-gsjj" href="users/loginout">退出登录</a></li>
-     	</ul>
-  </div>
-
-
-</div>
-
+	<form action="users/myNick" method="post">
+<header class="header header-save" id="header">
+<a href="javascript:history.go(-1)" target=_self class="back">返回</a>
+<h1>绑定银行卡</h1>
+<button type="submit">保存</button>
+</header>
+</form>
 <footer class="footer" id="footer">
   <ul class="footnav box-flex">
   <?php

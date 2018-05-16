@@ -1,0 +1,29 @@
+<header class="header" id="header">
+<a href="javascript:history.go(-1)" target=_self class="back">返回</a>
+<h1>账单明细</h1>
+</header>
+<div class="container" id="container"> 
+
+<ul class="order-price clearfix">
+	{foreach $data as $v}
+		<li>
+			<h2>
+				{switch name=$v.way}
+					{case value="1"}充值{/case}
+			    	{case value="2"}提现{/case}
+			    	{case value="3"}在线支付{/case}
+			    	{case value="4"}积分兑换{/case}
+  					{default /}默认情况
+				{/switch}
+				<span style="display: inline;font-size:20px ;color: #808080;">{$v.actime|date="Y-m-d H:i:s",###}</span>
+			</h2>
+			<?php if(substr($v['money'],0,1)=='-'){?>
+				<span style="color: black;">{$v.money}</span>
+			<?php }else{?>
+				<span>{$v.money}</span>
+			<?php }?>
+		</li>
+	{/foreach}
+</li>
+
+</div>
