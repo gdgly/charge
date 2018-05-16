@@ -46,7 +46,7 @@ class Order extends Controller
 					$bil = array(
 						'money'=>'-'.$money,
 						'actime'=>time(),
-						'way'=>1,
+						'way'=>3,
 						'u_id'=>$uid
 					);
 					$bills = $order->addbills($bil);

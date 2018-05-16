@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:92:"D:\phpStudy\PHPTutorial\WWW\month12\charge\public/../application/index\view\users\index.html";i:1526434885;s:84:"D:\phpStudy\PHPTutorial\WWW\month12\charge\application\index\view\layout\layout.html";i:1526379708;s:84:"D:\phpStudy\PHPTutorial\WWW\month12\charge\application\index\view\layout\header.html";i:1526379708;s:84:"D:\phpStudy\PHPTutorial\WWW\month12\charge\application\index\view\layout\footer.html";i:1526379708;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:92:"D:\phpStudy\PHPTutorial\WWW\month12\charge\public/../application/index\view\users\index.html";i:1526469528;s:84:"D:\phpStudy\PHPTutorial\WWW\month12\charge\application\index\view\layout\layout.html";i:1526461474;s:84:"D:\phpStudy\PHPTutorial\WWW\month12\charge\application\index\view\layout\header.html";i:1526461474;s:84:"D:\phpStudy\PHPTutorial\WWW\month12\charge\application\index\view\layout\footer.html";i:1526461474;}*/ ?>
 
 <!DOCTYPE html>
 <base href="/index/" />
@@ -44,7 +44,7 @@
      </ul>
       <ul>
       	<li><a class="my-icon-kfzx" href="<?php echo url('build/mypile'); ?>">我的电桩</a></li>
-       <li><a class="my-icon-yhq" href="integral/balance">我的账户</a></li>
+       <li><a class="my-icon-yhq" href="account/balance">我的账户</a></li>
        <li><a class="my-icon-wdjf" href="integral/index">我的积分</a></li>
         <li><a class="my-icon-gsjj" href="users/loginout">退出登录</a></li>
      	</ul>

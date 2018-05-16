@@ -28,6 +28,8 @@ class Account extends Common
 		
 		if(Request::instance()->isPost()){
 			$data = $_POST;
+			
+//			var_dump($data);exit;
 			$money = $data['money'];
 			$usermsg = new UserMsg();
 			$res = $usermsg->moneyInc($u_id,$money);

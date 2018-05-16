@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:90:"D:\phpStudy\PHPTutorial\WWW\month12\charge\public/../application/index\view\now\index.html";i:1526461474;s:84:"D:\phpStudy\PHPTutorial\WWW\month12\charge\application\index\view\layout\layout.html";i:1526461474;s:84:"D:\phpStudy\PHPTutorial\WWW\month12\charge\application\index\view\layout\header.html";i:1526461474;s:84:"D:\phpStudy\PHPTutorial\WWW\month12\charge\application\index\view\layout\footer.html";i:1526461474;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:97:"D:\phpStudy\PHPTutorial\WWW\month12\charge\public/../application/index\view\account\card_add.html";i:1526469528;s:84:"D:\phpStudy\PHPTutorial\WWW\month12\charge\application\index\view\layout\layout.html";i:1526461474;s:84:"D:\phpStudy\PHPTutorial\WWW\month12\charge\application\index\view\layout\header.html";i:1526461474;s:84:"D:\phpStudy\PHPTutorial\WWW\month12\charge\application\index\view\layout\footer.html";i:1526461474;}*/ ?>
 
 <!DOCTYPE html>
 <base href="/index/" />
@@ -22,57 +22,13 @@
 </head>
 <body  >
 
-	<!--<!DOCTYPE html>
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
-<meta content="yes" name="apple-mobile-web-app-capable" />
-<meta content="black" name="apple-mobile-web-app-status-bar-style" />
-<meta content="telephone=no" name="format-detection" />
-<title>选择地板品类</title>
-<link rel="stylesheet" type="text/css" href="css/base.css">
-<link rel="stylesheet" type="text/css" href="css/common.css">
-<script type="text/javascript" src="js/jquery.min.js" ></script>
-<script src="js/common.js"></script>-->
-<!--</head>-->
-
-<body>
-<header class="header" id="header">
+	<form action="users/myNick" method="post">
+<header class="header header-save" id="header">
 <a href="javascript:history.go(-1)" target=_self class="back">返回</a>
-<h1>选择充电孔</h1>
+<h1>绑定银行卡</h1>
+<button type="submit">保存</button>
 </header>
-<!--header-end-->
-
-<div class="container" id="container"> 
-
-<div class="classification">
-	<center>
-	<h4 class="now-name"><?php echo $charge['c_name']; ?></h4>
-	</center>
-<!--<h4 class="now-status">可用</h4>-->
-  <ul class="clearfix">
-
-<?php if(is_array($data) || $data instanceof \think\Collection || $data instanceof \think\Paginator): $i = 0; $__LIST__ = $data;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;if($vo['p_status'] == 1): ?>
-		<li><a href="<?php echo url('index/now/now'); ?>?p_id=<?php echo $vo['p_id']; ?>"><img src="images/yes.png"><span><?php echo $vo['a_num']; ?>号插孔</span></a></li>
-	<?php elseif($vo['p_status'] == 2): ?>
-		<li><a href="javascript:void()"><img src="images/no.png"><span><?php echo $vo['a_num']; ?>号插孔<br />已损坏</span></a></li>
-	<?php else: ?>
-		<li><a href="javascript:void()"><img src="images/no.png"><span><?php echo $vo['a_num']; ?>号插孔<br />已占用</span></a></li>
-	<?php endif; endforeach; endif; else: echo "" ;endif; ?>
-
-
-
-  	
-  </ul>
-</div>
-
-</div>
-<!--container-end-->
-
-
-
-
+</form>
 <footer class="footer" id="footer">
   <ul class="footnav box-flex">
   <?php
