@@ -10,10 +10,15 @@ class UserMsg extends Model
 	{
 		return self::where('u_id',$u_id)->find();
 	}
-	
+//	减金额
 	public function reduce($uid,$mon)
 	{
 		return Db::table('user_msg')->where('u_id', $uid)->setDec('u_money',$mon);
+	}
+//	加金额
+	public function moneyInc($uid,$mon)
+	{
+		return self::where('u_id', $uid)->setInc('u_money',$mon);
 	}
 	
 	public function selmsg($uid)
