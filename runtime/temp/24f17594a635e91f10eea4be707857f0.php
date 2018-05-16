@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:67:"D:\wamp\www\charge\public/../application/demo\view\index\index.html";i:1526436638;s:59:"D:\wamp\www\charge\application\demo\view\layout\layout.html";i:1526436638;s:59:"D:\wamp\www\charge\application\demo\view\layout\header.html";i:1526436638;s:59:"D:\wamp\www\charge\application\demo\view\layout\footer.html";i:1526436638;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:67:"D:\wamp\www\charge\public/../application/demo\view\index\index.html";i:1526468935;s:59:"D:\wamp\www\charge\application\demo\view\layout\layout.html";i:1526468935;s:59:"D:\wamp\www\charge\application\demo\view\layout\header.html";i:1526468935;s:59:"D:\wamp\www\charge\application\demo\view\layout\footer.html";i:1526468935;}*/ ?>
 <base href="/demo/" />
 <!doctype html>
 <html>
@@ -40,10 +40,10 @@
                         <li><a href="<?php echo url('index/examine'); ?>"><i class="icon-font">&#xe008;</i>充电站审核</a></li>
                         <li><a href="<?php echo url('index/show'); ?>"><i class="icon-font">&#xe005;</i>充电站管理</a></li>
                         <li><a href="<?php echo url('feedback/show'); ?>"><i class="icon-font">&#xe006;</i>意见反馈单</a></li>
-                        <!--<li><a href="design.html"><i class="icon-font">&#xe004;</i>留言管理</a></li>
-                        <li><a href="design.html"><i class="icon-font">&#xe012;</i>评论管理</a></li>
+                        <li><a href="<?php echo url('pile/show'); ?>"><i class="icon-font">&#xe004;</i>维修站点</a></li>
+                        <!-- <li><a href="design.html"><i class="icon-font">&#xe012;</i>评论管理</a></li>
                         <li><a href="design.html"><i class="icon-font">&#xe052;</i>友情链接</a></li>
-                        <li><a href="design.html"><i class="icon-font">&#xe033;</i>广告管理</a></li>-->
+                        <li><a href="design.html"><i class="icon-font">&#xe033;</i>广告管理</a></li> -->
                     </ul>
                 </li>
                 <!--<li>

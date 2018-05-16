@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:65:"D:\wamp\www\charge\public/../application/demo\view\pile\show.html";i:1526459253;s:59:"D:\wamp\www\charge\application\demo\view\layout\layout.html";i:1526436638;s:59:"D:\wamp\www\charge\application\demo\view\layout\header.html";i:1526458818;s:59:"D:\wamp\www\charge\application\demo\view\layout\footer.html";i:1526436638;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:65:"D:\wamp\www\charge\public/../application/demo\view\pile\show.html";i:1526468935;s:59:"D:\wamp\www\charge\application\demo\view\layout\layout.html";i:1526468935;s:59:"D:\wamp\www\charge\application\demo\view\layout\header.html";i:1526468935;s:59:"D:\wamp\www\charge\application\demo\view\layout\footer.html";i:1526468935;}*/ ?>
 <base href="/demo/" />
 <!doctype html>
 <html>
