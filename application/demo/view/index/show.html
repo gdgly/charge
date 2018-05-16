@@ -1,0 +1,76 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>后台管理</title>
+    <link rel="stylesheet" type="text/css" href="css/common.css"/>
+    <link rel="stylesheet" type="text/css" href="css/main.css"/>
+    <script type="text/javascript" src="js/libs/modernizr.min.js"></script>
+</head>
+<body>
+<div class="container clearfix">
+    <!--/sidebar-->
+    <div class="main-wrap">
+
+        <div class="crumb-wrap">
+            <div class="crumb-list"><i class="icon-font"></i><a href="/jscss/admin">首页</a><span class="crumb-step">&gt;</span><span class="crumb-name">站点管理</span></div>
+        </div>
+        <div class="result-wrap">
+            <form name="myform" id="myform" method="post">
+                <div class="result-content">
+                    <table class="result-tab" width="100%">
+                        <tr>
+                            <th>ID</th>
+                            <th>站名</th>
+                            <th>类型</th>
+                            <th>数量</th>
+                            <th>费用</th>
+                            <th>状态</th>
+                            <th>是否通过审核</th>
+                            <th>地址</th>
+                            <th>操作</th>
+                        </tr>
+                        {foreach name="res" item="v"}
+	                        <tr>
+	                            <td>{$v.c_id}</td>
+	                            <td>{$v.c_name}</td>
+	                            <td>
+	                            	{if($v.c_type==0)}
+	                            	国标
+	                            	{else if}
+	                            	特斯拉
+	                            	{/if}
+	                            </td>
+	                            <td>{$v.c_sum}个</td>
+	                            <td>{$v.c_money}元/分钟</td>
+	                            <td>
+	                            	{if($v.c_state==0)}
+	                            	可用
+	                            	{elseif($v.c_state==1)}
+	                            	不可用
+	                            	{elseif($v.c_state==2)}
+	                            	故障
+	                            	{/if}
+	                            </td>
+	                            <td>
+	                            	{if($v.c_status==1)}
+	                            	<a href="{:url("index/status")}?id={$v.c_id}">未审核</a>
+	                            	{else if}
+	                            	审核通过
+	                            	{/if}
+	                            </td>
+	                            <td><a href="{:url("index/coordinate")}?c_x={$v.c_x}&c_y={$v.c_y}">查看</a></td>
+	                            <td>
+	                                <a class="link-del" href="{:url('index/del')}?id={$v.c_id}">删除</a>
+	                            </td>
+	                        </tr>
+                        {/foreach}
+                    </table>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!--/main-->
+</div>
+</body>
+</html>

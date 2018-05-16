@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
+<meta content="yes" name="apple-mobile-web-app-capable" />
+<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+<meta content="telephone=no" name="format-detection" />
+<title>我的电桩</title>
+<link rel="stylesheet" type="text/css" href="css/base.css">
+<link rel="stylesheet" type="text/css" href="css/common.css">
+<script type="text/javascript" src="js/jquery.min.js" ></script>
+<script src="js/common.js"></script>
+</head>
+
+<body>
+<header class="header" id="header">
+<a href="javascript:history.go(-1)" target=_self class="back">返回</a>
+<h1>我的电桩</h1>
+</header>
+<!--header-end-->
+<div class="container" id="container"> 
+
+<div class="goods-allocation">
+  <ul>
+  	<?php foreach($data as $k => $v){ ?>
+    <li>
+      <a href="{:url('build/pilelist')}?c_id=<?= $v['c_id'] ?>">
+        <div class="goods-allocation-img"><img src="images/hc.png"></div>
+        <div class="goods-allocation-txt">
+          <h2><?= $v['c_name'] ?></h2>
+          <p>地址：<?= $v['c_site'] ?></p>
+          <p>
+          	使用状态：
+          	<?php if($v['c_state']==0&&$v['c_status']==0){
+          		//未损坏且审核通过
+          		echo "<span style='color:green'>正常使用</span>";
+          	}else if($v['c_state']==1&&$v['c_status']==0){
+          		//正在维修且审核通过
+          		echo "<span style=' color:red'>正在维修</span>";
+          	}else if($v['c_state']==0&&$v['c_status']==1){
+          		//未损坏但审核未通过
+          		echo "<span style=' color:blue'>正在审核</span>";
+          	}
+          	?>
+          </p>
+        </div>
+      </a>
+    </li>
+    <?php } ?>
+  </ul>
+</div>
+<!--goods-allocation-end-->
+
+</div>
+<!--container-end-->
+</body>
+</html>

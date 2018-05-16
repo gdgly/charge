@@ -1,0 +1,71 @@
+
+<header class="header" id="header">
+<a href="javascript:history.go(-1)" target=_self class="back">返回</a>
+<h1>正在充电...</h1>
+</header>
+<!--header-end-->
+
+<div class="container" id="container"> 
+
+
+		<div class="pro-top">
+    	<span class="pro-font"><span id="dian">{$quantity}%</span> <br /><span class="pro-space">当前电量</span></span>
+    	<img src="__ROOT__/index/images/213.gif" alt="" class="pro-imgs" />
+    	<div class="pro-div1">
+    		<h4 style="float: left;display: inline-block;">{$mon}元</h4>
+    		<h4 style="float: left;display: inline-block;margin-left: 110px;" id="timer">{$str}</h4>
+    		<h4 style="float: left;display: inline-block;margin-left: 110px;">{$data.money}元</h4>
+    	</div>
+    	<div class="pro-div2">
+    		<h4 style="float: left;display: inline-block;">账户余额</h4>
+    		<h4 style="float: left;display: inline-block;margin-left: 120px;">剩余时长</h4>
+    		<h4 style="float: left;display: inline-block;margin-left: 135px;">预计费用</h4>
+    	</div>
+
+    	
+    </div>	
+    	
+
+		<a href="{:url('index/now/end')}?o_id={$o_id}" class="pro-payment">结束充电</a>
+		<!--<a href="#" class="pro-pay">充值</a>-->
+
+</div>
+<!--container-end-->
+<SCRIPT type="text/javascript">
+            
+            var maxtime = "{$sur_time}"; //一个小时，按秒计算，自己调整!   
+			
+            function CountDown() {
+//          	dians();
+                if (maxtime >= 0) {
+                    h = Math.floor((maxtime % (3600*24)) / 3600);
+
+                    // $h = floor(($time % (3600*24)) / 3600);
+                    minutes = Math.floor(((maxtime % (3600*24)) % 3600) / 60);
+
+                    // minutes = Math.floor(maxtime / 60);
+                    seconds = Math.floor(maxtime % 60);
+                    msg = h+":"+ minutes + ":" + seconds;
+                    document.all["timer"].innerHTML = msg;
+                    
+                    if (maxtime == 5 * 60)alert("还剩5分钟"); --maxtime;
+                } else{
+                    clearInterval(timer);
+                    alert("时间到，结束!");
+                    location.href="{:url('index/now/end')}?o_id={$o_id}";
+                }
+            }
+            timer = setInterval("CountDown()", 1000); 
+            
+            dian = "{$quantity}";
+            function dians(){
+            	document.all["dian"].innerHTML = dian+"%";
+            	++dian;
+            	if	(dian == 100)
+            	{
+            		clearInterval(tim);
+            	}
+            }
+            tim = setInterval("dians()", 60000); 
+            
+        </SCRIPT>

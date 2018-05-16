@@ -1,0 +1,112 @@
+
+<header class="header" id="header">
+<a href="javascript:history.go(-1)" target=_self class="back">返回</a>
+<h1>准备充电</h1>
+</header>
+<!--header-end-->
+
+<div class="container" id="container"> 
+
+<div class="add-class">
+  <form action="{:url('index/now/charging')}" method="post">
+    <ul>
+    	<h4 class="now-name">{$charge.a_num}号桩</h4>
+    	<h4 class="now-status">可用</h4>
+      <li><label>插座类型</label><space id="type">
+      		
+			{if condition="$charge.c_type eq 0"}标准
+			{else /} 特斯拉
+			{/if}
+      </space></li>
+      <li><label>电池检测</label><space id="type">24V/4A</space></li>
+      <li><label>计费方式</label><space id="type">{$charge.c_money}/分钟</space></li>
+      
+    </ul>
+    <ul>
+    	<li><space>充电时长</space></li>
+    	
+			{foreach $dur as $vo}
+    		
+				{if condition="$vo.d_name == '0'"} 
+					<li><input type="radio" name="time" class="type" value="{$vo.d_name}" b_name='{$vo.d_name}' d_id="{$vo.d_id}"/><label>充满</label><space class="add-space {$vo.d_id}"></space></li>
+				{else /} 
+					<li><input type="radio" name="time" class="type" value="{$vo.d_name}" d_id="{$vo.d_id}"/><label>{$vo.d_name}小时</label><space class="add-space {$vo.d_id}"></space></li>
+				{/if}
+
+    	{/foreach}
+    </ul>
+    <ul>
+    	<li><space>自定义</space></li>
+    	<li><input id="amount" type="number" name="time" class="type amount" placeholder="请输入所需时间" value=""><space>小时</space><space class="add-space ti"></space></li>
+    </ul>
+    <ul>
+    	<!--<li><space>已优惠</space><label>0.5元</label></li>-->
+    	<li><space>预计费用</space><label style="color: red;">￥{$money}</label></li>
+    </ul>
+    <!--电量-->
+    <input type="hidden" value="{$quan}" name="pur"/>
+    <!--金额-->
+    <input type="hidden" value="{$money}" name="money"/>
+    <!--桩号-->
+    <input type="hidden" value="{$p_id}" name="pid"/>
+    <!--站点id-->
+    <input type="hidden" value="{$charge.c_id}" name="cid" />
+    <!--实际时间-->
+    <input type="hidden" value="{$time}" name="pay_time" />
+    <input type="submit" style="display: none;" class="confirm-payment" value="开始充电">
+  </form>  
+</div>
+
+</div>
+<!--container-end-->
+<script src="__ROOT__/jquery-2.1.4.min.js"></script>
+<script>
+	$(function(){
+		//电池电量
+			quan = "{$quan}";
+//			alert(quan)
+			//计算出的时间
+			t = "{$t}";
+			
+			//所需时间
+			time = "{$time}";
+		$(".type").click(function(){
+			$(".confirm-payment").show();
+			$(".amount").attr('disabled','disabled');
+			var d_id = $(this).attr("d_id")
+			var val = $(this).val();
+			var b_name = $(this).attr('b_name');
+			
+//			alert(val)
+			if(b_name=='0'){
+				$("."+d_id).text(t)
+				$(".amount").val("")
+			}else{
+				$(".amount").val("")
+
+				var num = b_name*3600
+				if(num>time){
+					alert("时间大于您所充满的时间！请重新选择")
+					$(".confirm-payment").hide();
+//					window.location.reload();
+				}else{
+					$(".confirm-payment").show();
+				}
+				$(".add-space").empty()
+			}
+		})
+		$(".amount").blur(function(){
+			var val = $(this).val()
+			var num = val*3600
+//			alert(time)
+				if(num>time){
+					$(".ti").text("时间大于您所充满的时间！请重新选择");
+					$(".confirm-payment").hide();
+//					window.location.reload();
+				}else{
+					$(".ti").empty();
+					$(".confirm-payment").show();
+				}
+		})
+	})
+</script>

@@ -1,0 +1,64 @@
+<footer class="footer" id="footer">
+  <ul class="footnav box-flex">
+  <?php
+  	use think\Request;
+  	
+  	$request = Request::instance();
+	 	$controller = $request->controller();
+  ?>
+{switch name=$controller}
+    {case value="Index"}
+    	<li class="on"><a href="index.html" class="home"><i></i><span class="full-block">首页</span></a></li>
+	    <li><a href="{:url('build/index')}" class="foot-worker"><i></i><span class="full-block">申请建桩</span></a></li>
+	    <li><a href="{:url('index/order/order')}" class="foot-order"><i></i><span class="full-block">订单</span></a></li>
+	    <li><a href="users/index" class="my"><i></i><span class="full-block">我的</span></a></li>
+    {/case}
+    {case value="Build"}
+    	<li><a href="index.html" class="home"><i></i><span class="full-block">首页</span></a></li>
+	    <li class="on"><a href="{:url('build/index')}" class="foot-worker"><i></i><span class="full-block">申请建桩</span></a></li>
+	    <li><a href="{:url('index/order/order')}" class="foot-order"><i></i><span class="full-block">订单</span></a></li>
+	    <li><a href="users/index" class="my"><i></i><span class="full-block">我的</span></a></li>
+    {/case}
+    {case value="Users"}
+    	<li><a href="index.html" class="home"><i></i><span class="full-block">首页</span></a></li>
+	    <li><a href="{:url('build/index')}" class="foot-worker"><i></i><span class="full-block">申请建桩</span></a></li>
+	    <li><a href="{:url('index/order/order')}" class="foot-order"><i></i><span class="full-block">订单</span></a></li>
+	    <li class="on"><a href="users/index" class="my"><i></i><span class="full-block">我的</span></a></li>
+    {/case}
+    {case value="Order"}
+    	<li><a href="index.html" class="home"><i></i><span class="full-block">首页</span></a></li>
+	    <li><a href="{:url('build/index')}" class="foot-worker"><i></i><span class="full-block">申请建桩</span></a></li>
+	    <li class="on"><a href="{:url('index/order/order')}" class="foot-order"><i></i><span class="full-block">订单</span></a></li>
+	    <li><a href="users/index" class="my"><i></i><span class="full-block">我的</span></a></li>
+    {/case}
+{/switch}
+
+  
+  
+  
+	
+  	
+  	
+    
+  </ul>
+</footer>
+<!--footer-end-->
+<!--栏目更多-->
+<script type="text/javascript">
+$(".ind-nav").each(function(){	
+  var self = $(this); 
+  var n=self.find("ul li").length;
+  if(n<=8){
+  self.find( ".more").addClass("hide-more");
+  }else{
+  self.find(".more").removeClass("hide-more");
+  } 
+ self.find(".more").click(function(){
+    self.find( "ul" ).toggleClass("intro");
+	self.find(".more").toggleClass("add-more");
+  });
+  });
+</script>
+<!--栏目更多--> 
+</body>
+</html>

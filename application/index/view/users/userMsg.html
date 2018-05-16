@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<base href="__ROOT__/index/" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
+<meta content="yes" name="apple-mobile-web-app-capable" />
+<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+<meta content="telephone=no" name="format-detection" />
+<title>个人资料</title>
+<link rel="stylesheet" type="text/css" href="css/base.css">
+<link rel="stylesheet" type="text/css" href="css/common.css">
+<script type="text/javascript" src="js/jquery.min.js" ></script>
+<script src="js/common.js"></script>
+</head>
+
+<body>
+<header class="header" id="header">
+<a href="javascript:history.go(-1)" target=_self class="back">返回</a>
+<h1>个人资料</h1>
+</header>
+<!--header-end-->
+
+<div class="container" id="container"> 
+
+<div class="personal-data1">
+<ul>
+  <li><a href="users/myNick"><span>我的昵称</span><em><?php if($data['u_nick']){echo $data['u_nick'];}?></em></a></li>
+  <li>
+  	<a href="users/myImg"><span>我的头像</span>
+  		<em>
+  			<?php 
+  				if($data['u_img']){
+  					echo "<img src='".$data['u_img']."' style='width:100px;height:100px;'>";
+  				}else{
+  					echo "<img src='images/my-face-pic.jpg' style='width:100px;height:100px;'>";
+  				}
+  			?> 
+  		</em>
+  	</a>
+  </li>
+  <li><a href="users/upPwd"><span>修改密码</span><em>******</em></a></li>
+  <li><a href="users/payPwd"><span>支付密码</span><em>******</em></a></li>
+</ul>
+</div>
+
+</div>
+<!--container-end-->
+</body>
+</html>

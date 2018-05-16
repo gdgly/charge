@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>后台管理</title>
+    <link rel="stylesheet" type="text/css" href="css/common.css"/>
+    <link rel="stylesheet" type="text/css" href="css/main.css"/>
+    <script type="text/javascript" src="js/libs/modernizr.min.js"></script>
+</head>
+<body>
+<div class="container clearfix">
+    <!--/sidebar-->
+    <div class="main-wrap">
+
+        <div class="crumb-wrap">
+            <div class="crumb-list"><i class="icon-font"></i><a href="/jscss/admin">首页</a><span class="crumb-step">&gt;</span><span class="crumb-name">意见反馈单</span></div>
+        </div>
+        <div class="result-wrap">
+            <form name="myform" id="myform" method="post">
+                <div class="result-content">
+                    <table class="result-tab" width="100%">
+                        <tr>
+                            <th>ID</th>
+                            <th>站点名称</th>
+                            <th>损坏号码</th>
+                            <th>所属状态</th>
+                        </tr>
+                        {foreach name="res" item="v"}
+                        <tr>
+                        	<td>{$v.p_id}</td>
+                            <td>{$v.c_name}</td>
+                        	<td>{$v.a_num}</td>
+                        	<td>
+                                {if ($v.p_status==0)}
+                                    <a href="{:url('pile/upl')}?p_id={$v.p_id}">损坏</a>
+                                {/if}   
+                            </td>
+                        </tr>
+                        {/foreach}
+                    </table>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!--/main-->
+</div>
+</body>
+</html>

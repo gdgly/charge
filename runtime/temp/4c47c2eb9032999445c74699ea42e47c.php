@@ -1,0 +1,274 @@
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:82:"E:\phpHuanJing\WWW\charge\charge\public/../application/index\view\build\build.html";i:1526285560;s:74:"E:\phpHuanJing\WWW\charge\charge\application\index\view\layout\layout.html";i:1526285560;s:74:"E:\phpHuanJing\WWW\charge\charge\application\index\view\layout\header.html";i:1526365349;s:74:"E:\phpHuanJing\WWW\charge\charge\application\index\view\layout\footer.html";i:1526365349;}*/ ?>
+
+<!DOCTYPE html>
+<base href="/index/" />
+<html>
+<head>
+	<base href="/index/" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
+<meta content="yes" name="apple-mobile-web-app-capable" />
+<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+<meta content="telephone=no" name="format-detection" />
+<title>首页</title>
+    <!--<link type="text/css" rel="stylesheet" href="css/mall.css"/>-->
+<link rel="stylesheet" type="text/css" href="css/base.css">
+<link rel="stylesheet" type="text/css" href="css/common.css">
+<script type="text/javascript" src="js/jquery.min.js" ></script>
+<script src="js/common.js"></script>
+<!--banner 脚本-->
+<script src="js/TouchSlide.1.1.js"></script>
+<!--banner 脚本-->
+</head>
+<body  >
+
+	<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
+<meta content="yes" name="apple-mobile-web-app-capable" />
+<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+<meta content="telephone=no" name="format-detection" />
+<title>申请建桩</title>
+<link rel="stylesheet" type="text/css" href="css/base.css">
+<link rel="stylesheet" type="text/css" href="css/common.css">
+<script type="text/javascript" src="js/jquery.min.js" ></script>
+<script src="js/common.js"></script>
+<!-- 将百度地图API引入，设置好自己的key -->  
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=kW2zGspSnmvezyIVTRctKrDHRrLURhH3"></script>
+</head>
+<body>
+<header class="header" id="header">
+<a href="javascript:history.go(-1)" target=_self class="back">返回</a>
+<h1>申请建桩</h1>
+</header>
+<!--header-end-->
+
+<div class="container" id="container"> 
+
+<div class="worker-join">
+  <div class="worker-join-item clearfix">
+    <label for="worker-name">站名：</label>
+    <input id="worker-name" type="text" name="c_name" class="c_name" placeholder="请输入站点名称" value="">
+  </div>
+  <!--点击显示地图信息-->
+  <div class="worker-join-item clearfix">
+  	<input type='button' value='点击显示地图选取建站地址' id='open' class="anniu"> 
+  </div>
+  <!--获取地址和经纬度-->
+  <div class="worker-join-item clearfix">
+  	<label for="worker-name" class="label">地址：</label>
+  	<input type='text' value='' name='c_site' class="c_site" id='sever_add' readonly>
+  </div>
+  <div class="worker-join-item clearfix">
+  	<label for="worker-name" class="label">经度：</label>
+  	<input type="text" name="c_x" class="c_x" id="lng" value=""/>
+  </div>
+  <div class="worker-join-item clearfix">
+  	<label for="worker-name" class="label">纬度：</label>
+  	<input type="text" name="c_y" class="c_y" id="lat" value=""/>
+  </div>
+  <div style="height: 350px; width: 700px; display: none" id="allmmp">
+  	<div id='allmap' style='width: 700px; height: 350px; position: absolute; display: none'></div>
+  </div>
+  <!--end-->
+  <div class="worker-join-item clearfix">
+    <label for="worker-face">类型：</label>
+    <select name="c_type" class="c_type">
+    	<option value="0">国标</option>
+    	<option value="1">特斯拉</option>
+    </select>
+  </div>
+  <div class="worker-join-item clearfix">
+    <label for="worker-age">插孔数量：</label>
+    <input id="worker-age" type="number" name="c_sum" class="c_sum" placeholder="请输入插孔数量" value="1">
+  </div>
+  <div class="worker-join-item clearfix">
+    <label for="worker-name">费用：</label>
+    <input id="worker-name" type="text" class="c_money" name="c_money" placeholder="按分钟计算" value="">/元
+  </div>
+  <button type="submit" class="tjxx">提交信息</button>
+</div>
+
+</div>
+<!--container-end-->
+
+<!--footer-->
+<footer class="footer" id="footer">
+  <ul class="footnav box-flex">
+    <li><a href="<?php echo url('index/index'); ?>" class="home"><i></i><span class="full-block">首页</span></a></li>
+    <li class="on"><a href="<?php echo url('build/index'); ?>" class="foot-worker"><i></i><span class="full-block">申请建桩</span></a></li>
+    <li><a href="my-order.html" class="foot-order"><i></i><span class="full-block">订单</span></a></li>
+    <li><a href="my.html" class="my"><i></i><span class="full-block">我的</span></a></li>
+  </ul>
+</footer>
+<!--footer-end-->
+
+</body>
+</html>
+<!--添加站点处理事件-->
+<script src="/index/js/js.js"></script>
+<script>
+	$(document).on("click",".c_sum",function(){
+		var sum = $('.c_sum').val();
+		if(sum<1){
+			$(".c_sum").attr('value',1);
+			alert("插孔数量不能少于一个！");
+			
+		}
+	})
+	$(document).on("click",".tjxx",function(){
+		//获取所有信息
+		var c_name = $('.c_name').val();//站名
+		var c_site = $('.c_site').val();//地址
+		var c_x = $('.c_x').val();//经度
+		var c_y = $('.c_y').val();//纬度
+		var c_type = $('.c_type').val();//类型
+		var c_sum = $('.c_sum').val();//插孔数量
+		var c_money = $('.c_money').val();//费用
+		//向后台发送数据
+		$.ajax({
+			type:'post',
+			url:"<?php echo url('build/buildadd'); ?>",
+			data:{c_name:c_name,c_site:c_site,c_x:c_x,c_y:c_y,c_type:c_type,c_sum:c_sum,c_money:c_money},
+		})
+		alert("添加成功");
+		location.href = '<?php echo url("index/index"); ?>';
+	})
+</script>
+
+
+<!-- 百度地图处理事件 -->
+<script type="text/javascript">  
+	function validate() {  
+	    var sever_add = document.getElementsByName('sever_add')[0].value;  
+	    if (isNull(sever_add)) {  
+	        alert('请选择地址');  
+	            return false;  
+	        }  
+	        return true;  
+	    }  
+	  
+	    //判断是否是空  
+	function isNull(a) {  
+	    return (a == '' || typeof(a) == 'undefined' || a == null) ? true : false;  
+	    }  
+	  
+	    document.getElementById('open').onclick = function () {  
+	    if (document.getElementById('allmap').style.display == 'none') {  
+	        document.getElementById('allmap').style.display = 'block';
+	        document.getElementById('allmmp').style.display = 'block';
+	    } else {  
+	        document.getElementById('allmap').style.display = 'none';
+	        document.getElementById('allmmp').style.display = 'none';
+	        }  
+	    }  
+	  	
+	    var map = new BMap.Map("allmap");  
+			var geoc = new BMap.Geocoder();   //地址解析对象  
+	    var markersArray = [];  
+	    var geolocation = new BMap.Geolocation();  
+	  
+	  
+	    var point = new BMap.Point(116.331398, 39.897445);  
+	    map.centerAndZoom(point, 12); // 中心点  
+			geolocation.getCurrentPosition(function (r) {  
+	    if (this.getStatus() == BMAP_STATUS_SUCCESS) {  
+	        var mk = new BMap.Marker(r.point);  
+	        map.addOverlay(mk);  
+	        map.panTo(r.point);  
+	        map.enableScrollWheelZoom(true);  
+	    }  
+	    else {  
+	        alert('failed' + this.getStatus());  
+	    }  
+	}, {enableHighAccuracy: true})  
+	map.addEventListener("click", showInfo);  
+	  
+	  
+	//清除标识  
+	function clearOverlays() {  
+	    if (markersArray) {  
+	        for (i in markersArray) {  
+	            map.removeOverlay(markersArray[i])  
+	        }  
+	    }  
+	}  
+	//地图上标注  
+	function addMarker(point) {  
+	    var marker = new BMap.Marker(point);  
+	    markersArray.push(marker);  
+	    clearOverlays();  
+	    map.addOverlay(marker);  
+	}  
+	//点击地图时间处理  
+	function showInfo(e) {  
+	    document.getElementById('lng').value = e.point.lng;  
+	    document.getElementById('lat').value =  e.point.lat;  
+	    geoc.getLocation(e.point, function (rs) {  
+	        var addComp = rs.addressComponents;  
+	        var address = addComp.province + addComp.city + addComp.district + addComp.street + addComp.streetNumber;  
+	        if (confirm("确定要地址是" + address + "?")) {  
+	            document.getElementById('allmap').style.display = 'none';  
+	            document.getElementById('allmmp').style.display = 'none'; 
+	            document.getElementById('sever_add').value = address;  
+	        }  
+	    });  
+	    addMarker(e.point);  
+	}  
+</script>
+
+<footer class="footer" id="footer">
+  <ul class="footnav box-flex">
+  <?php
+  	use think\Request;
+  	
+  	$request = Request::instance();
+	 	$controller = $request->controller();
+  switch($name=$controller): case "Index": ?>
+    	<li class="on"><a href="index.html" class="home"><i></i><span class="full-block">首页</span></a></li>
+	    <li><a href="<?php echo url('build/index'); ?>" class="foot-worker"><i></i><span class="full-block">申请建桩</span></a></li>
+	    <li><a href="my-order.html" class="foot-order"><i></i><span class="full-block">订单</span></a></li>
+	    <li><a href="users/index" class="my"><i></i><span class="full-block">我的</span></a></li>
+    <?php break; case "Build": ?>
+    	<li><a href="index.html" class="home"><i></i><span class="full-block">首页</span></a></li>
+	    <li class="on"><a href="<?php echo url('build/index'); ?>" class="foot-worker"><i></i><span class="full-block">申请建桩</span></a></li>
+	    <li><a href="my-order.html" class="foot-order"><i></i><span class="full-block">订单</span></a></li>
+	    <li><a href="users/index" class="my"><i></i><span class="full-block">我的</span></a></li>
+    <?php break; case "Users": ?>
+    	<li><a href="index.html" class="home"><i></i><span class="full-block">首页</span></a></li>
+	    <li><a href="<?php echo url('build/index'); ?>" class="foot-worker"><i></i><span class="full-block">申请建桩</span></a></li>
+	    <li><a href="my-order.html" class="foot-order"><i></i><span class="full-block">订单</span></a></li>
+	    <li class="on"><a href="users/index" class="my"><i></i><span class="full-block">我的</span></a></li>
+    <?php break; endswitch; ?>
+
+  
+  
+  
+	
+  	
+  	
+    
+  </ul>
+</footer>
+<!--footer-end-->
+<!--栏目更多-->
+<script type="text/javascript">
+$(".ind-nav").each(function(){	
+  var self = $(this); 
+  var n=self.find("ul li").length;
+  if(n<=8){
+  self.find( ".more").addClass("hide-more");
+  }else{
+  self.find(".more").removeClass("hide-more");
+  } 
+ self.find(".more").click(function(){
+    self.find( "ul" ).toggleClass("intro");
+	self.find(".more").toggleClass("add-more");
+  });
+  });
+</script>
+<!--栏目更多--> 
+</body>
+</html>
