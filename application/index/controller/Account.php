@@ -33,12 +33,12 @@ class Account extends Common
 			$res = $usermsg->moneyInc($u_id,$money);
 //			添加记录
 			if($res){
-				$data['actime'] = time();
-				$data['money'] = '+'.$data['money'];
-				$data['u_id'] = $u_id;
-				$data['way'] = 1;
+				$arr['actime'] = time();
+				$arr['money'] = '+'.$data['money'];
+				$arr['u_id'] = $u_id;
+				$arr['way'] = 1;
 				$bill = new Bills();
-				$bill->billAdd($data);
+				$bill->billAdd($arr);
 			}
 			return $this->redirect('balance');
 		}
@@ -66,12 +66,12 @@ class Account extends Common
 			}
 			$res = $usermsg->reduce($u_id,$money);
 			if($res){
-				$data['actime'] = time();
-				$data['money'] = '-'.$data['money'];
-				$data['u_id'] = $u_id;
-				$data['way'] = 2;
+				$arr['actime'] = time();
+				$arr['money'] = '-'.$data['money'];
+				$arr['u_id'] = $u_id;
+				$arr['way'] = 2;
 				$bill = new Bills();
-				$bill->billAdd($data);
+				$bill->billAdd($arr);
 			}
 			return $this->redirect('balance');
 		}

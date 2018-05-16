@@ -10,4 +10,9 @@ class Bills extends Model
 	{
 		return self::save($data,$field);
 	}
+	//	账单展示
+	public function selBill($u_id)
+	{
+		return self::where('u_id',$u_id)->paginate(10);
+	}
 }
