@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:72:"D:\www\wamp\www\charge\public/../application/index\view\order\order.html";i:1526451872;s:64:"D:\www\wamp\www\charge\application\index\view\layout\layout.html";i:1526255302;s:64:"D:\www\wamp\www\charge\application\index\view\layout\header.html";i:1526304797;s:64:"D:\www\wamp\www\charge\application\index\view\layout\footer.html";i:1526367682;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:72:"D:\www\wamp\www\charge\public/../application/index\view\order\order.html";i:1526468911;s:64:"D:\www\wamp\www\charge\application\index\view\layout\layout.html";i:1526468911;s:64:"D:\www\wamp\www\charge\application\index\view\layout\header.html";i:1526468911;s:64:"D:\www\wamp\www\charge\application\index\view\layout\footer.html";i:1526468911;}*/ ?>
 
 <!DOCTYPE html>
 <base href="/index/" />
@@ -174,6 +174,7 @@
             <div class="zfmmxx_shop">
                 <div class="mz">请输入支付密码</div>
                 <div class="zhifu_price"></div></div>
+                <a href="javascript:void(0)" class="blank_yh"><span class="fl ml5">余额</span></a>
             <ul class="mm_box">
                 <li></li><li></li><li></li><li></li><li></li><li></li>
             </ul>
@@ -259,7 +260,7 @@ tabs.set("nav","menu_con");//执行
         })
   //出现浮动层
 		$(".ljzf_but").click(function(){
-			$('.footer').hide();
+			$(".footer").hide();
       o_id = $(this).attr('o_id')
       var money = $(this).attr('money')
       $(".zhifu_price").html('￥'+money)
@@ -271,6 +272,7 @@ tabs.set("nav","menu_con");//执行
 			$(".mm_box li").removeClass("mmdd");
 			$(".mm_box li").attr("data","");
 			i = 0;
+			window.location.reload();
 		});
 			//数字显示隐藏
 		$(".xiaq_tb").click(function(){
@@ -295,14 +297,14 @@ tabs.set("nav","menu_con");//执行
 						data += $(this).attr("data");
 					});
               // alert(o_id)
-              // alert(data)
+//               alert(data)
 							$.ajax({
                 url: "<?php echo url('index/order/reduce'); ?>",
                 type: 'POST',
                 data: {o_id:o_id,pwd:data},
               })
               .done(function(msg) {
-              	if(msg=='2'){
+              	if(msg=='3'){
               		alert('您没有支付密码！')
               		location.href="<?php echo url('index/users/userMsg'); ?>"
               	}else if(msg=='1'){
@@ -311,9 +313,24 @@ tabs.set("nav","menu_con");//执行
 									$(".mm_box li").removeClass("mmdd");
 									$(".mm_box li").attr("data","");
 									i = 0;
-//									window.location.reload();
+									window.location.reload();
               	}else if(msg=='4'){
               		alert('支付失败')
+              		$(".ftc_wzsf").hide();
+									$(".mm_box li").removeClass("mmdd");
+									$(".mm_box li").attr("data","");
+									i = 0;
+									window.location.reload();
+              	}else if(msg=='2'){
+              		alert('支付失败，密码错误！');
+              		$(".ftc_wzsf").hide();
+									$(".mm_box li").removeClass("mmdd");
+									$(".mm_box li").attr("data","");
+									i = 0;
+									window.location.reload();
+              	}else if(msg=='5'){
+              		alert('请先充值！余额不够支付');
+              		location.href="<?php echo url('index/integral/recharge'); ?>"
               	}
                 console.log("success");
               })
