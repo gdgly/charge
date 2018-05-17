@@ -18,14 +18,24 @@ class chat  extends  Model
 	 	return  Db('chat')->getLastInsID();
 	 }
 
+	  public function showChat()
+	 {
+	 	return Db('chat')->select();
+	 }
+	 
 	 public function showall()
 	 {
 	 	return Db('chat')->alias('c')->join('user u','c.u_id = u.u_id','left')->join('user_msg um','c.u_id = um.u_id','left')->field('c.u_id,c.c_id,c.c_content,c.c_time,c.p_id,u.u_tel,um.u_img')->order('c.c_id desc')->select(); 
 	 }
 
-	 public function del_c($id)
+	  public function delOne($id)
 	 {
 	 	return Db('chat')->delete($id);
+	 }
+
+	 public function delAll($id)
+	 {
+	 	return  Db('chat')->where('c_id in ('.$id.')')->delete();
 	 }
 
 }
