@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:81:"D:\wamp\wamp\www\mouth12\charge\public/../application/index\view\order\order.html";i:1526546185;s:73:"D:\wamp\wamp\www\mouth12\charge\application\index\view\layout\layout.html";i:1526471542;s:73:"D:\wamp\wamp\www\mouth12\charge\application\index\view\layout\header.html";i:1526471542;s:73:"D:\wamp\wamp\www\mouth12\charge\application\index\view\layout\footer.html";i:1526540113;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:81:"D:\wamp\wamp\www\mouth12\charge\public/../application/index\view\order\order.html";i:1526549786;s:73:"D:\wamp\wamp\www\mouth12\charge\application\index\view\layout\layout.html";i:1526471542;s:73:"D:\wamp\wamp\www\mouth12\charge\application\index\view\layout\header.html";i:1526471542;s:73:"D:\wamp\wamp\www\mouth12\charge\application\index\view\layout\footer.html";i:1526540113;}*/ ?>
 
 <!DOCTYPE html>
 <base href="/index/" />
@@ -86,7 +86,7 @@
           </div>
           <div class="my-order-item-btn">
             <div class="pos-r">
-              <?php switch($vo['o_status']): case "1": ?><span class="my-order-item-jindu"><a href="order-schedule1.html">查看进度</a></span><?php break; case "2": ?><span class="my-order-item-red"><a href="javascript:void(0)" class="ljzf_but" o_id="<?php echo $vo['o_id']; ?>" money="<?php echo $vo['money']; ?>">立即支付</a></span><?php break; case "3": ?><span class="my-order-item-red"><a href="<?php echo url('index/comment/index'); ?>">立即评价</a></span><?php break; default: ?>default
+              <?php switch($vo['o_status']): case "1": ?><span class="my-order-item-jindu"><a href="<?php echo url('index/now/charging'); ?>?pay_time=<?php echo $arr['pay_time']; ?>&money=<?php echo $arr['money']; ?>&pur=<?php echo $arr['pur']; ?>&time=<?php echo $arr['time']; ?>&pid=<?php echo $arr['pid']; ?>&cid=<?php echo $arr['cid']; ?>">查看进度</a></span><?php break; case "2": ?><span class="my-order-item-red"><a href="javascript:void(0)" class="ljzf_but" o_id="<?php echo $vo['o_id']; ?>" money="<?php echo $vo['money']; ?>">立即支付</a></span><?php break; case "3": ?><span class="my-order-item-red"><a href="<?php echo url('index/comment/index'); ?>">立即评价</a></span><?php break; default: ?>default
           	<?php endswitch; ?>
             </div>  
           </div>

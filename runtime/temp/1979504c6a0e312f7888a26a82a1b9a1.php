@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:80:"D:\wamp\wamp\www\mouth12\charge\public/../application/index\view\index\chat.html";i:1526540113;s:73:"D:\wamp\wamp\www\mouth12\charge\application\index\view\layout\layout.html";i:1526471542;s:73:"D:\wamp\wamp\www\mouth12\charge\application\index\view\layout\header.html";i:1526471542;s:73:"D:\wamp\wamp\www\mouth12\charge\application\index\view\layout\footer.html";i:1526540113;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:80:"D:\wamp\wamp\www\mouth12\charge\public/../application/index\view\index\chat.html";i:1526546185;s:73:"D:\wamp\wamp\www\mouth12\charge\application\index\view\layout\layout.html";i:1526471542;s:73:"D:\wamp\wamp\www\mouth12\charge\application\index\view\layout\header.html";i:1526471542;s:73:"D:\wamp\wamp\www\mouth12\charge\application\index\view\layout\footer.html";i:1526540113;}*/ ?>
 
 <!DOCTYPE html>
 <base href="/index/" />
@@ -384,7 +384,6 @@
 			}
 		});
 	})
-
 	$(document).on('click','.two-send',function(){
 		aa = $(this).attr("w_id")
 		 var mydate = new Date();

@@ -15,7 +15,7 @@ class OrderModel extends Model
 	}
 	public function findstatus($uid)
 	{
-		return Db::table('order')->where('uid',$uid)->find();
+		return Db::table('order')->where('uid',$uid)->where('o_status',2)->find();
 	}
 	
 	public function onderOne($u_id)

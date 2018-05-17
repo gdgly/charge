@@ -29,7 +29,8 @@ class Now extends Common
 		$model_o = new OrderModel();
 		$order = $model_o->onderOne($u_id);
 		$findstatus = $model_o->findstatus($u_id);
-		if($findstatus['o_status']==2)
+//		var_dump($findstatus);exit;
+		if(!empty($findstatus))
 		{
 			echo "<script>alert('有未支付订单，请先支付');location.href='http://www.charge.com/index/order/order.html';</script>";die;
 		}
