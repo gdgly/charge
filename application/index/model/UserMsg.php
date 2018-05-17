@@ -44,6 +44,11 @@ class UserMsg extends Model
 	{
 		return self::where($data)->column($field);
 	}
+//根据cookie查询用户信息
+	public function showone($cookie_id)
+	{
+		return Db::table('user_msg')->alias('c')->join('user u','c.u_id = u.u_id','left')->field('c.u_img,u_tel')->where('c.u_id = '.$cookie_id)->find();
+	}
 	
 	
 }

@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:65:"C:\web\WWW\charge\public/../application/index\view\users\log.html";i:1526522336;s:59:"C:\web\WWW\charge\application\index\view\layout\layout.html";i:1526522336;s:59:"C:\web\WWW\charge\application\index\view\layout\header.html";i:1526522336;s:59:"C:\web\WWW\charge\application\index\view\layout\footer.html";i:1526526308;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:67:"C:\web\WWW\charge\public/../application/index\view\users\index.html";i:1526522336;s:59:"C:\web\WWW\charge\application\index\view\layout\layout.html";i:1526522336;s:59:"C:\web\WWW\charge\application\index\view\layout\header.html";i:1526522336;s:59:"C:\web\WWW\charge\application\index\view\layout\footer.html";i:1526526308;}*/ ?>
 
 <!DOCTYPE html>
 <base href="/index/" />
@@ -22,51 +22,36 @@
 </head>
 <body  >
 
-	<!DOCTYPE html>
-<html>
-<head>
-	<base href="/index/" />
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
-<meta content="yes" name="apple-mobile-web-app-capable" />
-<meta content="black" name="apple-mobile-web-app-status-bar-style" />
-<meta content="telephone=no" name="format-detection" />
-<title>登录</title>
-<link rel="stylesheet" type="text/css" href="css/base.css">
-<link rel="stylesheet" type="text/css" href="css/common.css">
-<script type="text/javascript" src="js/jquery.min.js" ></script>
-<script src="js/common.js"></script>
-</head>
-
-<body>
-<header class="header" id="header">
-<a href="javascript:history.go(-1)" target=_self class="back">返回</a>
-<h1>登录</h1>
-</header>
-<!--header-end-->
-
+	
 <div class="container" id="container"> 
+<div class="my-face">
+  <div class="my-face-con">
+    <div class="my-face-pic">
+    	<?php if($data['u_img']==""){?>
+    		<a href="users/myImg"><img src="images/my-face-pic.jpg"></a>
+    	<?php }else{?>
+    		<a href="users/myImg"><img src="<?php echo $data['u_img']; ?>"></a>
+    	<?php }?>
+    </div>
+    <p><a href="users/myNick" style="color: black;"><?php echo $data['u_nick']; ?></a></p>
+  </div>
+</div>
 
-<form method="post" class="login-form" action="users/login" id="login" autocomplete="off">
-  <div class="registered">
-    <div class="field">
-      <input id="username" type="text" name="u_tel" class="username" placeholder="请输入手机号" >
-    </div>
-    <div class="field">
-      <input type="password" name="u_pwd" id="yzm" class="yzm" placeholder="请输入密码"  maxlength="">
-    </div>
-         
+<div class="personal-list">
+     <ul>
+       <li><a class="my-icon-wddd" href="<?php echo url('index/order/order'); ?>">我的订单</a></li>
+       <li><a class="my-icon-grzl" href="users/userMsg">个人资料</a></li>
+     </ul>
+      <ul>
+      	<li><a class="my-icon-kfzx" href="<?php echo url('build/mypile'); ?>">我的电桩</a></li>
+       <li><a class="my-icon-yhq" href="account/balance">我的账户</a></li>
+       <li><a class="my-icon-wdjf" href="integral/index">我的积分</a></li>
+        <li><a class="my-icon-gsjj" href="users/loginout">退出登录</a></li>
+     	</ul>
   </div>
-  <div class="next-step">
-    <button type="submit" class="submit-btn">登录</button>
-  </div>
-</form>
-     <div style="font-size: 14px;"><center>还没有注册，去<a href="users/reg" style="display: inline;">注册</a></center></div>
+
 
 </div>
-<!--container-end-->
-</body>
-</html>
 
 <footer class="footer" id="footer">
   <ul class="footnav box-flex">
