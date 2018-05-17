@@ -190,9 +190,11 @@ img {
 .footnav li .home i{background-image:url(../images/home.png);}
 .footnav li .foot-worker i{background-image:url(../images/worker.png);}
 .footnav li .foot-order i{background-image:url(../images/order.png);}
+.footnav li .hz i{background-image:url(../images/hz.jpg);}
 .footnav li .my i{background-image:url(../images/my.png);}
 .footnav li.on a span{color:#fa4b28;}
 .footnav li.on .home i{background-image:url(../images/home-on.png);}
+.footnav li.on .hz i{background-image:url(../images/hz..jpg);}
 .footnav li.on .foot-worker i{background-image:url(../images/worker-on.png);}
 .footnav li.on .foot-order i{background-image:url(../images/order-on.png);}
 .footnav li.on .my i{background-image:url(../images/my-on.png);}

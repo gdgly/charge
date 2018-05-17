@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:73:"D:\www\wamp\www\charge\public/../application/index\view\build\mypile.html";i:1526386332;s:64:"D:\www\wamp\www\charge\application\index\view\layout\layout.html";i:1526255302;s:64:"D:\www\wamp\www\charge\application\index\view\layout\header.html";i:1526304797;s:64:"D:\www\wamp\www\charge\application\index\view\layout\footer.html";i:1526367682;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:73:"D:\www\wamp\www\charge\public/../application/index\view\build\mypile.html";i:1526468911;s:64:"D:\www\wamp\www\charge\application\index\view\layout\layout.html";i:1526468911;s:64:"D:\www\wamp\www\charge\application\index\view\layout\header.html";i:1526468911;s:64:"D:\www\wamp\www\charge\application\index\view\layout\footer.html";i:1526468911;}*/ ?>
 
 <!DOCTYPE html>
 <base href="/index/" />
@@ -56,12 +56,17 @@
           <p>地址：<?= $v['c_site'] ?></p>
           <p>
           	使用状态：
-          	<?php if($v['c_status']==0){
+          	<?php if($v['c_state']==0&&$v['c_status']==0){
+          		//未损坏且审核通过
           		echo "<span style='color:green'>正常使用</span>";
-          	}else{
-          		echo "<span style='color:red'>已停用</span>";
+          	}else if($v['c_state']==1&&$v['c_status']==0){
+          		//正在维修且审核通过
+          		echo "<span style=' color:red'>正在维修</span>";
+          	}else if($v['c_state']==0&&$v['c_status']==1){
+          		//未损坏但审核未通过
+          		echo "<span style=' color:blue'>正在审核</span>";
           	}
-          	 ?>
+          	?>
           </p>
         </div>
       </a>

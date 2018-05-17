@@ -18,5 +18,13 @@ class Cards extends Model
 		}
 		return $res;
 	}
+//	修改银行卡状态
+	public function cardSav($data,$where=''){
+		return self::save($data,$where);
+	}
 	
+	public function addCard($data)
+	{
+		return self::insert($data);
+	}
 }
