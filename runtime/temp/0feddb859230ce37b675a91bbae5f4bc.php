@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:83:"E:\phpHuanJing\WWW\charge\charge\public/../application/index\view\users\my_img.html";i:1526539012;s:74:"E:\phpHuanJing\WWW\charge\charge\application\index\view\layout\layout.html";i:1526539012;s:74:"E:\phpHuanJing\WWW\charge\charge\application\index\view\layout\header.html";i:1526539012;s:74:"E:\phpHuanJing\WWW\charge\charge\application\index\view\layout\footer.html";i:1526539012;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:86:"E:\phpHuanJing\WWW\charge\charge\public/../application/index\view\account\balance.html";i:1526539012;s:74:"E:\phpHuanJing\WWW\charge\charge\application\index\view\layout\layout.html";i:1526539012;s:74:"E:\phpHuanJing\WWW\charge\charge\application\index\view\layout\header.html";i:1526539012;s:74:"E:\phpHuanJing\WWW\charge\charge\application\index\view\layout\footer.html";i:1526539012;}*/ ?>
 
 <!DOCTYPE html>
 <base href="/index/" />
@@ -22,74 +22,26 @@
 </head>
 <body  >
 
-	<!DOCTYPE html>
-<html>
-<head>
-<base href="/index/" />
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
-<meta content="yes" name="apple-mobile-web-app-capable" />
-<meta content="black" name="apple-mobile-web-app-status-bar-style" />
-<meta content="telephone=no" name="format-detection" />
-<title>我的头像</title>
-<link rel="stylesheet" type="text/css" href="css/base.css">
-<link rel="stylesheet" type="text/css" href="css/common.css">
-
-<script type="text/javascript" src="js/jquery.min.js" ></script>
-<script src="js/common.js"></script>
-<style>
-    .fileinput-button {
-        position: relative;
-        display: inline-block;
-        overflow: hidden;
-    }
-
-    .fileinput-button input{
-        position:absolute;
-        right: 0px;
-        top: 0px;
-        opacity: 0;
-        -ms-filter: 'alpha(opacity=0)';
-        font-size: 100px;
-    }
-</style>
-
-</head>
-<body>
-
-<form action="users/myImg" method="post" enctype="multipart/form-data">
-<header class="header header-save" id="header">
+	<header class="header" id="header">
 <a href="javascript:history.go(-1)" target=_self class="back">返回</a>
-<h1>我的头像</h1>
-<button type="submit">保存</button>
+<h1>我的账户</h1>
+<a href="account/billShow" style="padding-right: 20px;"><span>账户明细</span></a>
 </header>
-<!--header-end-->
 
-<div class="container" id="container"> 
+<div class="container" id="container">
 	<center>
-		<div class="my-face">
-		  	<div class="my-face-con">
-		    	<div class="my-face-pic">
-		    	<?php if($img==""){?>
-		    		<img src="images/my-face-pic.jpg">
-		    	<?php }else{?>
-		    		<img src="<?php echo $img; ?>">
-		    	<?php }?>
-		    </div>
-		  	</div>
-		</div>
-		<div>
-			<span class="btn btn-success fileinput-button">
-	            <button style="font-size: 20px;">修改头像</button>
-	            <input type="file" name="face">
-	        </span>
-       </div>
+		<div class="balance" style="font-size: 16px;">
+	        <img src="images/account_img.jpg" style="width: 200px;height: 150px;margin-top: 50px;">
+	        <span>我的账户</span>
+	        <p>
+	        	<span >¥<?php echo $money; ?></span>
+	        </p>
+	    </div>
+		<a href="account/recharge" class="submit-btn">充值</a>
+		<a href="account/forward" class="submit-btn">提现</a>
 	</center>
+    
 </div>
-</form>
-</body>
-</html>
-
 
 <footer class="footer" id="footer">
   <ul class="footnav box-flex">
