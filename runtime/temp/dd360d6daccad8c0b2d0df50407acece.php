@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:85:"D:\wamp\wamp\www\mouth12\charge\public/../application/index\view\account\balance.html";i:1526431730;s:73:"D:\wamp\wamp\www\mouth12\charge\application\index\view\layout\layout.html";i:1526378008;s:73:"D:\wamp\wamp\www\mouth12\charge\application\index\view\layout\header.html";i:1526378008;s:73:"D:\wamp\wamp\www\mouth12\charge\application\index\view\layout\footer.html";i:1526378008;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:85:"D:\wamp\wamp\www\mouth12\charge\public/../application/index\view\account\balance.html";i:1526471542;s:73:"D:\wamp\wamp\www\mouth12\charge\application\index\view\layout\layout.html";i:1526471542;s:73:"D:\wamp\wamp\www\mouth12\charge\application\index\view\layout\header.html";i:1526471542;s:73:"D:\wamp\wamp\www\mouth12\charge\application\index\view\layout\footer.html";i:1526471542;}*/ ?>
 
 <!DOCTYPE html>
 <base href="/index/" />
@@ -25,7 +25,7 @@
 	<header class="header" id="header">
 <a href="javascript:history.go(-1)" target=_self class="back">返回</a>
 <h1>我的账户</h1>
-<a href="account/showBill" style="padding-right: 20px;"><span>账户明细</span></a>
+<a href="account/billShow" style="padding-right: 20px;"><span>账户明细</span></a>
 </header>
 
 <div class="container" id="container">

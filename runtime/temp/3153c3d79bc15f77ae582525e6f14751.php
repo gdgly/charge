@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:83:"D:\wamp\wamp\www\mouth12\charge\public/../application/index\view\users\userMsg.html";i:1526455733;s:73:"D:\wamp\wamp\www\mouth12\charge\application\index\view\layout\layout.html";i:1526455733;s:73:"D:\wamp\wamp\www\mouth12\charge\application\index\view\layout\header.html";i:1526455733;s:73:"D:\wamp\wamp\www\mouth12\charge\application\index\view\layout\footer.html";i:1526455733;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:83:"D:\wamp\wamp\www\mouth12\charge\public/../application/index\view\users\userMsg.html";i:1526471542;s:73:"D:\wamp\wamp\www\mouth12\charge\application\index\view\layout\layout.html";i:1526471542;s:73:"D:\wamp\wamp\www\mouth12\charge\application\index\view\layout\header.html";i:1526471542;s:73:"D:\wamp\wamp\www\mouth12\charge\application\index\view\layout\footer.html";i:1526471542;}*/ ?>
 
 <!DOCTYPE html>
 <base href="/index/" />

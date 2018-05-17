@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:81:"D:\wamp\wamp\www\mouth12\charge\public/../application/index\view\index\index.html";i:1526378008;s:73:"D:\wamp\wamp\www\mouth12\charge\application\index\view\layout\layout.html";i:1526378008;s:73:"D:\wamp\wamp\www\mouth12\charge\application\index\view\layout\header.html";i:1526378008;s:73:"D:\wamp\wamp\www\mouth12\charge\application\index\view\layout\footer.html";i:1526378008;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:81:"D:\wamp\wamp\www\mouth12\charge\public/../application/index\view\index\index.html";i:1526471542;s:73:"D:\wamp\wamp\www\mouth12\charge\application\index\view\layout\layout.html";i:1526471542;s:73:"D:\wamp\wamp\www\mouth12\charge\application\index\view\layout\header.html";i:1526471542;s:73:"D:\wamp\wamp\www\mouth12\charge\application\index\view\layout\footer.html";i:1526471542;}*/ ?>
 
 <!DOCTYPE html>
 <base href="/index/" />
@@ -31,7 +31,6 @@
 </header>
 
 <!--container-end-->
-
                     <style type="text/css">
                     body{font-size:10px;} 
 

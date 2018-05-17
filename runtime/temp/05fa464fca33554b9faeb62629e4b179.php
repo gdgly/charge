@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:81:"D:\wamp\wamp\www\mouth12\charge\public/../application/index\view\users\index.html";i:1526471542;s:73:"D:\wamp\wamp\www\mouth12\charge\application\index\view\layout\layout.html";i:1526471542;s:73:"D:\wamp\wamp\www\mouth12\charge\application\index\view\layout\header.html";i:1526471542;s:73:"D:\wamp\wamp\www\mouth12\charge\application\index\view\layout\footer.html";i:1526471542;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:87:"D:\wamp\wamp\www\mouth12\charge\public/../application/index\view\integral\integral.html";i:1526471542;s:73:"D:\wamp\wamp\www\mouth12\charge\application\index\view\layout\layout.html";i:1526471542;s:73:"D:\wamp\wamp\www\mouth12\charge\application\index\view\layout\header.html";i:1526471542;s:73:"D:\wamp\wamp\www\mouth12\charge\application\index\view\layout\footer.html";i:1526471542;}*/ ?>
 
 <!DOCTYPE html>
 <base href="/index/" />
@@ -22,36 +22,68 @@
 </head>
 <body  >
 
-	
+	<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
+<meta content="yes" name="apple-mobile-web-app-capable" />
+<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+<meta content="telephone=no" name="format-detection" />
+<title>积分</title>
+<link rel="stylesheet" type="text/css" href="css/base.css">
+<link rel="stylesheet" type="text/css" href="css/common.css">
+<script type="text/javascript" src="js/jquery.min.js" ></script>
+<script src="js/common.js"></script>
+</head>
+
+<body>
+<header class="header" id="header">
+<a href="javascript:history.go(-1)" target=_self class="back">返回</a>
+<h1>积分</h1>
+</header>
+<!--header-end-->
+
 <div class="container" id="container"> 
-<div class="my-face">
-  <div class="my-face-con">
-    <div class="my-face-pic">
-    	<?php if($data['u_img']==""){?>
-    		<a href="users/myImg"><img src="images/my-face-pic.jpg"></a>
-    	<?php }else{?>
-    		<a href="users/myImg"><img src="<?php echo $data['u_img']; ?>"></a>
-    	<?php }?>
-    </div>
-    <p><a href="users/myNick" style="color: black;"><?php echo $data['u_nick']; ?></a></p>
-  </div>
+
+<div class="integral-head">
+  <p><em class="jf"><?= $sum ?></em>分</p>
+  <p>小小积分，有大用，努力多赚一些吧！</p>
+  <br /><br />
+  <input type='button' value='兑换1余额' id='open' class="tixian"> 
+</div>
+<div class="integral-rule">
+<div class="integral-rule-tit"><h2>积分使用规则</h2></div>
+<div class="integral-rule-con">
+	充电结算后按每分钟1分计算添加到积分钱包中<br />
+	积分可用来兑换钱包余额(100:1)，进行充电使用或者提现
+</div>
 </div>
 
-<div class="personal-list">
-     <ul>
-       <li><a class="my-icon-wddd" href="<?php echo url('index/order/order'); ?>">我的订单</a></li>
-       <li><a class="my-icon-grzl" href="users/userMsg">个人资料</a></li>
-     </ul>
-      <ul>
-      	<li><a class="my-icon-kfzx" href="<?php echo url('build/mypile'); ?>">我的电桩</a></li>
-       <li><a class="my-icon-yhq" href="account/balance">我的账户</a></li>
-       <li><a class="my-icon-wdjf" href="integral/index">我的积分</a></li>
-        <li><a class="my-icon-gsjj" href="users/loginout">退出登录</a></li>
-     	</ul>
-  </div>
-
-
 </div>
+<!--container-end-->
+</body>
+</html>
+<script src="/index/js/js.js"></script>
+<script>
+	//积分兑换
+	$(document).on("click","#open",function(){
+		//获取总积分
+		var m_num = $(".jf").html();
+		//判断积分是否低于100
+		if(m_num<100){
+			alert("积分低于100不予兑换！");
+			return false;
+		}
+		$.ajax({
+			type:"post",
+			url:"<?php echo url('integral/convert'); ?>",
+		})
+		alert("兑换成功！");
+		var num = m_num-100;
+		$(".jf").html(num);
+	})
+</script>
 
 <footer class="footer" id="footer">
   <ul class="footnav box-flex">

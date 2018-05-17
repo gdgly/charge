@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:81:"D:\wamp\wamp\www\mouth12\charge\public/../application/index\view\order\order.html";i:1526455975;s:73:"D:\wamp\wamp\www\mouth12\charge\application\index\view\layout\layout.html";i:1526455733;s:73:"D:\wamp\wamp\www\mouth12\charge\application\index\view\layout\header.html";i:1526455733;s:73:"D:\wamp\wamp\www\mouth12\charge\application\index\view\layout\footer.html";i:1526455733;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:81:"D:\wamp\wamp\www\mouth12\charge\public/../application/index\view\order\order.html";i:1526471542;s:73:"D:\wamp\wamp\www\mouth12\charge\application\index\view\layout\layout.html";i:1526471542;s:73:"D:\wamp\wamp\www\mouth12\charge\application\index\view\layout\header.html";i:1526471542;s:73:"D:\wamp\wamp\www\mouth12\charge\application\index\view\layout\footer.html";i:1526471542;}*/ ?>
 
 <!DOCTYPE html>
 <base href="/index/" />
@@ -174,6 +174,7 @@
             <div class="zfmmxx_shop">
                 <div class="mz">请输入支付密码</div>
                 <div class="zhifu_price"></div></div>
+                <a href="javascript:void(0)" class="blank_yh"><span class="fl ml5">余额</span></a>
             <ul class="mm_box">
                 <li></li><li></li><li></li><li></li><li></li><li></li>
             </ul>
@@ -259,7 +260,7 @@ tabs.set("nav","menu_con");//执行
         })
   //出现浮动层
 		$(".ljzf_but").click(function(){
-			$('.footer').hide();
+			$(".footer").hide();
       o_id = $(this).attr('o_id')
       var money = $(this).attr('money')
       $(".zhifu_price").html('￥'+money)
@@ -267,12 +268,11 @@ tabs.set("nav","menu_con");//执行
 		});
 		//关闭浮动
 		$(".close").click(function(){
-			$('.footer').show();
 			$(".ftc_wzsf").hide();
 			$(".mm_box li").removeClass("mmdd");
 			$(".mm_box li").attr("data","");
-			window.location.reload();
 			i = 0;
+			window.location.reload();
 		});
 			//数字显示隐藏
 		$(".xiaq_tb").click(function(){
