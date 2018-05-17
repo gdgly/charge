@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:69:"D:\wamp\www\charge\public/../application/index\view\comment\show.html";i:1526442150;s:60:"D:\wamp\www\charge\application\index\view\layout\layout.html";i:1526436638;s:60:"D:\wamp\www\charge\application\index\view\layout\header.html";i:1526436638;s:60:"D:\wamp\www\charge\application\index\view\layout\footer.html";i:1526436638;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:69:"D:\wamp\www\charge\public/../application/index\view\comment\show.html";i:1526468935;s:60:"D:\wamp\www\charge\application\index\view\layout\layout.html";i:1526468935;s:60:"D:\wamp\www\charge\application\index\view\layout\header.html";i:1526468935;s:60:"D:\wamp\www\charge\application\index\view\layout\footer.html";i:1526468935;}*/ ?>
 
 <!DOCTYPE html>
 <base href="/index/" />

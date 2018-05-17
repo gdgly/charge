@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:67:"D:\wamp\www\charge\public/../application/demo\view\login\index.html";i:1526436638;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:67:"D:\wamp\www\charge\public/../application/demo\view\login\index.html";i:1526468935;}*/ ?>
 <base href="/demo/login/" />
 <!DOCTYPE html>
 <html>
