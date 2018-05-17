@@ -49,6 +49,12 @@ class UserMsg extends Model
 	{
 		return Db::table('user_msg')->alias('c')->join('user u','c.u_id = u.u_id','left')->field('c.u_img,u_tel')->where('c.u_id = '.$cookie_id)->find();
 	}
+//用户冲电完成后添加积分
+	public function addnum($num,$uid)
+	{
+		Db::table('user_msg')->where('u_id', $uid)->setInc('m_num', $num);
+	}	
+	
 	
 	
 }

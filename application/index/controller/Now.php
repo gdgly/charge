@@ -8,6 +8,7 @@ use app\index\model\OrderModel;
 use app\index\model\Pilemodel;//获取充电桩
 use app\index\model\Charge;//获取充电桩
 use think\Cookie;
+use app\index\model\UserMsg;
 
 class Now extends Common
 {
@@ -208,7 +209,12 @@ class Now extends Common
 		//执行修改订单 结束
 		//查询订单表修改后的信息
 		$o = $order->findord($o_id);
-
+		
+		//充电结束加积分
+		$m_num = floor(($o['end_time']-$o['start_time'])/60);
+		
+		$model_msg = new UserMsg();
+		$model_msg->addnum($m_num*5,$uid);
 		
 		$model_p = new  Pilemodel();
 		

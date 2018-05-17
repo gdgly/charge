@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:96:"D:\phpStudy\PHPTutorial\WWW\month12\charge\public/../application/demo\view\index\coordinate.html";i:1526379708;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:96:"D:\phpStudy\PHPTutorial\WWW\month12\charge\public/../application/demo\view\index\coordinate.html";i:1526548030;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,7 +11,7 @@
 	<title>添加动画标注点</title>
 </head>
 <body>
-	<a href="<?php echo url('index/examine'); ?>">返回</a>
+	<a href="javascript:history.go(-1)">返回</a>
 	<div id="allmap"></div>
 </body>
 </html>

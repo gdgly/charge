@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:94:"D:\phpStudy\PHPTutorial\WWW\month12\charge\public/../application/index\view\users\my_nick.html";i:1526545723;s:84:"D:\phpStudy\PHPTutorial\WWW\month12\charge\application\index\view\layout\layout.html";i:1526461474;s:84:"D:\phpStudy\PHPTutorial\WWW\month12\charge\application\index\view\layout\header.html";i:1526461474;s:84:"D:\phpStudy\PHPTutorial\WWW\month12\charge\application\index\view\layout\footer.html";i:1526538286;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:94:"D:\phpStudy\PHPTutorial\WWW\month12\charge\public/../application/index\view\users\my_nick.html";i:1526546717;s:84:"D:\phpStudy\PHPTutorial\WWW\month12\charge\application\index\view\layout\layout.html";i:1526461474;s:84:"D:\phpStudy\PHPTutorial\WWW\month12\charge\application\index\view\layout\header.html";i:1526461474;s:84:"D:\phpStudy\PHPTutorial\WWW\month12\charge\application\index\view\layout\footer.html";i:1526538286;}*/ ?>
 
 <!DOCTYPE html>
 <base href="/index/" />
@@ -48,11 +48,12 @@
 <!--header-end-->
 
 <div class="container" id="container"> 
-
-<div class="modify">
- <input id="username" type="tel" name="u_nick" class="username" value="我的昵称:<?php echo $data; ?>" required><a href="javascript:" class="clear-close" id="clear-close" onclick="javascript:document.getElementById('username').value='';document.getElementById('username').focus();" value="clear"></a>
-</div>
-
+	<div class="registered">
+		<div class="field">
+			<span style="font-size: 30px;">我的昵称:</span>
+			<input type="text" name="u_nick" value="<?php echo $data; ?>" style="font-size: 25px;">
+		</div>
+	</div>
 </div>
 <!--container-end-->
 </form>
