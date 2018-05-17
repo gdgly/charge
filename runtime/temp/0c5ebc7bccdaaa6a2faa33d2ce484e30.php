@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:71:"D:\www\wamp\www\charge\public/../application/index\view\index\chat.html";i:1526537984;s:64:"D:\www\wamp\www\charge\application\index\view\layout\layout.html";i:1526468911;s:64:"D:\www\wamp\www\charge\application\index\view\layout\header.html";i:1526468911;s:64:"D:\www\wamp\www\charge\application\index\view\layout\footer.html";i:1526537984;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:71:"D:\www\wamp\www\charge\public/../application/index\view\index\chat.html";i:1526546335;s:64:"D:\www\wamp\www\charge\application\index\view\layout\layout.html";i:1526468911;s:64:"D:\www\wamp\www\charge\application\index\view\layout\header.html";i:1526468911;s:64:"D:\www\wamp\www\charge\application\index\view\layout\footer.html";i:1526546335;}*/ ?>
 
 <!DOCTYPE html>
 <base href="/index/" />
@@ -30,7 +30,8 @@
 	<link rel="stylesheet" type="text/css" href="/index/chat/css/bootstrap.css">
 <style>
 	.container{
-		width: 1000px;
+		width: 80%;
+		margin-left: 10%;
 	}
 	.commentbox{
 		width: 900px;
@@ -61,6 +62,7 @@
 		width: 10%;
 		position: absolute;
 	}
+
 	.comment-list .comment-info header img{
 		width: 100%;
 		border-radius: 50%;
@@ -108,7 +110,7 @@
 
 <script src="/index/chat/demos/googlegg.js"></script>
 
-<div class="container"  style="margin-top: 100px;" >
+<div class="container" style="margin-top: 100px;position:absolute; height:400px; overflow:auto" >
 	<div class="commentbox" >
 		<textarea cols="80" rows="50" placeholder="说出你的问题，快让大家帮助你把。。。。" style="border:1px #145b7d solid;"  class="mytextarea" id="content"></textarea>
 		<div class="btn btn-info pull-right" id="comment">评论</div>
@@ -196,6 +198,7 @@
 <script type="text/javascript" src="/index/chat/js/jquery.comment.js" ></script>
 <script type="text/javascript" src="/index/chat/js/bootstrap.min.js"></script>
 <script type="text/javascript">
+	
 	$(document).on('click','.showall',function(){
 		p_id = $(this).attr("p_where")
 		w_id =$(this).attr('w_id');
@@ -381,7 +384,6 @@
 			}
 		});
 	})
-
 	$(document).on('click','.two-send',function(){
 		aa = $(this).attr("w_id")
 		 var mydate = new Date();
@@ -674,6 +676,8 @@
 	
 </body>
 </html>
+
+
 <footer class="footer" id="footer">
   <ul class="footnav box-flex">
   <?php
@@ -721,6 +725,7 @@
     
   </ul>
 </footer>
+
 <!--footer-end-->
 <!--栏目更多-->
 <script type="text/javascript">
