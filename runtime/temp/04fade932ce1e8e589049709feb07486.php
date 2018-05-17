@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:77:"D:\www\wamp\www\charge\public/../application/index\view\account\recharge.html";i:1526455646;s:64:"D:\www\wamp\www\charge\application\index\view\layout\layout.html";i:1526255302;s:64:"D:\www\wamp\www\charge\application\index\view\layout\header.html";i:1526304797;s:64:"D:\www\wamp\www\charge\application\index\view\layout\footer.html";i:1526367682;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:77:"D:\www\wamp\www\charge\public/../application/index\view\account\recharge.html";i:1526469132;s:64:"D:\www\wamp\www\charge\application\index\view\layout\layout.html";i:1526468911;s:64:"D:\www\wamp\www\charge\application\index\view\layout\header.html";i:1526468911;s:64:"D:\www\wamp\www\charge\application\index\view\layout\footer.html";i:1526468911;}*/ ?>
 
 <!DOCTYPE html>
 <base href="/index/" />
@@ -25,7 +25,7 @@
 	<header class="header" id="header">
 <a href="javascript:history.go(-1)" target=_self class="back">返回</a>
 <h1>账户充值</h1>
-<a href="account_details.html" style="padding-right: 20px;"><span>账户明细</span></a>
+<a href="account/billShow" style="padding-right: 20px;"><span>账户明细</span></a>
 </header>
 <div class="container" id="container">
 	<form action="account/recharge" method="post">

@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:77:"D:\www\wamp\www\charge\public/../application/index\view\account\card_add.html";i:1526469132;s:64:"D:\www\wamp\www\charge\application\index\view\layout\layout.html";i:1526468911;s:64:"D:\www\wamp\www\charge\application\index\view\layout\header.html";i:1526468911;s:64:"D:\www\wamp\www\charge\application\index\view\layout\footer.html";i:1526468911;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:77:"D:\www\wamp\www\charge\public/../application/index\view\account\card_add.html";i:1526515092;s:64:"D:\www\wamp\www\charge\application\index\view\layout\layout.html";i:1526468911;s:64:"D:\www\wamp\www\charge\application\index\view\layout\header.html";i:1526468911;s:64:"D:\www\wamp\www\charge\application\index\view\layout\footer.html";i:1526468911;}*/ ?>
 
 <!DOCTYPE html>
 <base href="/index/" />
@@ -22,12 +22,30 @@
 </head>
 <body  >
 
-	<form action="users/myNick" method="post">
+	<form action="account/cardAdd" method="post">
 <header class="header header-save" id="header">
 <a href="javascript:history.go(-1)" target=_self class="back">返回</a>
 <h1>绑定银行卡</h1>
 <button type="submit">保存</button>
 </header>
+
+<div class="container" id="container"> 
+	<input type="hidden" name="ac" value="<?php echo $ac; ?>" />
+	<div class="registered">
+	<div class="field">
+		<span style="font-size: 30px;">银行卡号</span>
+		<input type="text" name="card_num" placeholder="请填写银行卡号" value="" style="font-size: 20px;">
+	</div>
+	<div class="field">
+		<span style="font-size: 30px;">设为默认卡：</span>
+		<input type="radio" name="card_status" value="1"/>
+		<span style="font-size: 20px;">是</span>   
+		<input type="radio" name="card_status" value="0"/>
+		<span style="font-size: 20px;">否</span>
+	</div>
+	</div>
+</div>
+<!--container-end-->
 </form>
 <footer class="footer" id="footer">
   <ul class="footnav box-flex">

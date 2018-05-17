@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:74:"D:\www\wamp\www\charge\public/../application/index\view\users\userMsg.html";i:1526468911;s:64:"D:\www\wamp\www\charge\application\index\view\layout\layout.html";i:1526468911;s:64:"D:\www\wamp\www\charge\application\index\view\layout\header.html";i:1526468911;s:64:"D:\www\wamp\www\charge\application\index\view\layout\footer.html";i:1526468911;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:74:"D:\www\wamp\www\charge\public/../application/index\view\users\userMsg.html";i:1526472404;s:64:"D:\www\wamp\www\charge\application\index\view\layout\layout.html";i:1526468911;s:64:"D:\www\wamp\www\charge\application\index\view\layout\header.html";i:1526468911;s:64:"D:\www\wamp\www\charge\application\index\view\layout\footer.html";i:1526468911;}*/ ?>
 
 <!DOCTYPE html>
 <base href="/index/" />
@@ -65,6 +65,7 @@
   </li>
   <li><a href="users/upPwd"><span>修改密码</span><em>******</em></a></li>
   <li><a href="users/payPwd"><span>支付密码</span><em>******</em></a></li>
+  <li><a href="account/cardAdd"><span>绑定银行卡</span></a></li>
 </ul>
 </div>
 

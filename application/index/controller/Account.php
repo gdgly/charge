@@ -29,7 +29,6 @@ class Account extends Common
 		if(Request::instance()->isPost()){
 			$data = $_POST;
 			
-//			var_dump($data);exit;
 			$money = $data['money'];
 			$usermsg = new UserMsg();
 			$res = $usermsg->moneyInc($u_id,$money);
@@ -47,7 +46,8 @@ class Account extends Common
 		$cards = new Cards();
 		$data = $cards->selCard($u_id);
 		if(empty($data)){
-			return $this->redirect('cardAdd');
+			$ac = substr($_SERVER['PATH_TRANSLATED'],strrpos($_SERVER['PATH_TRANSLATED'],'\\')+1);
+			return $this->redirect('cardAdd',['path'=>$ac]);
 		}
 		return $this->fetch('recharge',['data'=>$data]);
 	}
@@ -62,7 +62,6 @@ class Account extends Common
 			$money = $data['money'];
 			$usermsg = new UserMsg();
 			$u_money = $usermsg->checkMsg(['u_id'=>$u_id],'u_money');
-//			var_dump($u_money);die;
 			if($u_money[0]<$data['money']){
         		echo "<script>alert('填写正确提现金额');location.href='forward';</script>";die;
 			}
@@ -81,7 +80,8 @@ class Account extends Common
 		$cards = new Cards();
 		$data = $cards->selCard($u_id);
 		if(empty($data)){
-			return $this->redirect('cardAdd');
+			$ac = substr($_SERVER['PATH_TRANSLATED'],strrpos($_SERVER['PATH_TRANSLATED'],'\\')+1);
+			return $this->redirect('cardAdd',['path'=>$ac]);
 		}
 		return $this->fetch('forward',['data'=>$data]);
 	}
@@ -98,7 +98,34 @@ class Account extends Common
 //	绑定银行卡
 	public function cardAdd()
 	{
-		return $this->fetch();
+		$u_id = cookie('u_id');
+		$ac = input('path');
+		if(Request::instance()->isPost()){
+			$data = $_POST;
+			$ac = $data['ac'];
+			unset($data['ac']);
+			$cards = new Cards();
+			if($data['card_status'] == 1){
+				$res = $cards->selCard($u_id);
+				if($res){
+					$cards->cardSav(['card_status'=>0],['u_id'=>$u_id,'card_status'=>1]);
+				}
+			}
+			
+			$data['u_id'] = $u_id;
+			$cards->addCard($data);
+
+			if($ac == "recharge"){
+				return $this->redirect('account/recharge');die;
+			}else if($ac == "forward"){
+				return $this->redirect('account/forward');die;
+			}else{
+				return $this->redirect('users/index');
+			}
+			
+		}
+		$this->assign('ac',$ac);
+		return $this->fetch('card_add');
 	}
 }
 

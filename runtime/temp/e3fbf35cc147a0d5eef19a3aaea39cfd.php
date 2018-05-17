@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:67:"C:\web\WWW\charge\public/../application/index\view\index\index.html";i:1526300438;s:59:"C:\web\WWW\charge\application\index\view\layout\layout.html";i:1526299627;s:59:"C:\web\WWW\charge\application\index\view\layout\header.html";i:1526299627;s:59:"C:\web\WWW\charge\application\index\view\layout\footer.html";i:1526299627;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:67:"C:\web\WWW\charge\public/../application/index\view\index\index.html";i:1526522336;s:59:"C:\web\WWW\charge\application\index\view\layout\layout.html";i:1526522336;s:59:"C:\web\WWW\charge\application\index\view\layout\header.html";i:1526522336;s:59:"C:\web\WWW\charge\application\index\view\layout\footer.html";i:1526526308;}*/ ?>
 
 <!DOCTYPE html>
 <base href="/index/" />
@@ -11,6 +11,7 @@
 <meta content="black" name="apple-mobile-web-app-status-bar-style" />
 <meta content="telephone=no" name="format-detection" />
 <title>首页</title>
+    <!--<link type="text/css" rel="stylesheet" href="css/mall.css"/>-->
 <link rel="stylesheet" type="text/css" href="css/base.css">
 <link rel="stylesheet" type="text/css" href="css/common.css">
 <script type="text/javascript" src="js/jquery.min.js" ></script>
@@ -30,7 +31,6 @@
 </header>
 
 <!--container-end-->
-
                     <style type="text/css">
                     body{font-size:10px;} 
 
@@ -169,7 +169,7 @@
                         enableMessage:true//设置允许信息窗发送短息
                          };
          
-                      var content = "充电桩站名：<span style='font-weight:bold'  ><?php echo $v['c_name'];  ?></span><br><?php echo $v['c_site'];  ?><a href='<?php echo url('index/ch_details'); ?>?c_id="+"<?php echo $v['c_id']?>"+"' ><span style='color:black;' ></span> <span style='color:red;float:right' >>>详情</span></a><br><img  src='/index/images/status_lv.png' style='width:5%;height=5%;'  >当前充电桩：可用"; 
+                      var content = "充电桩站名：<span style='font-weight:bold'  ><?php echo $v['c_name'];  ?></span><br><?php echo $v['c_site'];  ?><a href='<?php echo url('index/now/index'); ?>?c_id="+"<?php echo $v['c_id']?>"+"' ><span style='color:black;' ></span> <span style='color:red;float:right' >>>详情</span></a><br><img  src='/index/images/status_lv.png' style='width:5%;height=5%;'  >当前充电桩：可用"; 
                       map.centerAndZoom(marker,25);
                       map.addOverlay(marker); 
                       addClickHandler(content,marker);
@@ -254,10 +254,49 @@
 
 <footer class="footer" id="footer">
   <ul class="footnav box-flex">
-    <li class="on"><a href="index.html" class="home"><i></i><span class="full-block">首页</span></a></li>
-    <li><a href="<?php echo url('build/index'); ?>" class="foot-worker"><i></i><span class="full-block">申请建桩</span></a></li>
-    <li><a href="my-order.html" class="foot-order"><i></i><span class="full-block">订单</span></a></li>
-    <li><a href="users/index" class="my"><i></i><span class="full-block">我的</span></a></li>
+  <?php
+  	use think\Request;
+  	
+  	$request = Request::instance();
+	 	$controller = $request->controller();
+    $action = $request->action();
+  switch($name=$controller): case "Index": switch($name=$action): case "index": ?>
+      <li class="on" ><a href="index.html" class="home"><i></i><span class="full-block">首页</span></a></li>
+      <li ><a href="<?php echo url('index/chat'); ?>" class="hz" ><i></i><span class="full-block">互助</span></a></li>
+      <li><a href="<?php echo url('build/index'); ?>" class="foot-worker"><i></i><span class="full-block">申请建桩</span></a></li>
+      <li ><a href="<?php echo url('index/order/order'); ?>" class="foot-order"><i></i><span class="full-block">订单</span></a></li>
+      <li><a href="users/index" class="my"><i></i><span class="full-block">我的</span></a></li>
+          <?php break; case "chat": ?>
+            <li ><a href="index.html" class="home"><i></i><span class="full-block">首页</span></a></li>
+            <li class="on" ><a href="<?php echo url('index/chat'); ?>" class="hz" ><i></i><span class="full-block">互助</span></a></li>
+            <li><a href="<?php echo url('build/index'); ?>" class="foot-worker"><i></i><span class="full-block">申请建桩</span></a></li>
+            <li ><a href="<?php echo url('index/order/order'); ?>" class="foot-order"><i></i><span class="full-block">订单</span></a></li>
+            <li><a href="users/index" class="my"><i></i><span class="full-block">我的</span></a></li>
+          <?php break; endswitch; break; case "Build": ?>
+    	<li><a href="index.html" class="home"><i></i><span class="full-block">首页</span></a></li>
+      <li><a href="<?php echo url('index/chat'); ?>" class="hz" ><i></i><span class="full-block">互助</span></a></li>
+	    <li class="on"><a href="<?php echo url('build/index'); ?>" class="foot-worker"><i></i><span class="full-block">申请建桩</span></a></li>
+	    <li><a href="<?php echo url('index/order/order'); ?>" class="foot-order"><i></i><span class="full-block">订单</span></a></li>
+	    <li><a href="users/index" class="my"><i></i><span class="full-block">我的</span></a></li>
+    <?php break; case "Users": ?>
+    	<li><a href="index.html" class="home"><i></i><span class="full-block">首页</span></a></li>
+      <li><a href="<?php echo url('index/chat'); ?>" class="hz" ><i></i><span class="full-block">互助</span></a></li>
+	    <li><a href="<?php echo url('build/index'); ?>" class="foot-worker"><i></i><span class="full-block">申请建桩</span></a></li>
+	    <li><a href="<?php echo url('index/order/order'); ?>" class="foot-order"><i></i><span class="full-block">订单</span></a></li>
+	    <li class="on"><a href="users/index" class="my"><i></i><span class="full-block">我的</span></a></li>
+    <?php break; case "Order": ?>
+    	<li><a href="index.html" class="home"><i></i><span class="full-block">首页</span></a></li>
+      <li><a href="<?php echo url('index/chat'); ?>" class="hz" ><i></i><span class="full-block">互助</span></a></li>
+	    <li><a href="<?php echo url('build/index'); ?>" class="foot-worker"><i></i><span class="full-block">申请建桩</span></a></li>
+	    <li class="on"><a href="<?php echo url('index/order/order'); ?>" class="foot-order"><i></i><span class="full-block">订单</span></a></li>
+	    <li><a href="users/index" class="my"><i></i><span class="full-block">我的</span></a></li>
+    <?php break; endswitch; ?>
+
+  
+	
+  	
+  	
+    
   </ul>
 </footer>
 <!--footer-end-->
