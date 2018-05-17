@@ -117,13 +117,23 @@ class Now extends Common
 		//账户余额
 		$user = model('UserMsg');
 		$u = $user->selmsg($uid);
-//		var_dump($u);exit;
+		
 		//接值
 		$request = request();
 		if($request->isPost()){
-			$data = $request->post();			
+			$data = $request->post();
+//			var_dump($data);exit;			
 		}else{
 			$data = $request->get();
+		}
+		
+		if($data['money']>$u['u_money']){
+			$model_p = new  Pilemodel();
+		
+			$model_p->updatepile($data['pid']);
+			
+			Cookie::delete('quan'.$data['pid']);
+			echo "<script>alert('账户余额不足，请先充值。'),location.href='http://www.charge.com/index/account/balance'</script>";exit;
 		}
 		
 //		var_dump($data);exit;
