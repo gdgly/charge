@@ -68,7 +68,7 @@
           <div class="my-order-item-btn">
             <div class="pos-r">
               {switch name="vo.o_status"}
-          		{case value="1"}<span class="my-order-item-jindu"><a href="order-schedule1.html">查看进度</a></span>{/case}
+          		{case value="1"}<span class="my-order-item-jindu"><a href="{:url('index/now/charging')}?pay_time={$arr.pay_time}&money={$arr.money}&pur={$arr.pur}&time={$arr.time}&pid={$arr.pid}&cid={$arr.cid}">查看进度</a></span>{/case}
           		{case value="2"}<span class="my-order-item-red"><a href="javascript:void(0)" class="ljzf_but" o_id="{$vo.o_id}" money="{$vo.money}">立即支付</a></span>{/case}
           		{case value="3"}<span class="my-order-item-red"><a href="{:url('index/comment/index')}">立即评价</a></span>{/case}
           		{default /}default
