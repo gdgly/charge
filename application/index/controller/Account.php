@@ -11,7 +11,6 @@ use think\Request;
 
 class Account extends Common
 {
-		
 //	余额
 	public function balance()
 	{
