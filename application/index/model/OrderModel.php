@@ -7,7 +7,7 @@ class OrderModel extends Model
 {
 	public function showord($uid)
 	{
-		return Db::table('order')->join('charge','order.cid=charge.c_id')->order('uid desc')->where('uid',$uid)->select();
+		return Db::table('order')->join('charge','order.cid=charge.c_id')->order('o_id desc')->where('uid',$uid)->select();
 	}
 	public function findord($o_id)
 	{

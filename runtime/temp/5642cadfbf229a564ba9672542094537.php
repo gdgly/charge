@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:92:"D:\phpStudy\PHPTutorial\WWW\month12\charge\public/../application/index\view\order\order.html";i:1526543261;s:84:"D:\phpStudy\PHPTutorial\WWW\month12\charge\application\index\view\layout\layout.html";i:1526461474;s:84:"D:\phpStudy\PHPTutorial\WWW\month12\charge\application\index\view\layout\header.html";i:1526461474;s:84:"D:\phpStudy\PHPTutorial\WWW\month12\charge\application\index\view\layout\footer.html";i:1526538286;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:92:"D:\phpStudy\PHPTutorial\WWW\month12\charge\public/../application/index\view\order\order.html";i:1526545022;s:84:"D:\phpStudy\PHPTutorial\WWW\month12\charge\application\index\view\layout\layout.html";i:1526461474;s:84:"D:\phpStudy\PHPTutorial\WWW\month12\charge\application\index\view\layout\header.html";i:1526461474;s:84:"D:\phpStudy\PHPTutorial\WWW\month12\charge\application\index\view\layout\footer.html";i:1526538286;}*/ ?>
 
 <!DOCTYPE html>
 <base href="/index/" />
@@ -68,8 +68,31 @@
     
       <!--全部订单开始-->
       <section class="tag" style="display:block">
-      <?php if(is_array($data) || $data instanceof \think\Collection || $data instanceof \think\Paginator): if( count($data)==0 ) : echo "" ;else: foreach($data as $key=>$vo): ?>
-        <div class="my-order-item">
+      <?php if(is_array($data) || $data instanceof \think\Collection || $data instanceof \think\Paginator): if( count($data)==0 ) : echo "" ;else: foreach($data as $key=>$vo): if($vo['o_status'] == 1): ?>
+      		<div class="my-order-item">
+          <div class="my-order-item-tit clearfix">
+          <h3>订单号：<?php echo $vo['o_number']; ?></h3>
+          <span class="my-order-wait-zf">
+          	
+          	<?php switch($vo['o_status']): case "1": ?>订单进行中<?php break; case "2": ?>待支付<?php break; case "3": ?>交易完成<?php break; default: ?>default
+          	<?php endswitch; ?>
+          	/<?php echo $vo['money']; ?>元
+          </span>
+          </div>
+          <div class="my-order-item-txt">
+            <div class="my-order-time"><?php echo date('Y-m-d H:i:s',$vo['start_time']); ?></div>
+            <div class="my-order-address"><?php echo $vo['c_site']; ?></div>
+            
+          </div>
+          <div class="my-order-item-btn">
+            <div class="pos-r">
+              <?php switch($vo['o_status']): case "1": ?><span class="my-order-item-jindu"><a href="order-schedule1.html">查看进度</a></span><?php break; case "2": ?><span class="my-order-item-red"><a href="javascript:void(0)" class="ljzf_but" o_id="<?php echo $vo['o_id']; ?>" money="<?php echo $vo['money']; ?>">立即支付</a></span><?php break; case "3": ?><span class="my-order-item-red"><a href="<?php echo url('index/comment/index'); ?>">立即评价</a></span><?php break; default: ?>default
+          	<?php endswitch; ?>
+            </div>  
+          </div>
+        </div>
+				<?php else: ?>
+				<div class="my-order-item">
           <div class="my-order-item-tit clearfix">
           <h3>订单号：<?php echo $vo['o_number']; ?></h3>
           <span class="my-order-wait-zf">
@@ -91,7 +114,7 @@
             </div>  
           </div>
         </div>
-        <?php endforeach; endif; else: echo "" ;endif; ?>
+				<?php endif; endforeach; endif; else: echo "" ;endif; ?>
       </section>
       <!--全部订单结束-->
       
@@ -148,7 +171,7 @@
           <span class="my-order-wait-pj">订单进行中/<?php echo $vo['money']; ?>元</span>
           </div>
           <div class="my-order-item-txt">
-            <div class="my-order-time"><?php echo date('Y-m-d H:i:s',$vo['start_time']); ?>--<?php echo date('Y-m-d H:i:s',$vo['end_time']); ?></div>
+            <div class="my-order-time"><?php echo date('Y-m-d H:i:s',$vo['start_time']); ?></div>
             <div class="my-order-address"><?php echo $vo['c_site']; ?></div>
           </div>
           <div class="my-order-item-btn">

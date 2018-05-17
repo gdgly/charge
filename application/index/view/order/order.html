@@ -45,7 +45,39 @@
       <!--全部订单开始-->
       <section class="tag" style="display:block">
       {foreach name="data" item="vo" }
-        <div class="my-order-item">
+      	{if condition="$vo.o_status eq 1"}
+      		<div class="my-order-item">
+          <div class="my-order-item-tit clearfix">
+          <h3>订单号：{$vo.o_number}</h3>
+          <span class="my-order-wait-zf">
+          	
+          	{switch name="vo.o_status"}
+          		{case value="1"}订单进行中{/case}
+          		{case value="2"}待支付{/case}
+          		{case value="3"}交易完成{/case}
+          		{default /}default
+          	{/switch}
+          	/{$vo.money}元
+          </span>
+          </div>
+          <div class="my-order-item-txt">
+            <div class="my-order-time">{:date('Y-m-d H:i:s',$vo.start_time)}</div>
+            <div class="my-order-address">{$vo.c_site}</div>
+            
+          </div>
+          <div class="my-order-item-btn">
+            <div class="pos-r">
+              {switch name="vo.o_status"}
+          		{case value="1"}<span class="my-order-item-jindu"><a href="order-schedule1.html">查看进度</a></span>{/case}
+          		{case value="2"}<span class="my-order-item-red"><a href="javascript:void(0)" class="ljzf_but" o_id="{$vo.o_id}" money="{$vo.money}">立即支付</a></span>{/case}
+          		{case value="3"}<span class="my-order-item-red"><a href="{:url('index/comment/index')}">立即评价</a></span>{/case}
+          		{default /}default
+          	{/switch}
+            </div>  
+          </div>
+        </div>
+				{else /}
+				<div class="my-order-item">
           <div class="my-order-item-tit clearfix">
           <h3>订单号：{$vo.o_number}</h3>
           <span class="my-order-wait-zf">
@@ -75,6 +107,13 @@
             </div>  
           </div>
         </div>
+				{/if}
+
+      
+        
+        
+        
+        
         {/foreach}
       </section>
       <!--全部订单结束-->
@@ -137,7 +176,7 @@
           <span class="my-order-wait-pj">订单进行中/{$vo.money}元</span>
           </div>
           <div class="my-order-item-txt">
-            <div class="my-order-time">{:date('Y-m-d H:i:s',$vo.start_time)}--{:date('Y-m-d H:i:s',$vo.end_time)}</div>
+            <div class="my-order-time">{:date('Y-m-d H:i:s',$vo.start_time)}</div>
             <div class="my-order-address">{$vo.c_site}</div>
           </div>
           <div class="my-order-item-btn">

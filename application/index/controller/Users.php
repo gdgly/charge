@@ -325,7 +325,7 @@ class Users extends Controller
 	//用户退出登录
 	public function loginout()
 	{
-		cookie('u_id','');
+		Cookie::delete('u_id');
         return $this->redirect("users/log");
 	}
 

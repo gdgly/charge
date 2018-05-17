@@ -6,7 +6,9 @@ use think\Cookie;
 
 use app\index\model\Charge; 
 
-class Order extends Controller
+use app\index\controller\Common;
+
+class Order extends Common
 {
 	public function order()
 	{	
