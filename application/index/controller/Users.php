@@ -195,7 +195,6 @@ class Users extends Controller
 			if(empty($data[0])){
 				$user = new User();
 				$data[0] = $user->selTel($u_id);
-				
 			}
 			$this->assign('data',$data[0]);
 			return $this->fetch();

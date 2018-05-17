@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:94:"D:\phpStudy\PHPTutorial\WWW\month12\charge\public/../application/index\view\users\my_nick.html";i:1526545723;s:84:"D:\phpStudy\PHPTutorial\WWW\month12\charge\application\index\view\layout\layout.html";i:1526461474;s:84:"D:\phpStudy\PHPTutorial\WWW\month12\charge\application\index\view\layout\header.html";i:1526461474;s:84:"D:\phpStudy\PHPTutorial\WWW\month12\charge\application\index\view\layout\footer.html";i:1526538286;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:94:"D:\phpStudy\PHPTutorial\WWW\month12\charge\public/../application/index\view\users\pay_pwd.html";i:1526461474;s:84:"D:\phpStudy\PHPTutorial\WWW\month12\charge\application\index\view\layout\layout.html";i:1526461474;s:84:"D:\phpStudy\PHPTutorial\WWW\month12\charge\application\index\view\layout\header.html";i:1526461474;s:84:"D:\phpStudy\PHPTutorial\WWW\month12\charge\application\index\view\layout\footer.html";i:1526538286;}*/ ?>
 
 <!DOCTYPE html>
 <base href="/index/" />
@@ -30,7 +30,7 @@
 <meta content="yes" name="apple-mobile-web-app-capable" />
 <meta content="black" name="apple-mobile-web-app-status-bar-style" />
 <meta content="telephone=no" name="format-detection" />
-<title>我的姓名</title>
+<title>支付密码</title>
 <link rel="stylesheet" type="text/css" href="css/base.css">
 <link rel="stylesheet" type="text/css" href="css/common.css">
 <script type="text/javascript" src="js/jquery.min.js" ></script>
@@ -39,26 +39,41 @@
 
 <body>
 
-<form action="users/myNick" method="post">
+<form action="users/paypwd" method="post">
 <header class="header header-save" id="header">
 <a href="javascript:history.go(-1)" target=_self class="back">返回</a>
-<h1>我的姓名</h1>
-<button type="submit">保存</button>
+<h1>支付密码</h1>
+<button type="submit" id="sub">保存</button>
 </header>
 <!--header-end-->
 
 <div class="container" id="container"> 
 
+<?php if($status['status'] == 1): ?>
 <div class="modify">
- <input id="username" type="tel" name="u_nick" class="username" value="我的昵称:<?php echo $data; ?>" required><a href="javascript:" class="clear-close" id="clear-close" onclick="javascript:document.getElementById('username').value='';document.getElementById('username').focus();" value="clear"></a>
+   原密码:<input type="password" name="old_pwd" class="username" value="" required><a href="javascript:" class="clear-close" id="clear-close" onclick="javascript:document.getElementById('username').value='';document.getElementById('username').focus();" value="clear"></a>
+ 新密码:<input type="password" id="newPwd" name="m_pwd" class="username" value="" required><a href="javascript:" class="clear-close" id="clear-close" onclick="javascript:document.getElementById('username').value='';document.getElementById('username').focus();" value="clear"></a>
+ 确认新密码:<input type="password" id="cPwd" name="check_pwd" class="username" value="" required><a href="javascript:" class="clear-close" id="clear-close" onclick="javascript:document.getElementById('username').value='';document.getElementById('username').focus();" value="clear"></a>
 </div>
-
+<?php else: ?>
+<div class="modify">
+	输入支付密码:<input type="password" name="m_pwd" class="username" value="" required><a href="javascript:" class="clear-close" id="clear-close" onclick="javascript:document.getElementById('username').value='';document.getElementById('username').focus();" value="clear"></a>
+</div>
+<?php endif; ?>
 </div>
 <!--container-end-->
 </form>
 </body>
 </html>
-
+<script>
+	$("#sub").click(function(){
+		if($("#newPwd").val()!=$('#cPwd').val()){
+			alert('请重新确认密码')
+			$('#cPwd').val("")
+			return false
+		}
+	})
+</script>
 
 
 
