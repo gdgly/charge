@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:92:"D:\phpStudy\PHPTutorial\WWW\month12\charge\public/../application/index\view\order\order.html";i:1526545022;s:84:"D:\phpStudy\PHPTutorial\WWW\month12\charge\application\index\view\layout\layout.html";i:1526461474;s:84:"D:\phpStudy\PHPTutorial\WWW\month12\charge\application\index\view\layout\header.html";i:1526461474;s:84:"D:\phpStudy\PHPTutorial\WWW\month12\charge\application\index\view\layout\footer.html";i:1526538286;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:92:"D:\phpStudy\PHPTutorial\WWW\month12\charge\public/../application/index\view\order\order.html";i:1526558980;s:84:"D:\phpStudy\PHPTutorial\WWW\month12\charge\application\index\view\layout\layout.html";i:1526461474;s:84:"D:\phpStudy\PHPTutorial\WWW\month12\charge\application\index\view\layout\header.html";i:1526461474;s:84:"D:\phpStudy\PHPTutorial\WWW\month12\charge\application\index\view\layout\footer.html";i:1526538286;}*/ ?>
 
 <!DOCTYPE html>
 <base href="/index/" />
@@ -86,7 +86,7 @@
           </div>
           <div class="my-order-item-btn">
             <div class="pos-r">
-              <?php switch($vo['o_status']): case "1": ?><span class="my-order-item-jindu"><a href="order-schedule1.html">查看进度</a></span><?php break; case "2": ?><span class="my-order-item-red"><a href="javascript:void(0)" class="ljzf_but" o_id="<?php echo $vo['o_id']; ?>" money="<?php echo $vo['money']; ?>">立即支付</a></span><?php break; case "3": ?><span class="my-order-item-red"><a href="<?php echo url('index/comment/index'); ?>">立即评价</a></span><?php break; default: ?>default
+              <?php switch($vo['o_status']): case "1": ?><span class="my-order-item-jindu"><a href="<?php echo url('index/now/charging'); ?>?pay_time=<?php echo $arr['pay_time']; ?>&money=<?php echo $arr['money']; ?>&pur=<?php echo $arr['pur']; ?>&time=<?php echo $arr['time']; ?>&pid=<?php echo $arr['pid']; ?>&cid=<?php echo $arr['cid']; ?>">查看进度</a></span><?php break; case "2": ?><span class="my-order-item-red"><a href="javascript:void(0)" class="ljzf_but" o_id="<?php echo $vo['o_id']; ?>" money="<?php echo $vo['money']; ?>">立即支付</a></span><?php break; case "3": ?><span class="my-order-item-red"><a href="<?php echo url('index/comment/index'); ?>">立即评价</a></span><?php break; default: ?>default
           	<?php endswitch; ?>
             </div>  
           </div>
@@ -353,7 +353,7 @@ tabs.set("nav","menu_con");//执行
 									window.location.reload();
               	}else if(msg=='5'){
               		alert('请先充值！余额不够支付');
-              		location.href="<?php echo url('index/integral/recharge'); ?>"
+              		location.href="<?php echo url('index/account/recharge'); ?>"
               	}
                 console.log("success");
               })

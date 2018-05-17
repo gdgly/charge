@@ -1,4 +1,28 @@
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:82:"E:\phpHuanJing\WWW\charge\charge\public/../application/index\view\order\order.html";i:1526539012;s:74:"E:\phpHuanJing\WWW\charge\charge\application\index\view\layout\layout.html";i:1526539012;s:74:"E:\phpHuanJing\WWW\charge\charge\application\index\view\layout\header.html";i:1526539012;s:74:"E:\phpHuanJing\WWW\charge\charge\application\index\view\layout\footer.html";i:1526539012;}*/ ?>
+
 <!DOCTYPE html>
+<base href="/index/" />
+<html>
+<head>
+	<base href="/index/" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
+<meta content="yes" name="apple-mobile-web-app-capable" />
+<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+<meta content="telephone=no" name="format-detection" />
+<title>首页</title>
+    <!--<link type="text/css" rel="stylesheet" href="css/mall.css"/>-->
+<link rel="stylesheet" type="text/css" href="css/base.css">
+<link rel="stylesheet" type="text/css" href="css/common.css">
+<script type="text/javascript" src="js/jquery.min.js" ></script>
+<script src="js/common.js"></script>
+<!--banner 脚本-->
+<script src="js/TouchSlide.1.1.js"></script>
+<!--banner 脚本-->
+</head>
+<body  >
+
+	<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -44,149 +68,96 @@
     
       <!--全部订单开始-->
       <section class="tag" style="display:block">
-      {foreach name="data" item="vo" }
-      	{if condition="$vo.o_status eq 1"}
-      		<div class="my-order-item">
+      <?php if(is_array($data) || $data instanceof \think\Collection || $data instanceof \think\Paginator): if( count($data)==0 ) : echo "" ;else: foreach($data as $key=>$vo): ?>
+        <div class="my-order-item">
           <div class="my-order-item-tit clearfix">
-          <h3>订单号：{$vo.o_number}</h3>
+          <h3>订单号：<?php echo $vo['o_number']; ?></h3>
           <span class="my-order-wait-zf">
           	
-          	{switch name="vo.o_status"}
-          		{case value="1"}订单进行中{/case}
-          		{case value="2"}待支付{/case}
-          		{case value="3"}交易完成{/case}
-          		{default /}default
-          	{/switch}
-          	/{$vo.money}元
+          	<?php switch($vo['o_status']): case "1": ?>订单进行中<?php break; case "2": ?>待支付<?php break; case "3": ?>交易完成<?php break; default: ?>default
+          	<?php endswitch; ?>
+          	/<?php echo $vo['money']; ?>元
           </span>
           </div>
           <div class="my-order-item-txt">
-            <div class="my-order-time">{:date('Y-m-d H:i:s',$vo.start_time)}</div>
-            <div class="my-order-address">{$vo.c_site}</div>
+            <div class="my-order-time"><?php echo date('Y-m-d H:i:s',$vo['start_time']); ?>--<?php echo date('Y-m-d H:i:s',$vo['end_time']); ?></div>
+            <div class="my-order-address"><?php echo $vo['c_site']; ?></div>
             
           </div>
           <div class="my-order-item-btn">
             <div class="pos-r">
-              {switch name="vo.o_status"}
-          		{case value="1"}<span class="my-order-item-jindu"><a href="{:url('index/now/charging')}?pay_time={$arr.pay_time}&money={$arr.money}&pur={$arr.pur}&time={$arr.time}&pid={$arr.pid}&cid={$arr.cid}">查看进度</a></span>{/case}
-          		{case value="2"}<span class="my-order-item-red"><a href="javascript:void(0)" class="ljzf_but" o_id="{$vo.o_id}" money="{$vo.money}">立即支付</a></span>{/case}
-          		{case value="3"}<span class="my-order-item-red"><a href="{:url('index/comment/index')}">立即评价</a></span>{/case}
-          		{default /}default
-          	{/switch}
+              <?php switch($vo['o_status']): case "1": ?><span class="my-order-item-jindu"><a href="order-schedule1.html">查看进度</a></span><?php break; case "2": ?><span class="my-order-item-red"><a href="javascript:void(0)" class="ljzf_but" o_id="<?php echo $vo['o_id']; ?>" money="<?php echo $vo['money']; ?>">立即支付</a></span><?php break; case "3": ?><span class="my-order-item-red"><a href="<?php echo url('index/comment/index'); ?>">立即评价</a></span><?php break; default: ?>default
+          	<?php endswitch; ?>
             </div>  
           </div>
         </div>
-				{else /}
-				<div class="my-order-item">
-          <div class="my-order-item-tit clearfix">
-          <h3>订单号：{$vo.o_number}</h3>
-          <span class="my-order-wait-zf">
-          	
-          	{switch name="vo.o_status"}
-          		{case value="1"}订单进行中{/case}
-          		{case value="2"}待支付{/case}
-          		{case value="3"}交易完成{/case}
-          		{default /}default
-          	{/switch}
-          	/{$vo.money}元
-          </span>
-          </div>
-          <div class="my-order-item-txt">
-            <div class="my-order-time">{:date('Y-m-d H:i:s',$vo.start_time)}--{:date('Y-m-d H:i:s',$vo.end_time)}</div>
-            <div class="my-order-address">{$vo.c_site}</div>
-            
-          </div>
-          <div class="my-order-item-btn">
-            <div class="pos-r">
-              {switch name="vo.o_status"}
-          		{case value="1"}<span class="my-order-item-jindu"><a href="order-schedule1.html">查看进度</a></span>{/case}
-          		{case value="2"}<span class="my-order-item-red"><a href="javascript:void(0)" class="ljzf_but" o_id="{$vo.o_id}" money="{$vo.money}">立即支付</a></span>{/case}
-          		{case value="3"}<span class="my-order-item-red"><a href="{:url('index/comment/index')}">立即评价</a></span>{/case}
-          		{default /}default
-          	{/switch}
-            </div>  
-          </div>
-        </div>
-				{/if}
-
-      
-        
-        
-        
-        
-        {/foreach}
+        <?php endforeach; endif; else: echo "" ;endif; ?>
       </section>
       <!--全部订单结束-->
       
       <!--已完成开始-->
       <section class="tag" style="display:none">
-      	{foreach name="data" item="vo" }
-      	{if condition="$vo.o_status eq 3"}
+      	<?php if(is_array($data) || $data instanceof \think\Collection || $data instanceof \think\Paginator): if( count($data)==0 ) : echo "" ;else: foreach($data as $key=>$vo): if($vo['o_status'] == 3): ?>
         <div class="my-order-item">
           <div class="my-order-item-tit clearfix">
-          <h3>订单号：{$vo.o_number}</h3>
-          <span class="my-order-over">交易完成/{$vo.money}元</span>
+          <h3>订单号：<?php echo $vo['o_number']; ?></h3>
+          <span class="my-order-over">交易完成/<?php echo $vo['money']; ?>元</span>
           </div>
           <div class="my-order-item-txt">
-            <div class="my-order-time">{:date('Y-m-d H:i:s',$vo.start_time)}--{:date('Y-m-d H:i:s',$vo.end_time)}</div>
-            <div class="my-order-address">{$vo.c_site}</div>
+            <div class="my-order-time"><?php echo date('Y-m-d H:i:s',$vo['start_time']); ?>--<?php echo date('Y-m-d H:i:s',$vo['end_time']); ?></div>
+            <div class="my-order-address"><?php echo $vo['c_site']; ?></div>
           </div>
           <div class="my-order-item-btn">
             <div class="pos-r">
-              <span class="my-order-item-red"><a href="{:url('index/comment/index')}">立即评价</a></span>
+              <span class="my-order-item-red"><a href="<?php echo url('index/comment/index'); ?>">立即评价</a></span>
             </div>
           </div>
         </div> 
-        {/if}
-        {/foreach}
+        <?php endif; endforeach; endif; else: echo "" ;endif; ?>
       </section>
       <!--已完成结束
       
       <!--待付款开始-->
       <section class="tag" style="display:none">
-      	{foreach name="data" item="vo" }
-      	{if condition="$vo.o_status eq 2"}
+      	<?php if(is_array($data) || $data instanceof \think\Collection || $data instanceof \think\Paginator): if( count($data)==0 ) : echo "" ;else: foreach($data as $key=>$vo): if($vo['o_status'] == 2): ?>
         <div class="my-order-item">
           <div class="my-order-item-tit clearfix">
-          <h3>订单号：{$vo.o_number}</h3>
-          <span class="my-order-wait-zf">待支付/{$vo.money}元</span>
+          <h3>订单号：<?php echo $vo['o_number']; ?></h3>
+          <span class="my-order-wait-zf">待支付/<?php echo $vo['money']; ?>元</span>
           </div>
           <div class="my-order-item-txt">
-            <div class="my-order-time">{:date('Y-m-d H:i:s',$vo.start_time)}--{:date('Y-m-d H:i:s',$vo.end_time)}</div>
-            <div class="my-order-address">{$vo.c_site}</div>
+            <div class="my-order-time"><?php echo date('Y-m-d H:i:s',$vo['start_time']); ?>--<?php echo date('Y-m-d H:i:s',$vo['end_time']); ?></div>
+            <div class="my-order-address"><?php echo $vo['c_site']; ?></div>
           </div>
           <div class="my-order-item-btn">
             <div class="pos-r">
-              <span class="my-order-item-red"><a href="javascript:void(0)" class="ljzf_but" o_id="{$vo.o_id}" money="{$vo.money}">立即支付</a></span>
+              <span class="my-order-item-red"><a href="javascript:void(0)" class="ljzf_but" o_id="<?php echo $vo['o_id']; ?>" money="<?php echo $vo['money']; ?>">立即支付</a></span>
             </div>
           </div>
         </div>
-        {/if}
-        {/foreach}
+        <?php endif; endforeach; endif; else: echo "" ;endif; ?>
       </section>
       <!--待付款结束-->
       
       <!--订单进行中-->
       <section class="tag" style="display:none">
-      	{foreach name="data" item="vo" }
-      	{if condition="$vo.o_status eq 1"}
+      	<?php if(is_array($data) || $data instanceof \think\Collection || $data instanceof \think\Paginator): if( count($data)==0 ) : echo "" ;else: foreach($data as $key=>$vo): if($vo['o_status'] == 1): ?>
         <div class="my-order-item">
           <div class="my-order-item-tit clearfix">
-          <h3>订单号：{$vo.o_number}</h3>
-          <span class="my-order-wait-pj">订单进行中/{$vo.money}元</span>
+          <h3>订单号：<?php echo $vo['o_number']; ?></h3>
+          <span class="my-order-wait-pj">订单进行中/<?php echo $vo['money']; ?>元</span>
           </div>
           <div class="my-order-item-txt">
-            <div class="my-order-time">{:date('Y-m-d H:i:s',$vo.start_time)}</div>
-            <div class="my-order-address">{$vo.c_site}</div>
+            <div class="my-order-time"><?php echo date('Y-m-d H:i:s',$vo['start_time']); ?>--<?php echo date('Y-m-d H:i:s',$vo['end_time']); ?></div>
+            <div class="my-order-address"><?php echo $vo['c_site']; ?></div>
           </div>
           <div class="my-order-item-btn">
             <div class="pos-r">
-              <span class="my-order-item-jindu"><a href="{:url('index/now/charging')}?pay_time={$arr.pay_time}&money={$arr.money}&pur={$arr.pur}&time={$arr.time}&pid={$arr.pid}&cid={$arr.cid}">查看进度</a></span>
+              <span class="my-order-item-jindu"><a href="order-schedule1.html">查看进度</a></span>
             </div>  
           </div>
         </div>
-        {/if}
-        {/foreach}
+        <?php endif; endforeach; endif; else: echo "" ;endif; ?>
       </section>
       <!--订单进行中结束-->
     </div>
@@ -328,14 +299,14 @@ tabs.set("nav","menu_con");//执行
               // alert(o_id)
 //               alert(data)
 							$.ajax({
-                url: "{:url('index/order/reduce')}",
+                url: "<?php echo url('index/order/reduce'); ?>",
                 type: 'POST',
                 data: {o_id:o_id,pwd:data},
               })
               .done(function(msg) {
               	if(msg=='3'){
               		alert('您没有支付密码！')
-              		location.href="{:url('index/users/userMsg')}"
+              		location.href="<?php echo url('index/users/userMsg'); ?>"
               	}else if(msg=='1'){
               		alert('支付成功')
               		$(".ftc_wzsf").hide();
@@ -359,7 +330,7 @@ tabs.set("nav","menu_con");//执行
 									window.location.reload();
               	}else if(msg=='5'){
               		alert('请先充值！余额不够支付');
-              		location.href="{:url('index/account/recharge')}"
+              		location.href="<?php echo url('index/integral/recharge'); ?>"
               	}
                 console.log("success");
               })
@@ -396,3 +367,71 @@ tabs.set("nav","menu_con");//执行
 <!--container-end-->
 
 
+
+<footer class="footer" id="footer">
+  <ul class="footnav box-flex">
+  <?php
+  	use think\Request;
+  	
+  	$request = Request::instance();
+	 	$controller = $request->controller();
+    $action = $request->action();
+  switch($name=$controller): case "Index": switch($name=$action): case "index": ?>
+      <li class="on" ><a href="index.html" class="home"><i></i><span class="full-block">首页</span></a></li>
+      <li ><a href="<?php echo url('index/chat'); ?>" class="hz" ><i></i><span class="full-block">互助</span></a></li>
+      <li><a href="<?php echo url('build/index'); ?>" class="foot-worker"><i></i><span class="full-block">申请建桩</span></a></li>
+      <li ><a href="<?php echo url('index/order/order'); ?>" class="foot-order"><i></i><span class="full-block">订单</span></a></li>
+      <li><a href="users/index" class="my"><i></i><span class="full-block">我的</span></a></li>
+          <?php break; case "chat": ?>
+            <li ><a href="index.html" class="home"><i></i><span class="full-block">首页</span></a></li>
+            <li class="on" ><a href="<?php echo url('index/chat'); ?>" class="hz" ><i></i><span class="full-block">互助</span></a></li>
+            <li><a href="<?php echo url('build/index'); ?>" class="foot-worker"><i></i><span class="full-block">申请建桩</span></a></li>
+            <li ><a href="<?php echo url('index/order/order'); ?>" class="foot-order"><i></i><span class="full-block">订单</span></a></li>
+            <li><a href="users/index" class="my"><i></i><span class="full-block">我的</span></a></li>
+          <?php break; endswitch; break; case "Build": ?>
+    	<li><a href="index.html" class="home"><i></i><span class="full-block">首页</span></a></li>
+      <li><a href="<?php echo url('index/chat'); ?>" class="hz" ><i></i><span class="full-block">互助</span></a></li>
+	    <li class="on"><a href="<?php echo url('build/index'); ?>" class="foot-worker"><i></i><span class="full-block">申请建桩</span></a></li>
+	    <li><a href="<?php echo url('index/order/order'); ?>" class="foot-order"><i></i><span class="full-block">订单</span></a></li>
+	    <li><a href="users/index" class="my"><i></i><span class="full-block">我的</span></a></li>
+    <?php break; case "Users": ?>
+    	<li><a href="index.html" class="home"><i></i><span class="full-block">首页</span></a></li>
+      <li><a href="<?php echo url('index/chat'); ?>" class="hz" ><i></i><span class="full-block">互助</span></a></li>
+	    <li><a href="<?php echo url('build/index'); ?>" class="foot-worker"><i></i><span class="full-block">申请建桩</span></a></li>
+	    <li><a href="<?php echo url('index/order/order'); ?>" class="foot-order"><i></i><span class="full-block">订单</span></a></li>
+	    <li class="on"><a href="users/index" class="my"><i></i><span class="full-block">我的</span></a></li>
+    <?php break; case "Order": ?>
+    	<li><a href="index.html" class="home"><i></i><span class="full-block">首页</span></a></li>
+      <li><a href="<?php echo url('index/chat'); ?>" class="hz" ><i></i><span class="full-block">互助</span></a></li>
+	    <li><a href="<?php echo url('build/index'); ?>" class="foot-worker"><i></i><span class="full-block">申请建桩</span></a></li>
+	    <li class="on"><a href="<?php echo url('index/order/order'); ?>" class="foot-order"><i></i><span class="full-block">订单</span></a></li>
+	    <li><a href="users/index" class="my"><i></i><span class="full-block">我的</span></a></li>
+    <?php break; endswitch; ?>
+
+  
+	
+  	
+  	
+    
+  </ul>
+</footer>
+<!--footer-end-->
+<!--栏目更多-->
+<script type="text/javascript">
+$(".ind-nav").each(function(){	
+  var self = $(this); 
+  var n=self.find("ul li").length;
+  if(n<=8){
+  self.find( ".more").addClass("hide-more");
+  }else{
+  self.find(".more").removeClass("hide-more");
+  } 
+ self.find(".more").click(function(){
+    self.find( "ul" ).toggleClass("intro");
+	self.find(".more").toggleClass("add-more");
+  });
+  });
+</script>
+<!--栏目更多--> 
+</body>
+</html>

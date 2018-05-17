@@ -8,6 +8,7 @@ use app\index\model\OrderModel;
 use app\index\model\Pilemodel;//获取充电桩
 use app\index\model\Charge;//获取充电桩
 use think\Cookie;
+use app\index\model\UserMsg;
 
 class Now extends Common
 {
@@ -28,7 +29,12 @@ class Now extends Common
 		$u_id = Cookie::get("u_id");
 		$model_o = new OrderModel();
 		$order = $model_o->onderOne($u_id);
-
+		$findstatus = $model_o->findstatus($u_id);
+//		var_dump($findstatus);exit;
+		if(!empty($findstatus))
+		{
+			echo "<script>alert('有未支付订单，请先支付');location.href='http://www.charge.com/index/order/order.html';</script>";die;
+		}
 		if(!empty($order)){
 
 			$money = round($order['dur_time']/60*$charge['c_money']);
@@ -111,13 +117,23 @@ class Now extends Common
 		//账户余额
 		$user = model('UserMsg');
 		$u = $user->selmsg($uid);
-//		var_dump($u);exit;
+		
 		//接值
 		$request = request();
 		if($request->isPost()){
-			$data = $request->post();			
+			$data = $request->post();
+//			var_dump($data);exit;			
 		}else{
 			$data = $request->get();
+		}
+		
+		if($data['money']>$u['u_money']){
+			$model_p = new  Pilemodel();
+		
+			$model_p->updatepile($data['pid']);
+			
+			Cookie::delete('quan'.$data['pid']);
+			echo "<script>alert('账户余额不足，请先充值。'),location.href='http://www.charge.com/index/account/balance'</script>";exit;
 		}
 		
 //		var_dump($data);exit;
@@ -208,7 +224,12 @@ class Now extends Common
 		//执行修改订单 结束
 		//查询订单表修改后的信息
 		$o = $order->findord($o_id);
-
+		
+		//充电结束加积分
+		$m_num = floor(($o['end_time']-$o['start_time'])/60);
+		
+		$model_msg = new UserMsg();
+		$model_msg->addnum($m_num*5,$uid);
 		
 		$model_p = new  Pilemodel();
 		

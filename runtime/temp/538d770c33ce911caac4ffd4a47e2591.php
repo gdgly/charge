@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:93:"D:\phpStudy\PHPTutorial\WWW\month12\charge\public/../application/index\view\now\charging.html";i:1526461474;s:84:"D:\phpStudy\PHPTutorial\WWW\month12\charge\application\index\view\layout\layout.html";i:1526461474;s:84:"D:\phpStudy\PHPTutorial\WWW\month12\charge\application\index\view\layout\header.html";i:1526461474;s:84:"D:\phpStudy\PHPTutorial\WWW\month12\charge\application\index\view\layout\footer.html";i:1526538286;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:93:"D:\phpStudy\PHPTutorial\WWW\month12\charge\public/../application/index\view\now\charging.html";i:1526555272;s:84:"D:\phpStudy\PHPTutorial\WWW\month12\charge\application\index\view\layout\layout.html";i:1526461474;s:84:"D:\phpStudy\PHPTutorial\WWW\month12\charge\application\index\view\layout\header.html";i:1526461474;s:84:"D:\phpStudy\PHPTutorial\WWW\month12\charge\application\index\view\layout\footer.html";i:1526538286;}*/ ?>
 
 <!DOCTYPE html>
 <base href="/index/" />
@@ -59,8 +59,8 @@
             
             var maxtime = "<?php echo $sur_time; ?>"; //一个小时，按秒计算，自己调整!   
 			
+//          dians();
             function CountDown() {
-//          	dians();
                 if (maxtime >= 0) {
                     h = Math.floor((maxtime % (3600*24)) / 3600);
 
