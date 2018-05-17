@@ -28,7 +28,11 @@ class Now extends Common
 		$u_id = Cookie::get("u_id");
 		$model_o = new OrderModel();
 		$order = $model_o->onderOne($u_id);
-
+		$findstatus = $model_o->findstatus($u_id);
+		if($findstatus['o_status']==2)
+		{
+			echo "<script>alert('有未支付订单，请先支付');location.href='http://www.charge.com/index/order/order.html';</script>";die;
+		}
 		if(!empty($order)){
 
 			$money = round($order['dur_time']/60*$charge['c_money']);

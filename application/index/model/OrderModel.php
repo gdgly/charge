@@ -13,6 +13,10 @@ class OrderModel extends Model
 	{
 		return Db::table('order')->where('o_id',$o_id)->find();
 	}
+	public function findstatus($uid)
+	{
+		return Db::table('order')->where('uid',$uid)->find();
+	}
 	
 	public function onderOne($u_id)
 	{
