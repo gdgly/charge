@@ -24,11 +24,12 @@
 <!--header-end-->
 
 <div class="container" id="container"> 
-
-<div class="modify">
- <input id="username" type="tel" name="u_nick" class="username" value="我的昵称:{$data}" required><a href="javascript:" class="clear-close" id="clear-close" onclick="javascript:document.getElementById('username').value='';document.getElementById('username').focus();" value="clear"></a>
-</div>
-
+	<div class="registered">
+		<div class="field">
+			<span style="font-size: 30px;">我的昵称:</span>
+			<input type="text" name="u_nick" value="{$data}" style="font-size: 25px;">
+		</div>
+	</div>
 </div>
 <!--container-end-->
 </form>

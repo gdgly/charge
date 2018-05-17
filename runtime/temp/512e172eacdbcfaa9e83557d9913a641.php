@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:73:"D:\www\wamp\www\charge\public/../application/index\view\users\my_img.html";i:1526468911;s:64:"D:\www\wamp\www\charge\application\index\view\layout\layout.html";i:1526468911;s:64:"D:\www\wamp\www\charge\application\index\view\layout\header.html";i:1526468911;s:64:"D:\www\wamp\www\charge\application\index\view\layout\footer.html";i:1526537984;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:70:"D:\www\wamp\www\charge\public/../application/index\view\now\index.html";i:1526468911;s:64:"D:\www\wamp\www\charge\application\index\view\layout\layout.html";i:1526468911;s:64:"D:\www\wamp\www\charge\application\index\view\layout\header.html";i:1526468911;s:64:"D:\www\wamp\www\charge\application\index\view\layout\footer.html";i:1526537984;}*/ ?>
 
 <!DOCTYPE html>
 <base href="/index/" />
@@ -22,73 +22,55 @@
 </head>
 <body  >
 
-	<!DOCTYPE html>
+	<!--<!DOCTYPE html>
 <html>
 <head>
-<base href="/index/" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
 <meta content="yes" name="apple-mobile-web-app-capable" />
 <meta content="black" name="apple-mobile-web-app-status-bar-style" />
 <meta content="telephone=no" name="format-detection" />
-<title>我的头像</title>
+<title>选择地板品类</title>
 <link rel="stylesheet" type="text/css" href="css/base.css">
 <link rel="stylesheet" type="text/css" href="css/common.css">
-
 <script type="text/javascript" src="js/jquery.min.js" ></script>
-<script src="js/common.js"></script>
-<style>
-    .fileinput-button {
-        position: relative;
-        display: inline-block;
-        overflow: hidden;
-    }
+<script src="js/common.js"></script>-->
+<!--</head>-->
 
-    .fileinput-button input{
-        position:absolute;
-        right: 0px;
-        top: 0px;
-        opacity: 0;
-        -ms-filter: 'alpha(opacity=0)';
-        font-size: 100px;
-    }
-</style>
-
-</head>
 <body>
-
-<form action="users/myImg" method="post" enctype="multipart/form-data">
-<header class="header header-save" id="header">
+<header class="header" id="header">
 <a href="javascript:history.go(-1)" target=_self class="back">返回</a>
-<h1>我的头像</h1>
-<button type="submit">保存</button>
+<h1>选择充电孔</h1>
 </header>
 <!--header-end-->
 
 <div class="container" id="container"> 
+
+<div class="classification">
 	<center>
-		<div class="my-face">
-		  	<div class="my-face-con">
-		    	<div class="my-face-pic">
-		    	<?php if($img==""){?>
-		    		<img src="images/my-face-pic.jpg">
-		    	<?php }else{?>
-		    		<img src="<?php echo $img; ?>">
-		    	<?php }?>
-		    </div>
-		  	</div>
-		</div>
-		<div>
-			<span class="btn btn-success fileinput-button">
-	            <button style="font-size: 20px;">修改头像</button>
-	            <input type="file" name="face">
-	        </span>
-       </div>
+	<h4 class="now-name"><?php echo $charge['c_name']; ?></h4>
 	</center>
+<!--<h4 class="now-status">可用</h4>-->
+  <ul class="clearfix">
+
+<?php if(is_array($data) || $data instanceof \think\Collection || $data instanceof \think\Paginator): $i = 0; $__LIST__ = $data;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;if($vo['p_status'] == 1): ?>
+		<li><a href="<?php echo url('index/now/now'); ?>?p_id=<?php echo $vo['p_id']; ?>"><img src="images/yes.png"><span><?php echo $vo['a_num']; ?>号插孔</span></a></li>
+	<?php elseif($vo['p_status'] == 2): ?>
+		<li><a href="javascript:void()"><img src="images/no.png"><span><?php echo $vo['a_num']; ?>号插孔<br />已损坏</span></a></li>
+	<?php else: ?>
+		<li><a href="javascript:void()"><img src="images/no.png"><span><?php echo $vo['a_num']; ?>号插孔<br />已占用</span></a></li>
+	<?php endif; endforeach; endif; else: echo "" ;endif; ?>
+
+
+
+  	
+  </ul>
 </div>
-</form>
-</body>
-</html>
+
+</div>
+<!--container-end-->
+
+
 
 
 <footer class="footer" id="footer">
