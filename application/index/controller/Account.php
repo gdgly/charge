@@ -105,6 +105,7 @@ class Account extends Common
 			$ac = $data['ac'];
 			unset($data['ac']);
 			$cards = new Cards();
+//			判断默认
 			if($data['card_status'] == 1){
 				$res = $cards->selCard($u_id);
 				if($res){
