@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:93:"D:\phpStudy\PHPTutorial\WWW\month12\charge\public/../application/index\view\users\my_img.html";i:1526461474;s:84:"D:\phpStudy\PHPTutorial\WWW\month12\charge\application\index\view\layout\layout.html";i:1526461474;s:84:"D:\phpStudy\PHPTutorial\WWW\month12\charge\application\index\view\layout\header.html";i:1526461474;s:84:"D:\phpStudy\PHPTutorial\WWW\month12\charge\application\index\view\layout\footer.html";i:1526461474;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:94:"D:\phpStudy\PHPTutorial\WWW\month12\charge\public/../application/index\view\comment\index.html";i:1526471810;s:84:"D:\phpStudy\PHPTutorial\WWW\month12\charge\application\index\view\layout\layout.html";i:1526461474;s:84:"D:\phpStudy\PHPTutorial\WWW\month12\charge\application\index\view\layout\header.html";i:1526461474;s:84:"D:\phpStudy\PHPTutorial\WWW\month12\charge\application\index\view\layout\footer.html";i:1526461474;}*/ ?>
 
 <!DOCTYPE html>
 <base href="/index/" />
@@ -25,71 +25,101 @@
 	<!DOCTYPE html>
 <html>
 <head>
-<base href="/index/" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
 <meta content="yes" name="apple-mobile-web-app-capable" />
 <meta content="black" name="apple-mobile-web-app-status-bar-style" />
 <meta content="telephone=no" name="format-detection" />
-<title>我的头像</title>
+<title>预约回收</title>
 <link rel="stylesheet" type="text/css" href="css/base.css">
 <link rel="stylesheet" type="text/css" href="css/common.css">
-
 <script type="text/javascript" src="js/jquery.min.js" ></script>
 <script src="js/common.js"></script>
-<style>
-    .fileinput-button {
-        position: relative;
-        display: inline-block;
-        overflow: hidden;
-    }
-
-    .fileinput-button input{
-        position:absolute;
-        right: 0px;
-        top: 0px;
-        opacity: 0;
-        -ms-filter: 'alpha(opacity=0)';
-        font-size: 100px;
-    }
-</style>
-
 </head>
-<body>
 
-<form action="users/myImg" method="post" enctype="multipart/form-data">
-<header class="header header-save" id="header">
+<body>
+<header class="header" id="header">
 <a href="javascript:history.go(-1)" target=_self class="back">返回</a>
-<h1>我的头像</h1>
-<button type="submit">保存</button>
+<h1>预约回收</h1>
 </header>
 <!--header-end-->
 
 <div class="container" id="container"> 
-	<center>
-		<div class="my-face">
-		  	<div class="my-face-con">
-		    	<div class="my-face-pic">
-		    	<?php if($img==""){?>
-		    		<img src="images/my-face-pic.jpg">
-		    	<?php }else{?>
-		    		<img src="<?php echo $img; ?>">
-		    	<?php }?>
-		    </div>
-		  	</div>
-		</div>
-		<div>
-			<span class="btn btn-success fileinput-button">
-	            <button style="font-size: 20px;">修改头像</button>
-	            <input type="file" name="face">
-	        </span>
-       </div>
-	</center>
+  <form action="<?php echo url("comment/add"); ?>" method="post" enctype="multipart/form-data">
+    <div class="add-class">
+        <div class="maintenance-reservation-textarea online-evaluation-textarea">
+           <textarea class="textarea" name="co_content" id="textarea" autofocus="autofocus"></textarea>
+           <div class="layer"><span>充电站环境如何？服务态度好吗？欢迎你们多多评论</span></div>
+        </div>
+        <div class="upload-photos">
+           <span id="selectedimg"></span>         
+        </div>
+        <input type="hidden" name="o_id" value="<?php echo $o_id; ?>"/>
+        <button type="submit" class="confirm-payment">点击评估</button>
+    </div>
+  </form>  
 </div>
-</form>
+<!--container-end-->
+
+<script type="text/javascript" src="js/iosOverlay.js"></script>
+<script src='js/exif.js'></script>
+<script src='js/upload_img.js'></script>
+ <script>
+            $("#selectedimg").click(function(){
+                $.selectPicture(function(base64){
+                    $.ajax({
+                        url:"<?php echo Url('deal_photo'); ?>",
+                        type:'post',
+                        dataType:'json',
+                        data:{'base64':base64},
+                        success:function(data){
+                            if(data.status == 1){
+                                $("#selectedimg").before("<img onclick='javascript:dialog(this);' src=" + data.info + " class='set_img'>");
+                                $("#loading").remove();
+                            }else{
+                                alert(data.info);
+                            }
+                        }
+                    })
+                    return false;	
+              });
+            });
+            // 点击删除图片
+            function dialog(obj){
+                if(confirm('是否确定删除该图片？')) {
+                    $(obj).remove();
+                }
+            }
+            function submit_hs(){
+                // 上传图片之前整理商品图片，将图片地址放到隐藏域中
+                var goodsPhoto = [];
+                $('.upload-photos img').each(function(){
+                    goodsPhoto.push($(this).attr('src'));
+                });
+                if(goodsPhoto.length > 0){
+                    $('input[name="img"]').val(goodsPhoto.join(','));
+                }
+                
+                $.ajax({
+                    url:"<?php echo Url('hs_submit'); ?>",
+                    type:'post',
+                    dataType:'json',
+                    data:$("form[name='info']").serialize(),
+                    success:function(data){
+                        iosOverlay({
+                            text: data.info,
+                            duration: 2e3
+                        });
+                        if(data.status == 1){
+                            window.location.href="/";
+                        }
+                    }
+                })
+                return false;	
+            }
+        </script>
 </body>
 </html>
-
 
 <footer class="footer" id="footer">
   <ul class="footnav box-flex">

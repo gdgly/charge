@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:91:"D:\phpStudy\PHPTutorial\WWW\month12\charge\public/../application/demo\view\login\index.html";i:1526379708;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:91:"D:\phpStudy\PHPTutorial\WWW\month12\charge\public/../application/demo\view\login\index.html";i:1526461474;}*/ ?>
 <base href="/demo/login/" />
 <!DOCTYPE html>
 <html>
