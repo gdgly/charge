@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:92:"D:\phpStudy\PHPTutorial\WWW\month12\charge\public/../application/index\view\order\order.html";i:1526461474;s:84:"D:\phpStudy\PHPTutorial\WWW\month12\charge\application\index\view\layout\layout.html";i:1526461474;s:84:"D:\phpStudy\PHPTutorial\WWW\month12\charge\application\index\view\layout\header.html";i:1526461474;s:84:"D:\phpStudy\PHPTutorial\WWW\month12\charge\application\index\view\layout\footer.html";i:1526461474;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:92:"D:\phpStudy\PHPTutorial\WWW\month12\charge\public/../application/index\view\order\order.html";i:1526545022;s:84:"D:\phpStudy\PHPTutorial\WWW\month12\charge\application\index\view\layout\layout.html";i:1526461474;s:84:"D:\phpStudy\PHPTutorial\WWW\month12\charge\application\index\view\layout\header.html";i:1526461474;s:84:"D:\phpStudy\PHPTutorial\WWW\month12\charge\application\index\view\layout\footer.html";i:1526538286;}*/ ?>
 
 <!DOCTYPE html>
 <base href="/index/" />
@@ -68,8 +68,31 @@
     
       <!--全部订单开始-->
       <section class="tag" style="display:block">
-      <?php if(is_array($data) || $data instanceof \think\Collection || $data instanceof \think\Paginator): if( count($data)==0 ) : echo "" ;else: foreach($data as $key=>$vo): ?>
-        <div class="my-order-item">
+      <?php if(is_array($data) || $data instanceof \think\Collection || $data instanceof \think\Paginator): if( count($data)==0 ) : echo "" ;else: foreach($data as $key=>$vo): if($vo['o_status'] == 1): ?>
+      		<div class="my-order-item">
+          <div class="my-order-item-tit clearfix">
+          <h3>订单号：<?php echo $vo['o_number']; ?></h3>
+          <span class="my-order-wait-zf">
+          	
+          	<?php switch($vo['o_status']): case "1": ?>订单进行中<?php break; case "2": ?>待支付<?php break; case "3": ?>交易完成<?php break; default: ?>default
+          	<?php endswitch; ?>
+          	/<?php echo $vo['money']; ?>元
+          </span>
+          </div>
+          <div class="my-order-item-txt">
+            <div class="my-order-time"><?php echo date('Y-m-d H:i:s',$vo['start_time']); ?></div>
+            <div class="my-order-address"><?php echo $vo['c_site']; ?></div>
+            
+          </div>
+          <div class="my-order-item-btn">
+            <div class="pos-r">
+              <?php switch($vo['o_status']): case "1": ?><span class="my-order-item-jindu"><a href="order-schedule1.html">查看进度</a></span><?php break; case "2": ?><span class="my-order-item-red"><a href="javascript:void(0)" class="ljzf_but" o_id="<?php echo $vo['o_id']; ?>" money="<?php echo $vo['money']; ?>">立即支付</a></span><?php break; case "3": ?><span class="my-order-item-red"><a href="<?php echo url('index/comment/index'); ?>">立即评价</a></span><?php break; default: ?>default
+          	<?php endswitch; ?>
+            </div>  
+          </div>
+        </div>
+				<?php else: ?>
+				<div class="my-order-item">
           <div class="my-order-item-tit clearfix">
           <h3>订单号：<?php echo $vo['o_number']; ?></h3>
           <span class="my-order-wait-zf">
@@ -91,7 +114,7 @@
             </div>  
           </div>
         </div>
-        <?php endforeach; endif; else: echo "" ;endif; ?>
+				<?php endif; endforeach; endif; else: echo "" ;endif; ?>
       </section>
       <!--全部订单结束-->
       
@@ -148,12 +171,12 @@
           <span class="my-order-wait-pj">订单进行中/<?php echo $vo['money']; ?>元</span>
           </div>
           <div class="my-order-item-txt">
-            <div class="my-order-time"><?php echo date('Y-m-d H:i:s',$vo['start_time']); ?>--<?php echo date('Y-m-d H:i:s',$vo['end_time']); ?></div>
+            <div class="my-order-time"><?php echo date('Y-m-d H:i:s',$vo['start_time']); ?></div>
             <div class="my-order-address"><?php echo $vo['c_site']; ?></div>
           </div>
           <div class="my-order-item-btn">
             <div class="pos-r">
-              <span class="my-order-item-jindu"><a href="order-schedule1.html">查看进度</a></span>
+              <span class="my-order-item-jindu"><a href="<?php echo url('index/now/charging'); ?>?pay_time=<?php echo $arr['pay_time']; ?>&money=<?php echo $arr['money']; ?>&pur=<?php echo $arr['pur']; ?>&time=<?php echo $arr['time']; ?>&pid=<?php echo $arr['pid']; ?>&cid=<?php echo $arr['cid']; ?>">查看进度</a></span>
             </div>  
           </div>
         </div>
@@ -368,6 +391,8 @@ tabs.set("nav","menu_con");//执行
 
 
 
+
+
 <footer class="footer" id="footer">
   <ul class="footnav box-flex">
   <?php
@@ -375,30 +400,39 @@ tabs.set("nav","menu_con");//执行
   	
   	$request = Request::instance();
 	 	$controller = $request->controller();
-  switch($name=$controller): case "Index": ?>
-    	<li class="on"><a href="index.html" class="home"><i></i><span class="full-block">首页</span></a></li>
-	    <li><a href="<?php echo url('build/index'); ?>" class="foot-worker"><i></i><span class="full-block">申请建桩</span></a></li>
-	    <li><a href="<?php echo url('index/order/order'); ?>" class="foot-order"><i></i><span class="full-block">订单</span></a></li>
-	    <li><a href="users/index" class="my"><i></i><span class="full-block">我的</span></a></li>
-    <?php break; case "Build": ?>
+    $action = $request->action();
+  switch($name=$controller): case "Index": switch($name=$action): case "index": ?>
+      <li class="on" ><a href="index.html" class="home"><i></i><span class="full-block">首页</span></a></li>
+      <li ><a href="<?php echo url('index/chat'); ?>" class="hz" ><i></i><span class="full-block">互助</span></a></li>
+      <li><a href="<?php echo url('build/index'); ?>" class="foot-worker"><i></i><span class="full-block">申请建桩</span></a></li>
+      <li ><a href="<?php echo url('index/order/order'); ?>" class="foot-order"><i></i><span class="full-block">订单</span></a></li>
+      <li><a href="users/index" class="my"><i></i><span class="full-block">我的</span></a></li>
+          <?php break; case "chat": ?>
+            <li ><a href="index.html" class="home"><i></i><span class="full-block">首页</span></a></li>
+            <li class="on" ><a href="<?php echo url('index/chat'); ?>" class="hz" ><i></i><span class="full-block">互助</span></a></li>
+            <li><a href="<?php echo url('build/index'); ?>" class="foot-worker"><i></i><span class="full-block">申请建桩</span></a></li>
+            <li ><a href="<?php echo url('index/order/order'); ?>" class="foot-order"><i></i><span class="full-block">订单</span></a></li>
+            <li><a href="users/index" class="my"><i></i><span class="full-block">我的</span></a></li>
+          <?php break; endswitch; break; case "Build": ?>
     	<li><a href="index.html" class="home"><i></i><span class="full-block">首页</span></a></li>
+      <li><a href="<?php echo url('index/chat'); ?>" class="hz" ><i></i><span class="full-block">互助</span></a></li>
 	    <li class="on"><a href="<?php echo url('build/index'); ?>" class="foot-worker"><i></i><span class="full-block">申请建桩</span></a></li>
 	    <li><a href="<?php echo url('index/order/order'); ?>" class="foot-order"><i></i><span class="full-block">订单</span></a></li>
 	    <li><a href="users/index" class="my"><i></i><span class="full-block">我的</span></a></li>
     <?php break; case "Users": ?>
     	<li><a href="index.html" class="home"><i></i><span class="full-block">首页</span></a></li>
+      <li><a href="<?php echo url('index/chat'); ?>" class="hz" ><i></i><span class="full-block">互助</span></a></li>
 	    <li><a href="<?php echo url('build/index'); ?>" class="foot-worker"><i></i><span class="full-block">申请建桩</span></a></li>
 	    <li><a href="<?php echo url('index/order/order'); ?>" class="foot-order"><i></i><span class="full-block">订单</span></a></li>
 	    <li class="on"><a href="users/index" class="my"><i></i><span class="full-block">我的</span></a></li>
     <?php break; case "Order": ?>
     	<li><a href="index.html" class="home"><i></i><span class="full-block">首页</span></a></li>
+      <li><a href="<?php echo url('index/chat'); ?>" class="hz" ><i></i><span class="full-block">互助</span></a></li>
 	    <li><a href="<?php echo url('build/index'); ?>" class="foot-worker"><i></i><span class="full-block">申请建桩</span></a></li>
 	    <li class="on"><a href="<?php echo url('index/order/order'); ?>" class="foot-order"><i></i><span class="full-block">订单</span></a></li>
 	    <li><a href="users/index" class="my"><i></i><span class="full-block">我的</span></a></li>
     <?php break; endswitch; ?>
 
-  
-  
   
 	
   	
@@ -406,6 +440,7 @@ tabs.set("nav","menu_con");//执行
     
   </ul>
 </footer>
+
 <!--footer-end-->
 <!--栏目更多-->
 <script type="text/javascript">

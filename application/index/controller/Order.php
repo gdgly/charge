@@ -4,18 +4,65 @@ use think\Controller;
 use think\model;
 use think\Cookie;
 
-class Order extends Controller
+use app\index\model\Charge; 
+
+use app\index\controller\Common;
+
+class Order extends Common
 {
 	public function order()
 	{	
 		$uid = Cookie::get('u_id');
 		$order = model('OrderModel');
-		//查询订单
 		$data = $order->showord($uid);
-//		var_dump($data);die;
+		
+		$arr = array();
+		foreach($data as $key=>$val){
+			if($val['o_status'] == 1){
+				$arr = $this->going($data[$key]);
+			}
+		}
+		
+//		echo "<pre>";
+//		print_r($arr);exit;
+		//查询订单
 		$this->assign('data',$data);
+		$this->assign('arr',$arr);
 		return $this->fetch();
 	}
+	
+	public function going($order = "")
+	{
+		
+		if(!empty($order)){
+			$model_c = new Charge();
+			$charge = $model_c->showyi($order['cid']);
+			
+			$money = round($order['dur_time']/60*$charge['c_money']);
+			
+			if($order['dur_time']/3600 == 1){
+				$time = 1;
+			}else if($order['dur_time']/3600 == 2){
+				$time = 2;
+			}else if($order['dur_time']/3600 == 3){
+				$time = 3;
+			}else{
+				$time = 0;
+			}
+			
+			$pur = Cookie::get('quan'.$order['pid']);
+
+			$arr = array(
+				'pay_time'=>$order['dur_time'],
+				'money'=>$money,
+				'pur'=>$pur,
+				'time'=>$time,
+				'pid'=>$order['pid'],
+				'cid'=>$order['cid'],
+			);
+			return $arr;
+		}
+	}	
 	
 	public function reduce()
 	{

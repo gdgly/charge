@@ -1,9 +1,33 @@
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:91:"D:\phpStudy\PHPTutorial\WWW\month12\charge\public/../application/index\view\index\chat.html";i:1526540027;s:84:"D:\phpStudy\PHPTutorial\WWW\month12\charge\application\index\view\layout\layout.html";i:1526461474;s:84:"D:\phpStudy\PHPTutorial\WWW\month12\charge\application\index\view\layout\header.html";i:1526461474;s:84:"D:\phpStudy\PHPTutorial\WWW\month12\charge\application\index\view\layout\footer.html";i:1526538286;}*/ ?>
+
 <!DOCTYPE html>
+<base href="/index/" />
+<html>
+<head>
+	<base href="/index/" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
+<meta content="yes" name="apple-mobile-web-app-capable" />
+<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+<meta content="telephone=no" name="format-detection" />
+<title>首页</title>
+    <!--<link type="text/css" rel="stylesheet" href="css/mall.css"/>-->
+<link rel="stylesheet" type="text/css" href="css/base.css">
+<link rel="stylesheet" type="text/css" href="css/common.css">
+<script type="text/javascript" src="js/jquery.min.js" ></script>
+<script src="js/common.js"></script>
+<!--banner 脚本-->
+<script src="js/TouchSlide.1.1.js"></script>
+<!--banner 脚本-->
+</head>
+<body  >
+
+	<!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
 	<title>Document</title>
-	<link rel="stylesheet" type="text/css" href="__ROOT__/index/chat/css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="/index/chat/css/bootstrap.css">
 <style>
 	.container{
 		width: 80%;
@@ -84,7 +108,7 @@
 <h1>互助</h1>
 </header>
 
-<script src="__ROOT__/index/chat/demos/googlegg.js"></script>
+<script src="/index/chat/demos/googlegg.js"></script>
 
 <div class="container" style="margin-top: 100px;position:absolute; height:400px; overflow:auto" >
 	<div class="commentbox" >
@@ -96,12 +120,12 @@
 			if($v['f'] == 0){
 	?>
 	<div class="comment-list" style="height:20px;width:90%;margin-top: 100px;" >
-		<header><?php if($v['u_img'] !=""){ ?><img src="__ROOT__<?php echo $v['u_img']; ?>" alt="" style="height:40px;width:30px;float: left;margin-top: 4px;"  ><?php  }else{   ?>  <img src="__ROOT__/index/chat/images/0.png" alt="" style="height:40px;width:40px;float: left;margin-top: 4px;"  > <?php }  ?></header>
+		<header><?php if($v['u_img'] !=""){ ?><img src="<?php echo $v['u_img']; ?>" alt="" style="height:40px;width:30px;float: left;margin-top: 4px;"  ><?php  }else{   ?>  <img src="/index/chat/images/0.png" alt="" style="height:40px;width:40px;float: left;margin-top: 4px;"  > <?php }  ?></header>
 			<div class="comment-right">
 				<h5>发表人：<?php echo $v['u_tel'];  ?></h5>
 				<div class="comment-content-header" style="margin-left: 30px;"  ><span style='float:left;' ><i class="glyphicon glyphicon-time"></i>&nbsp&nbsp<?php echo date("Y-m-d H:i:s",$v['c_time']); ?></span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <span  wh="1"    style='float:left;margin-left: 300px;'  w_id='<?php   echo $v["c_id"];  ?>'  class='showall' p_id ='<?php  echo $v["p_id"];  ?>'  p_where='<?php echo $v["c_id"]  ?>'  >
 			<?php $a=""; foreach($data  as $ke => $val){  if($v['c_id'] == $val['p_id']){ $a = "1"; } } if($a==1){ ?>
-			<img src="__ROOT__/index/chat/images/xx.jpg"   alt="" style="width: 20px;height: 20px;" > <?php  } ?>   </span></div>
+			<img src="/index/chat/images/xx.jpg"   alt="" style="width: 20px;height: 20px;" > <?php  } ?>   </span></div>
 				<p class="content" style="margin-left: 30px;font-size:20px;">说：<?php echo $v['c_content'];  ?></p>
 				<div class="comment-content-footer">
 					<div class="row">
@@ -114,12 +138,12 @@
 	<?php }else if($v['f'] == 1){  ?>
 	<div class="comment-list  <?php echo $v['p_id']  ?>  two" style="height:10px;width:90%;margin-left:100px;margin-top: 100px;display: none;"  two-id = '<?php echo $v["c_id"] ?>'	
 	 >
-		<header><?php if($v['u_img'] !=""){ ?><img src="__ROOT__<?php echo $v['u_img']; ?>" alt="" style="height:40px;width:30px;float: left;margin-top: 4px;"  ><?php  }else{   ?>  <img src="__ROOT__/index/chat/images/0.png" alt="" style="height:40px;width:40px;float: left;margin-top: 4px;"  > <?php }  ?></header>
+		<header><?php if($v['u_img'] !=""){ ?><img src="<?php echo $v['u_img']; ?>" alt="" style="height:40px;width:30px;float: left;margin-top: 4px;"  ><?php  }else{   ?>  <img src="/index/chat/images/0.png" alt="" style="height:40px;width:40px;float: left;margin-top: 4px;"  > <?php }  ?></header>
 			<div class="comment-right">
 				<h5>发表人：<?php echo $v['u_tel'];  ?>&nbsp&nbsp@&nbsp<?php foreach($data  as $ke => $val){  if($v['p_id']== $val['c_id']){echo $val['u_tel'];}   } ?></span></h5>
 				<div class="comment-content-header" style="margin-left: 30px;"><span  style='float:left;' ><i class="glyphicon glyphicon-time"></i>&nbsp<?php echo date("Y-m-d H:i:s",$v['c_time']); ?></span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <span   style='float:left;margin-left: 300px; '  w_id='<?php  echo $v["p_id"];  ?>' p_id ='<?php  echo $v["p_id"];  ?>' class='showall'  p_where='<?php echo $v["c_id"]  ?>'  >
 			<?php $a=""; foreach($data  as $ke => $val){  if($v['c_id'] == $val['p_id']){ $a = "1"; } } if($a==1){ ?>
-			<img src="__ROOT__/index/chat/images/xx.jpg"   alt="" style="width: 20px;height: 20px;" > <?php  } ?>   </span></div>
+			<img src="/index/chat/images/xx.jpg"   alt="" style="width: 20px;height: 20px;" > <?php  } ?>   </span></div>
 				<p class="content" style="margin-left: 30px;font-size:20px;">说：<?php echo $v['c_content'];  ?></p>
 				<div class="comment-content-footer">
 					<div class="row">
@@ -133,12 +157,12 @@
 		</div>
 	<?php }else if($v['f'] == 2){  ?>
 	<div class="comment-list  <?php echo $v['p_id']  ?>" style="height:10px;width:90%;margin-left:150px;margin-top: 100px;display: none;"  therr-id = '<?php echo $v["c_id"] ?>' >
-		<header><?php if($v['u_img'] !=""){ ?><img src="__ROOT__<?php echo $v['u_img']; ?>" alt="" style="height:40px;width:30px;float: left;margin-top: 4px;"  ><?php  }else{   ?>  <img src="__ROOT__/index/chat/images/0.png" alt="" style="height:40px;width:40px;float: left;margin-top: 4px;"  > <?php }  ?></header>
+		<header><?php if($v['u_img'] !=""){ ?><img src="<?php echo $v['u_img']; ?>" alt="" style="height:40px;width:30px;float: left;margin-top: 4px;"  ><?php  }else{   ?>  <img src="/index/chat/images/0.png" alt="" style="height:40px;width:40px;float: left;margin-top: 4px;"  > <?php }  ?></header>
 			<div class="comment-right">
 				<h5>发表人：<?php echo $v['u_tel'];  ?>&nbsp&nbsp@&nbsp<?php foreach($data  as $ke => $val){  if($v['p_id']== $val['c_id']){echo $val['u_tel'];}   } ?></span></h5>
 				<div class="comment-content-header" style="margin-left: 30px;"><span style='float:left;'><i class="glyphicon glyphicon-time"></i>&nbsp<?php echo date("Y-m-d H:i:s",$v['c_time']); ?></span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <span  where="3" style='float:left;margin-left: 300px; '  w_id='<?php  foreach($data  as $ke => $val ){ if($val["c_id"] == $v["p_id"] ){   echo $val["p_id"]; } } ?>' p_id ='<?php  echo $v["p_id"];  ?>' class='showall'  p_where='<?php echo $v["c_id"]  ?>'  >
 			<?php $a=""; foreach($data  as $ke => $val){  if($v['c_id'] == $val['p_id']){ $a = "1"; } } if($a==1){ ?>
-			<img src="__ROOT__/index/chat/images/xx.jpg"   alt="" style="width: 20px;height: 20px;" > <?php  } ?>   </span></div>
+			<img src="/index/chat/images/xx.jpg"   alt="" style="width: 20px;height: 20px;" > <?php  } ?>   </span></div>
 				<p class="content" style="margin-left: 30px;font-size:20px;">说：<?php echo $v['c_content'];  ?></p>
 				<div class="comment-content-footer">
 					<div class="row">
@@ -152,7 +176,7 @@
 <?php }else if($v['f'] == 3){  ?>
 	<div class="comment-list  <?php echo $v['p_id']  ?>   " style="height:10px;width:90%;margin-left:200px;margin-top: 100px;display: none;"
 	 >
-		<header><?php if($v['u_img'] !=""){ ?><img src="__ROOT__<?php echo $v['u_img']; ?>" alt="" style="height:40px;width:30px;float: left;margin-top: 4px;"  ><?php  }else{   ?>  <img src="__ROOT__/index/chat/images/0.png" alt="" style="height:40px;width:40px;float: left;margin-top: 4px;"  > <?php }  ?></header>
+		<header><?php if($v['u_img'] !=""){ ?><img src="<?php echo $v['u_img']; ?>" alt="" style="height:40px;width:30px;float: left;margin-top: 4px;"  ><?php  }else{   ?>  <img src="/index/chat/images/0.png" alt="" style="height:40px;width:40px;float: left;margin-top: 4px;"  > <?php }  ?></header>
 			<div class="comment-right">
 				<h5>发表人：<?php echo $v['u_tel'];  ?>&nbsp&nbsp@&nbsp<?php foreach($data  as $ke => $val){  if($v['p_id']== $val['c_id']){echo $val['u_tel'];}   } ?></span></h5>
 				<div class="comment-content-header" style="margin-left: 30px;"><span style='float:left;'><i class="glyphicon glyphicon-time"></i>&nbsp<?php echo date("Y-m-d H:i:s",$v['c_time']); ?></span></div>
@@ -170,9 +194,9 @@
 
 </div>
 
-<script type="text/javascript" src="__ROOT__/index/chat/js/jquery.min.js"></script>
-<script type="text/javascript" src="__ROOT__/index/chat/js/jquery.comment.js" ></script>
-<script type="text/javascript" src="__ROOT__/index/chat/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/index/chat/js/jquery.min.js"></script>
+<script type="text/javascript" src="/index/chat/js/jquery.comment.js" ></script>
+<script type="text/javascript" src="/index/chat/js/bootstrap.min.js"></script>
 <script type="text/javascript">
 	
 	$(document).on('click','.showall',function(){
@@ -183,7 +207,7 @@
 
 		$(this).parent().next().next().children().children().children("span:first-child").html("")
 		div = ""
-		div +='<img src="__ROOT__/index/chat/images/dk.jpg"   alt="" style="width: 20px;height: 20px;" >'
+		div +='<img src="/index/chat/images/dk.jpg"   alt="" style="width: 20px;height: 20px;" >'
 		$(this).html(div)
 		$(this).attr("class","noshow");
 	})
@@ -199,7 +223,7 @@
 			$("."+w_id+"").css("display",'none');
 			$(this).attr("class","showall");
 			div = ""
-			div +='<img src="__ROOT__/index/chat/images/xx.jpg"   alt="" style="width: 20px;height: 20px;" >'
+			div +='<img src="/index/chat/images/xx.jpg"   alt="" style="width: 20px;height: 20px;" >'
 			$(this).html(div)
 			if(cookie != "")
 			{
@@ -215,7 +239,7 @@
 				$(this).parent().next().next().children().children().children("span:first-child").html("删除&nbsp&nbsp&nbsp")
 			}
 		div = ""
-		div +='<img src="__ROOT__/index/chat/images/xx.jpg"   alt="" style="width: 20px;height: 20px;" >'
+		div +='<img src="/index/chat/images/xx.jpg"   alt="" style="width: 20px;height: 20px;" >'
 		$(this).html(div)
 			
 		$(this).attr("class","showall");
@@ -236,7 +260,7 @@
 		$.ajax({
 			type:"get",
 			data:{where:where},
-			url:"{:url('Index/dchat')}",
+			url:"<?php echo url('Index/dchat'); ?>",
 			success:function(e)
 			{
 				if(e == 1)
@@ -254,7 +278,7 @@
 		cookie = "<?php echo $u_id;  ?>"
 		if(cookie == "")
 		{
-			location.href='{:url("Users/index")}';
+			location.href='<?php echo url("Users/index"); ?>';
 			return false;
 		}
 		$(this).parent().next().next().css('display','block');
@@ -306,13 +330,13 @@
 			type:'get',
 			dataType:'json',
 			data:{content:content,p_id:pid},
-			url:'{:url("index/chat")}',
+			url:'<?php echo url("index/chat"); ?>',
 			success:function(e)
 			{
 					
 				if(e == 4)
 				{	// 先登录
-					location.href='{:url("Users/index")}';
+					location.href='<?php echo url("Users/index"); ?>';
 				}
 				else if(e == 2)
 				{
@@ -338,7 +362,7 @@
 					}
 
 					text ='<div class="comment-list '+aa+'"  style="height: 20px;width:90%;margin-left:100px;margin-top:100px;">'
-					text +='<header> <img src="__ROOT__'+img+'" alt="" style="height:40px;width:40px;float: left;margin-top: 4px;"  ></header>'
+					text +='<header> <img src="'+img+'" alt="" style="height:40px;width:40px;float: left;margin-top: 4px;"  ></header>'
 					text +='<div class="comment-right">'
 					text +='<h5>发表人：'+e.u_tel+'&nbsp&nbsp@&nbsp'+pn+'</h5>'
 					text +='<div class="comment-content-header" style="margin-left: 30px;" ><span><i class="glyphicon glyphicon-time"></i>&nbsp&nbsp'+day+'</span><span w_id='+aa+' ></span></div>'
@@ -351,7 +375,7 @@
 					text +='</div>'
 					text +='</div>'
 					divv =""
-					divv += "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<span  wh='1'  style='float:left;margin-left: 300px;'w_id='"+pid+"' class='showall' p_id ='"+pid+"'  p_where='"+pid+"' ><img src='__ROOT__/index/chat/images/xx.jpg'   style='width: 20px;height: 20px;' ></span>"
+					divv += "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<span  wh='1'  style='float:left;margin-left: 300px;'w_id='"+pid+"' class='showall' p_id ='"+pid+"'  p_where='"+pid+"' ><img src='/index/chat/images/xx.jpg'   style='width: 20px;height: 20px;' ></span>"
 					 _this.parent().parent().parent().parent().parent().after(text)
 					 // _this.parent().parent().parent().parent().parent().prev().children().children().("span:first-child").append(divv)
 					 _this.prev().val("")
@@ -404,13 +428,13 @@
 			type:'get',
 			dataType:'json',
 			data:{content:content,p_id:pid},
-			url:'{:url("index/chat")}',
+			url:'<?php echo url("index/chat"); ?>',
 			success:function(e)
 			{
 				
 					if(e == 4)
 				{	// 先登录
-					location.href='{:url("Users/index")}';
+					location.href='<?php echo url("Users/index"); ?>';
 				}
 				else if(e == 2)
 				{
@@ -436,7 +460,7 @@
 						img = '/index/chat/images/0.png';
 					}
 					text ='<div class="comment-list '+aa+'"  style="height: 20px;width:90%;margin-left:150px;margin-top:100px;">'
-					text +='<header><img src="__ROOT__'+img+'" alt="" style="height:40px;width:40px;float: left;margin-top: 4px;"  ></header>'
+					text +='<header><img src="'+img+'" alt="" style="height:40px;width:40px;float: left;margin-top: 4px;"  ></header>'
 					text +='<div class="comment-right">'
 					text +='<h5>发表人：'+e.u_tel+'&nbsp&nbsp@&nbsp'+pn+'</h5>'
 					text +='<div class="comment-content-header" style="margin-left: 30px;" ><span><i class="glyphicon glyphicon-time"></i>&nbsp&nbsp'+day+'</span><span w_id='+aa+' ></span></div>'
@@ -500,13 +524,13 @@
 			type:'get',
 			dataType:'json',
 			data:{content:content,p_id:pid},
-			url:'{:url("index/chat")}',
+			url:'<?php echo url("index/chat"); ?>',
 			success:function(e)
 			{
 					
 					if(e == 4)
 				{	// 先登录
-					location.href='{:url("Users/index")}';
+					location.href='<?php echo url("Users/index"); ?>';
 				}
 				else if(e == 2)
 				{
@@ -532,7 +556,7 @@
 						img = '/index/chat/images/0.png';
 					}
 					text ='<div class="comment-list '+aa+'"  style="height: 20px;width:90%;margin-left:200px;margin-top:100px;">'
-					text +='<header><img src="__ROOT__'+img+'" alt="" style="height:40px;width:40px;float: left;margin-top: 4px;"  ></header>'
+					text +='<header><img src="'+img+'" alt="" style="height:40px;width:40px;float: left;margin-top: 4px;"  ></header>'
 					text +='<div class="comment-right">'
 					text +='<h5>发表人：'+e.u_tel+'&nbsp&nbsp@&nbsp'+pn+'</h5>'
 					text +='<div class="comment-content-header" style="margin-left: 30px;" ><span><i class="glyphicon glyphicon-time"></i>&nbsp&nbsp'+day+'</span><span w_id='+aa+' ></span></div>'
@@ -594,12 +618,12 @@
 			type:'get',
 			dataType:'json',
 			data:{content:content},
-			url:'{:url("index/chat")}',
+			url:'<?php echo url("index/chat"); ?>',
 			success:function(e)
 			{
 				if(e == 4)
 				{	// 先登录
-					location.href='{:url("Users/index")}';
+					location.href='<?php echo url("Users/index"); ?>';
 				}
 				else if(e == 2)
 				{
@@ -624,7 +648,7 @@
 						img = '/index/chat/images/0.png';
 					}
 					text ='<div class="comment-list '+e.c_id+'"  style="height: 20px;width:90%; margin-top:100px;">'
-					text +='<header><img src="__ROOT__'+img+'" alt="" style="height:40px;width:40px;float: left;margin-top: 4px;"  ></header>'
+					text +='<header><img src="'+img+'" alt="" style="height:40px;width:40px;float: left;margin-top: 4px;"  ></header>'
 					text +='<div class="comment-right">'
 					text +='<h5>发表人：'+e.u_tel+'</h5>'
 					text +='<div class="comment-content-header" style="margin-left: 30px;" ><span  ><i class="glyphicon glyphicon-time"></i>&nbsp&nbsp'+day+'</span></div>'
@@ -650,5 +674,75 @@
 
 </div>
 	
+</body>
+</html>
+
+
+<footer class="footer" id="footer">
+  <ul class="footnav box-flex">
+  <?php
+  	use think\Request;
+  	
+  	$request = Request::instance();
+	 	$controller = $request->controller();
+    $action = $request->action();
+  switch($name=$controller): case "Index": switch($name=$action): case "index": ?>
+      <li class="on" ><a href="index.html" class="home"><i></i><span class="full-block">首页</span></a></li>
+      <li ><a href="<?php echo url('index/chat'); ?>" class="hz" ><i></i><span class="full-block">互助</span></a></li>
+      <li><a href="<?php echo url('build/index'); ?>" class="foot-worker"><i></i><span class="full-block">申请建桩</span></a></li>
+      <li ><a href="<?php echo url('index/order/order'); ?>" class="foot-order"><i></i><span class="full-block">订单</span></a></li>
+      <li><a href="users/index" class="my"><i></i><span class="full-block">我的</span></a></li>
+          <?php break; case "chat": ?>
+            <li ><a href="index.html" class="home"><i></i><span class="full-block">首页</span></a></li>
+            <li class="on" ><a href="<?php echo url('index/chat'); ?>" class="hz" ><i></i><span class="full-block">互助</span></a></li>
+            <li><a href="<?php echo url('build/index'); ?>" class="foot-worker"><i></i><span class="full-block">申请建桩</span></a></li>
+            <li ><a href="<?php echo url('index/order/order'); ?>" class="foot-order"><i></i><span class="full-block">订单</span></a></li>
+            <li><a href="users/index" class="my"><i></i><span class="full-block">我的</span></a></li>
+          <?php break; endswitch; break; case "Build": ?>
+    	<li><a href="index.html" class="home"><i></i><span class="full-block">首页</span></a></li>
+      <li><a href="<?php echo url('index/chat'); ?>" class="hz" ><i></i><span class="full-block">互助</span></a></li>
+	    <li class="on"><a href="<?php echo url('build/index'); ?>" class="foot-worker"><i></i><span class="full-block">申请建桩</span></a></li>
+	    <li><a href="<?php echo url('index/order/order'); ?>" class="foot-order"><i></i><span class="full-block">订单</span></a></li>
+	    <li><a href="users/index" class="my"><i></i><span class="full-block">我的</span></a></li>
+    <?php break; case "Users": ?>
+    	<li><a href="index.html" class="home"><i></i><span class="full-block">首页</span></a></li>
+      <li><a href="<?php echo url('index/chat'); ?>" class="hz" ><i></i><span class="full-block">互助</span></a></li>
+	    <li><a href="<?php echo url('build/index'); ?>" class="foot-worker"><i></i><span class="full-block">申请建桩</span></a></li>
+	    <li><a href="<?php echo url('index/order/order'); ?>" class="foot-order"><i></i><span class="full-block">订单</span></a></li>
+	    <li class="on"><a href="users/index" class="my"><i></i><span class="full-block">我的</span></a></li>
+    <?php break; case "Order": ?>
+    	<li><a href="index.html" class="home"><i></i><span class="full-block">首页</span></a></li>
+      <li><a href="<?php echo url('index/chat'); ?>" class="hz" ><i></i><span class="full-block">互助</span></a></li>
+	    <li><a href="<?php echo url('build/index'); ?>" class="foot-worker"><i></i><span class="full-block">申请建桩</span></a></li>
+	    <li class="on"><a href="<?php echo url('index/order/order'); ?>" class="foot-order"><i></i><span class="full-block">订单</span></a></li>
+	    <li><a href="users/index" class="my"><i></i><span class="full-block">我的</span></a></li>
+    <?php break; endswitch; ?>
+
+  
+	
+  	
+  	
+    
+  </ul>
+</footer>
+
+<!--footer-end-->
+<!--栏目更多-->
+<script type="text/javascript">
+$(".ind-nav").each(function(){	
+  var self = $(this); 
+  var n=self.find("ul li").length;
+  if(n<=8){
+  self.find( ".more").addClass("hide-more");
+  }else{
+  self.find(".more").removeClass("hide-more");
+  } 
+ self.find(".more").click(function(){
+    self.find( "ul" ).toggleClass("intro");
+	self.find(".more").toggleClass("add-more");
+  });
+  });
+</script>
+<!--栏目更多--> 
 </body>
 </html>

@@ -195,7 +195,6 @@ class Users extends Controller
 			if(empty($data[0])){
 				$user = new User();
 				$data[0] = $user->selTel($u_id);
-				
 			}
 			$this->assign('data',$data[0]);
 			return $this->fetch();
@@ -325,7 +324,7 @@ class Users extends Controller
 	//用户退出登录
 	public function loginout()
 	{
-		cookie('u_id','');
+		Cookie::delete('u_id');
         return $this->redirect("users/log");
 	}
 
