@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:92:"D:\phpStudy\PHPTutorial\WWW\month12\charge\public/../application/index\view\order\order.html";i:1526461474;s:84:"D:\phpStudy\PHPTutorial\WWW\month12\charge\application\index\view\layout\layout.html";i:1526461474;s:84:"D:\phpStudy\PHPTutorial\WWW\month12\charge\application\index\view\layout\header.html";i:1526461474;s:84:"D:\phpStudy\PHPTutorial\WWW\month12\charge\application\index\view\layout\footer.html";i:1526537570;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:92:"D:\phpStudy\PHPTutorial\WWW\month12\charge\public/../application/index\view\order\order.html";i:1526543261;s:84:"D:\phpStudy\PHPTutorial\WWW\month12\charge\application\index\view\layout\layout.html";i:1526461474;s:84:"D:\phpStudy\PHPTutorial\WWW\month12\charge\application\index\view\layout\header.html";i:1526461474;s:84:"D:\phpStudy\PHPTutorial\WWW\month12\charge\application\index\view\layout\footer.html";i:1526538286;}*/ ?>
 
 <!DOCTYPE html>
 <base href="/index/" />
@@ -153,7 +153,7 @@
           </div>
           <div class="my-order-item-btn">
             <div class="pos-r">
-              <span class="my-order-item-jindu"><a href="order-schedule1.html">查看进度</a></span>
+              <span class="my-order-item-jindu"><a href="<?php echo url('index/now/charging'); ?>?pay_time=<?php echo $arr['pay_time']; ?>&money=<?php echo $arr['money']; ?>&pur=<?php echo $arr['pur']; ?>&time=<?php echo $arr['time']; ?>&pid=<?php echo $arr['pid']; ?>&cid=<?php echo $arr['cid']; ?>">查看进度</a></span>
             </div>  
           </div>
         </div>
@@ -368,6 +368,8 @@ tabs.set("nav","menu_con");//执行
 
 
 
+
+
 <footer class="footer" id="footer">
   <ul class="footnav box-flex">
   <?php
@@ -415,6 +417,7 @@ tabs.set("nav","menu_con");//执行
     
   </ul>
 </footer>
+
 <!--footer-end-->
 <!--栏目更多-->
 <script type="text/javascript">
