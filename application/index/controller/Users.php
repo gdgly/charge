@@ -282,6 +282,11 @@ class Users extends Controller
 				$res = $user->upwd($uid,$m_pwd);
 				$this->redirect("users/index");die;
 			}else{
+//				echo strlen($data['m_pwd']);die;
+				if(strlen($data['m_pwd'])!=6)
+				{
+					echo "<script>alert('密码长度6位');location.href='payPwd';</script>";die;
+				}
 				$m_pwd = md5($data['m_pwd']);
 				$res = $user->upwd($uid,$m_pwd);
 				$this->redirect("users/index");die;

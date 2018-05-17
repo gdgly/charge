@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:81:"D:\wamp\wamp\www\mouth12\charge\public/../application/index\view\order\order.html";i:1526549786;s:73:"D:\wamp\wamp\www\mouth12\charge\application\index\view\layout\layout.html";i:1526471542;s:73:"D:\wamp\wamp\www\mouth12\charge\application\index\view\layout\header.html";i:1526471542;s:73:"D:\wamp\wamp\www\mouth12\charge\application\index\view\layout\footer.html";i:1526540113;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:82:"E:\phpHuanJing\WWW\charge\charge\public/../application/index\view\order\order.html";i:1526539012;s:74:"E:\phpHuanJing\WWW\charge\charge\application\index\view\layout\layout.html";i:1526539012;s:74:"E:\phpHuanJing\WWW\charge\charge\application\index\view\layout\header.html";i:1526539012;s:74:"E:\phpHuanJing\WWW\charge\charge\application\index\view\layout\footer.html";i:1526539012;}*/ ?>
 
 <!DOCTYPE html>
 <base href="/index/" />
@@ -68,31 +68,8 @@
     
       <!--全部订单开始-->
       <section class="tag" style="display:block">
-      <?php if(is_array($data) || $data instanceof \think\Collection || $data instanceof \think\Paginator): if( count($data)==0 ) : echo "" ;else: foreach($data as $key=>$vo): if($vo['o_status'] == 1): ?>
-      		<div class="my-order-item">
-          <div class="my-order-item-tit clearfix">
-          <h3>订单号：<?php echo $vo['o_number']; ?></h3>
-          <span class="my-order-wait-zf">
-          	
-          	<?php switch($vo['o_status']): case "1": ?>订单进行中<?php break; case "2": ?>待支付<?php break; case "3": ?>交易完成<?php break; default: ?>default
-          	<?php endswitch; ?>
-          	/<?php echo $vo['money']; ?>元
-          </span>
-          </div>
-          <div class="my-order-item-txt">
-            <div class="my-order-time"><?php echo date('Y-m-d H:i:s',$vo['start_time']); ?></div>
-            <div class="my-order-address"><?php echo $vo['c_site']; ?></div>
-            
-          </div>
-          <div class="my-order-item-btn">
-            <div class="pos-r">
-              <?php switch($vo['o_status']): case "1": ?><span class="my-order-item-jindu"><a href="<?php echo url('index/now/charging'); ?>?pay_time=<?php echo $arr['pay_time']; ?>&money=<?php echo $arr['money']; ?>&pur=<?php echo $arr['pur']; ?>&time=<?php echo $arr['time']; ?>&pid=<?php echo $arr['pid']; ?>&cid=<?php echo $arr['cid']; ?>">查看进度</a></span><?php break; case "2": ?><span class="my-order-item-red"><a href="javascript:void(0)" class="ljzf_but" o_id="<?php echo $vo['o_id']; ?>" money="<?php echo $vo['money']; ?>">立即支付</a></span><?php break; case "3": ?><span class="my-order-item-red"><a href="<?php echo url('index/comment/index'); ?>">立即评价</a></span><?php break; default: ?>default
-          	<?php endswitch; ?>
-            </div>  
-          </div>
-        </div>
-				<?php else: ?>
-				<div class="my-order-item">
+      <?php if(is_array($data) || $data instanceof \think\Collection || $data instanceof \think\Paginator): if( count($data)==0 ) : echo "" ;else: foreach($data as $key=>$vo): ?>
+        <div class="my-order-item">
           <div class="my-order-item-tit clearfix">
           <h3>订单号：<?php echo $vo['o_number']; ?></h3>
           <span class="my-order-wait-zf">
@@ -114,7 +91,7 @@
             </div>  
           </div>
         </div>
-				<?php endif; endforeach; endif; else: echo "" ;endif; ?>
+        <?php endforeach; endif; else: echo "" ;endif; ?>
       </section>
       <!--全部订单结束-->
       
@@ -171,12 +148,12 @@
           <span class="my-order-wait-pj">订单进行中/<?php echo $vo['money']; ?>元</span>
           </div>
           <div class="my-order-item-txt">
-            <div class="my-order-time"><?php echo date('Y-m-d H:i:s',$vo['start_time']); ?></div>
+            <div class="my-order-time"><?php echo date('Y-m-d H:i:s',$vo['start_time']); ?>--<?php echo date('Y-m-d H:i:s',$vo['end_time']); ?></div>
             <div class="my-order-address"><?php echo $vo['c_site']; ?></div>
           </div>
           <div class="my-order-item-btn">
             <div class="pos-r">
-              <span class="my-order-item-jindu"><a href="<?php echo url('index/now/charging'); ?>?pay_time=<?php echo $arr['pay_time']; ?>&money=<?php echo $arr['money']; ?>&pur=<?php echo $arr['pur']; ?>&time=<?php echo $arr['time']; ?>&pid=<?php echo $arr['pid']; ?>&cid=<?php echo $arr['cid']; ?>">查看进度</a></span>
+              <span class="my-order-item-jindu"><a href="order-schedule1.html">查看进度</a></span>
             </div>  
           </div>
         </div>
@@ -391,8 +368,6 @@ tabs.set("nav","menu_con");//执行
 
 
 
-
-
 <footer class="footer" id="footer">
   <ul class="footnav box-flex">
   <?php
@@ -440,7 +415,6 @@ tabs.set("nav","menu_con");//执行
     
   </ul>
 </footer>
-
 <!--footer-end-->
 <!--栏目更多-->
 <script type="text/javascript">

@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:77:"D:\wamp\wamp\www\mouth12\charge\public/../application/index\view\now\now.html";i:1526471542;s:73:"D:\wamp\wamp\www\mouth12\charge\application\index\view\layout\layout.html";i:1526471542;s:73:"D:\wamp\wamp\www\mouth12\charge\application\index\view\layout\header.html";i:1526471542;s:73:"D:\wamp\wamp\www\mouth12\charge\application\index\view\layout\footer.html";i:1526540113;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:79:"D:\wamp\wamp\www\mouth12\charge\public/../application/index\view\users\log.html";i:1526471542;s:73:"D:\wamp\wamp\www\mouth12\charge\application\index\view\layout\layout.html";i:1526471542;s:73:"D:\wamp\wamp\www\mouth12\charge\application\index\view\layout\header.html";i:1526471542;s:73:"D:\wamp\wamp\www\mouth12\charge\application\index\view\layout\footer.html";i:1526540113;}*/ ?>
 
 <!DOCTYPE html>
 <base href="/index/" />
@@ -22,114 +22,52 @@
 </head>
 <body  >
 
-	
+	<!DOCTYPE html>
+<html>
+<head>
+	<base href="/index/" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
+<meta content="yes" name="apple-mobile-web-app-capable" />
+<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+<meta content="telephone=no" name="format-detection" />
+<title>登录</title>
+<link rel="stylesheet" type="text/css" href="css/base.css">
+<link rel="stylesheet" type="text/css" href="css/common.css">
+<script type="text/javascript" src="js/jquery.min.js" ></script>
+<script src="js/common.js"></script>
+</head>
+
+<body>
 <header class="header" id="header">
 <a href="javascript:history.go(-1)" target=_self class="back">返回</a>
-<h1>准备充电</h1>
+<h1>登录</h1>
 </header>
 <!--header-end-->
 
 <div class="container" id="container"> 
 
-<div class="add-class">
-  <form action="<?php echo url('index/now/charging'); ?>" method="post">
-    <ul>
-    	<h4 class="now-name"><?php echo $charge['a_num']; ?>号桩</h4>
-    	<h4 class="now-status">可用</h4>
-      <li><label>插座类型</label><space id="type">
-      		
-			<?php if($charge['c_type'] == 0): ?>标准
-			<?php else: ?> 特斯拉
-			<?php endif; ?>
-      </space></li>
-      <li><label>电池检测</label><space id="type">24V/4A</space></li>
-      <li><label>计费方式</label><space id="type"><?php echo $charge['c_money']; ?>/分钟</space></li>
-      
-    </ul>
-    <ul>
-    	<li><space>充电时长</space></li>
-    	
-			<?php foreach($dur as $vo): if($vo['d_name'] == '0'): ?> 
-					<li><input type="radio" name="time" class="type" value="<?php echo $vo['d_name']; ?>" b_name='<?php echo $vo['d_name']; ?>' d_id="<?php echo $vo['d_id']; ?>"/><label>充满</label><space class="add-space <?php echo $vo['d_id']; ?>"></space></li>
-				<?php else: ?> 
-					<li><input type="radio" name="time" class="type" value="<?php echo $vo['d_name']; ?>" d_id="<?php echo $vo['d_id']; ?>"/><label><?php echo $vo['d_name']; ?>小时</label><space class="add-space <?php echo $vo['d_id']; ?>"></space></li>
-				<?php endif; endforeach; ?>
-    </ul>
-    <ul>
-    	<li><space>自定义</space></li>
-    	<li><input id="amount" type="number" name="time" class="type amount" placeholder="请输入所需时间" value=""><space>小时</space><space class="add-space ti"></space></li>
-    </ul>
-    <ul>
-    	<!--<li><space>已优惠</space><label>0.5元</label></li>-->
-    	<li><space>预计费用</space><label style="color: red;">￥<?php echo $money; ?></label></li>
-    </ul>
-    <!--电量-->
-    <input type="hidden" value="<?php echo $quan; ?>" name="pur"/>
-    <!--金额-->
-    <input type="hidden" value="<?php echo $money; ?>" name="money"/>
-    <!--桩号-->
-    <input type="hidden" value="<?php echo $p_id; ?>" name="pid"/>
-    <!--站点id-->
-    <input type="hidden" value="<?php echo $charge['c_id']; ?>" name="cid" />
-    <!--实际时间-->
-    <input type="hidden" value="<?php echo $time; ?>" name="pay_time" />
-    <input type="submit" style="display: none;" class="confirm-payment" value="开始充电">
-  </form>  
-</div>
+<form method="post" class="login-form" action="users/login" id="login" autocomplete="off">
+  <div class="registered">
+    <div class="field">
+      <input id="username" type="text" name="u_tel" class="username" placeholder="请输入手机号" >
+    </div>
+    <div class="field">
+      <input type="password" name="u_pwd" id="yzm" class="yzm" placeholder="请输入密码"  maxlength="">
+    </div>
+         
+  </div>
+  <div class="next-step">
+    <button type="submit" class="submit-btn">登录</button>
+  </div>
+</form>
+     <div style="font-size: 14px;"><center>还没有注册，去<a href="users/reg" style="display: inline;">注册</a></center></div>
 
 </div>
 <!--container-end-->
-<script src="/jquery-2.1.4.min.js"></script>
-<script>
-	$(function(){
-		//电池电量
-			quan = "<?php echo $quan; ?>";
-//			alert(quan)
-			//计算出的时间
-			t = "<?php echo $t; ?>";
-			
-			//所需时间
-			time = "<?php echo $time; ?>";
-		$(".type").click(function(){
-			$(".confirm-payment").show();
-			$(".amount").attr('disabled','disabled');
-			var d_id = $(this).attr("d_id")
-			var val = $(this).val();
-			var b_name = $(this).attr('b_name');
-			
-//			alert(val)
-			if(b_name=='0'){
-				$("."+d_id).text(t)
-				$(".amount").val("")
-			}else{
-				$(".amount").val("")
+</body>
+</html>
 
-				var num = b_name*3600
-				if(num>time){
-					alert("时间大于您所充满的时间！请重新选择")
-					$(".confirm-payment").hide();
-//					window.location.reload();
-				}else{
-					$(".confirm-payment").show();
-				}
-				$(".add-space").empty()
-			}
-		})
-		$(".amount").blur(function(){
-			var val = $(this).val()
-			var num = val*3600
-//			alert(time)
-				if(num>time){
-					$(".ti").text("时间大于您所充满的时间！请重新选择");
-					$(".confirm-payment").hide();
-//					window.location.reload();
-				}else{
-					$(".ti").empty();
-					$(".confirm-payment").show();
-				}
-		})
-	})
-</script>
 
 
 <footer class="footer" id="footer">
