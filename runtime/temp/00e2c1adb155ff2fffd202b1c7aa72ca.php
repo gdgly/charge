@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:91:"D:\phpStudy\PHPTutorial\WWW\month12\charge\public/../application/demo\view\index\index.html";i:1526461474;s:83:"D:\phpStudy\PHPTutorial\WWW\month12\charge\application\demo\view\layout\layout.html";i:1526461474;s:83:"D:\phpStudy\PHPTutorial\WWW\month12\charge\application\demo\view\layout\header.html";i:1526461474;s:83:"D:\phpStudy\PHPTutorial\WWW\month12\charge\application\demo\view\layout\footer.html";i:1526461474;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:89:"D:\phpStudy\PHPTutorial\WWW\month12\charge\public/../application/demo\view\pile\show.html";i:1526472428;s:83:"D:\phpStudy\PHPTutorial\WWW\month12\charge\application\demo\view\layout\layout.html";i:1526461474;s:83:"D:\phpStudy\PHPTutorial\WWW\month12\charge\application\demo\view\layout\header.html";i:1526461474;s:83:"D:\phpStudy\PHPTutorial\WWW\month12\charge\application\demo\view\layout\footer.html";i:1526461474;}*/ ?>
 <base href="/demo/" />
 <!doctype html>
 <html>
@@ -59,59 +59,48 @@
         </div>
     </div>
 
-	<base href="/admin/" />
+	<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>后台管理</title>
+    <link rel="stylesheet" type="text/css" href="css/common.css"/>
+    <link rel="stylesheet" type="text/css" href="css/main.css"/>
+    <script type="text/javascript" src="js/libs/modernizr.min.js"></script>
+</head>
+<body>
+<div class="container clearfix">
     <!--/sidebar-->
     <div class="main-wrap">
+
         <div class="crumb-wrap">
-            <div class="crumb-list"><i class="icon-font">&#xe06b;</i><span>welcome come to my Backstage</span></div>
+            <div class="crumb-list"><i class="icon-font"></i><a href="/jscss/admin">首页</a><span class="crumb-step">&gt;</span><span class="crumb-name">意见反馈单</span></div>
         </div>
         <div class="result-wrap">
-            <div class="result-title">
-                <h1>系统基本信息</h1>
-            </div>
-            <div class="result-content">
-                <ul class="sys-info-list">
-                    <li>
-                        <label class="res-lab">操作系统</label><span class="res-info">WINNT</span>
-                    </li>
-                    <li>
-                        <label class="res-lab">运行环境</label><span class="res-info">Apache/2.2.21 (Win64) PHP/5.3.10</span>
-                    </li>
-                    <li>
-                        <label class="res-lab">PHP运行方式</label><span class="res-info">apache2handler</span>
-                    </li>
-                    <li>
-                        <label class="res-lab">4组-版本</label><span class="res-info">v-0.1</span>
-                    </li>
-                    <li>
-                        <label class="res-lab">上传附件限制</label><span class="res-info">2M</span>
-                    </li>
-                    <li>
-                        <label class="res-lab">北京时间</label><span class="res-info">2018年5月10日 21:08:24</span>
-                    </li>
-                    <li>
-                        <label class="res-lab">服务器域名/IP</label><span class="res-info">localhost [ 127.0.0.1 ]</span>
-                    </li>
-                    <li>
-                        <label class="res-lab">Host</label><span class="res-info">127.0.0.1</span>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <div class="result-wrap">
-            <div class="result-title">
-                <h1>使用帮助</h1>
-            </div>
-            <div class="result-content">
-                <ul class="sys-info-list">
-                    <li>
-                        <label class="res-lab">官方交流网站：</label><span class="res-info"><a href="http://user.qzone.qq.com/1963644107/infocenter?ptsig=fwuIGucgSq7VB3N8vMjtbG8F-lEbvyN44NaOi-8MrHw_" title="有主机上线设计" target="_blank">jscss.me</a></span>
-                    </li>
-                    <li>
-                        <label class="res-lab">官方交流QQ：</label><span class="res-info"><a class="qq-link" target="_blank" href="http://user.qzone.qq.com/1963644107/infocenter?ptsig=fwuIGucgSq7VB3N8vMjtbG8F-lEbvyN44NaOi-8MrHw_"><img border="0" src="http://pub.idqqimg.com/wpa/images/group.png" alt="JS-前端开发" title="JS-前端开发"></a> </span>
-                    </li>
-                </ul>
-            </div>
+            <form name="myform" id="myform" method="post">
+                <div class="result-content">
+                    <table class="result-tab" width="100%">
+                        <tr>
+                            <th>ID</th>
+                            <th>站点名称</th>
+                            <th>损坏号码</th>
+                            <th>所属状态</th>
+                        </tr>
+                        <?php if(is_array($res) || $res instanceof \think\Collection || $res instanceof \think\Paginator): if( count($res)==0 ) : echo "" ;else: foreach($res as $key=>$v): ?>
+                        <tr>
+                        	<td><?php echo $v['p_id']; ?></td>
+                            <td><?php echo $v['c_name']; ?></td>
+                        	<td><?php echo $v['a_num']; ?></td>
+                        	<td>
+                                <?php if(($v['p_status']==0)): ?>
+                                    <a href="<?php echo url('pile/upl'); ?>?p_id=<?php echo $v['p_id']; ?>">维修</a>
+                                <?php endif; ?>   
+                            </td>
+                        </tr>
+                        <?php endforeach; endif; else: echo "" ;endif; ?>
+                    </table>
+                </div>
+            </form>
         </div>
     </div>
     <!--/main-->

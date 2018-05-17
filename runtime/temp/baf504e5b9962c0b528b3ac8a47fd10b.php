@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:93:"D:\phpStudy\PHPTutorial\WWW\month12\charge\public/../application/index\view\users\my_img.html";i:1526461474;s:84:"D:\phpStudy\PHPTutorial\WWW\month12\charge\application\index\view\layout\layout.html";i:1526461474;s:84:"D:\phpStudy\PHPTutorial\WWW\month12\charge\application\index\view\layout\header.html";i:1526461474;s:84:"D:\phpStudy\PHPTutorial\WWW\month12\charge\application\index\view\layout\footer.html";i:1526461474;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:93:"D:\phpStudy\PHPTutorial\WWW\month12\charge\public/../application/index\view\comment\show.html";i:1526461474;s:84:"D:\phpStudy\PHPTutorial\WWW\month12\charge\application\index\view\layout\layout.html";i:1526461474;s:84:"D:\phpStudy\PHPTutorial\WWW\month12\charge\application\index\view\layout\header.html";i:1526461474;s:84:"D:\phpStudy\PHPTutorial\WWW\month12\charge\application\index\view\layout\footer.html";i:1526461474;}*/ ?>
 
 <!DOCTYPE html>
 <base href="/index/" />
@@ -25,71 +25,73 @@
 	<!DOCTYPE html>
 <html>
 <head>
-<base href="/index/" />
+	<!--<base href="/index/" />-->
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
 <meta content="yes" name="apple-mobile-web-app-capable" />
 <meta content="black" name="apple-mobile-web-app-status-bar-style" />
 <meta content="telephone=no" name="format-detection" />
-<title>我的头像</title>
+<title>用户评价</title>
+<!--标准mui.css-->
+<link rel="stylesheet" href="js/mui/css/mui.min.css">
+<!--标准mui.css-->
+<!--App自定义的css-->
+<link rel="stylesheet" href="js/mui/css/mui.diy.css">
+<!--App自定义的css-->
 <link rel="stylesheet" type="text/css" href="css/base.css">
 <link rel="stylesheet" type="text/css" href="css/common.css">
-
 <script type="text/javascript" src="js/jquery.min.js" ></script>
 <script src="js/common.js"></script>
-<style>
-    .fileinput-button {
-        position: relative;
-        display: inline-block;
-        overflow: hidden;
-    }
-
-    .fileinput-button input{
-        position:absolute;
-        right: 0px;
-        top: 0px;
-        opacity: 0;
-        -ms-filter: 'alpha(opacity=0)';
-        font-size: 100px;
-    }
+<style type="text/css">
+html,body{ background-color:#fff; }
 </style>
-
 </head>
-<body>
 
-<form action="users/myImg" method="post" enctype="multipart/form-data">
-<header class="header header-save" id="header">
+<body>
+<header class="header" id="header">
 <a href="javascript:history.go(-1)" target=_self class="back">返回</a>
-<h1>我的头像</h1>
-<button type="submit">保存</button>
+<h1>用户评论</h1>
 </header>
 <!--header-end-->
 
 <div class="container" id="container"> 
-	<center>
-		<div class="my-face">
-		  	<div class="my-face-con">
-		    	<div class="my-face-pic">
-		    	<?php if($img==""){?>
-		    		<img src="images/my-face-pic.jpg">
-		    	<?php }else{?>
-		    		<img src="<?php echo $img; ?>">
-		    	<?php }?>
-		    </div>
-		  	</div>
-		</div>
-		<div>
-			<span class="btn btn-success fileinput-button">
-	            <button style="font-size: 20px;">修改头像</button>
-	            <input type="file" name="face">
-	        </span>
-       </div>
-	</center>
+
+<div class="user-evaluation">
+
+<!--列表1开始-->
+<?php if(is_array($res) || $res instanceof \think\Collection || $res instanceof \think\Paginator): if( count($res)==0 ) : echo "" ;else: foreach($res as $key=>$v): ?>
+  <div class="user-evaluation-item clearfix">
+    <div class="user-evaluation-item-tit clearfix">
+      <div class="fl"><?php echo $v['c_name']; ?>站<?php echo $v['a_num']; ?>号</span></div>
+      <div class="fr"><span class="phone"><?php echo $v['u_nick']; ?></span><span class="time"><?php echo date("Y-m-d",$v['now_time']); ?></span></div>
+    </div>
+    <div class="user-evaluation-item-con">
+      <div class="user-evaluation-item-con-txt"><?php echo $v['co_content']; ?></div>
+      <div class="user-evaluation-item-con-img">
+      	<?php if(($v['co_img']!='')): ?>
+      	
+      		<img src="/uploads/<?php echo $v['co_img']; ?>" data-preview-src="" data-preview-group="1" >
+      	<?php else: endif; ?>
+        
+      </div>
+    </div>
+  </div>
+<?php endforeach; endif; else: echo "" ;endif; ?>
+<!--列表1结束-->
+  
 </div>
-</form>
+<!----图片点击放大滑动效果---->
+<script src="js/mui/js/mui.min.js"></script>
+<script src="js/mui/js/mui.zoom.js"></script>
+<script src="js/mui/js/mui.previewimage.js"></script>
+<script>
+  mui.previewImage();
+</script>
+<!----图片点击放大滑动效果---->
+</div>
+<!--container-end-->
 </body>
 </html>
-
 
 <footer class="footer" id="footer">
   <ul class="footnav box-flex">
