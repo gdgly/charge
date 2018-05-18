@@ -145,7 +145,6 @@ class Index extends Controller
                               }
                         }
                  }
-               
             }
 
             if(empty($n_del))
