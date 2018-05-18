@@ -208,11 +208,11 @@ class Users extends Controller
 		$usermsg = new UserMsg();
 		if (Request::instance()->isPost()){
 			$path = $this->upload('face');
-//			str_replace('/',"\\",$path);
-//			echo $path;die;
-//			if(!file_exists($path)){
-//				echo "<script>alert('".$path."');location.href='myImg';</script>";die;
-//			}
+			$path = str_replace("\\",'/',$path);
+			
+			if(!file_exists('.'.$path)){
+				echo "<script>alert('".$path."');location.href='myImg';</script>";die;
+			}
 			$data = $usermsg->myMsg($u_id);
 //			删除原图
 			if($data['u_img']){
