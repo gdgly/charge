@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:66:"C:\web\WWW\charge\public/../application/index\view\index\chat.html";i:1526605840;s:59:"C:\web\WWW\charge\application\index\view\layout\layout.html";i:1526567743;s:59:"C:\web\WWW\charge\application\index\view\layout\header.html";i:1526567743;s:59:"C:\web\WWW\charge\application\index\view\layout\footer.html";i:1526567743;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:66:"C:\web\WWW\charge\public/../application/index\view\index\chat.html";i:1526605988;s:59:"C:\web\WWW\charge\application\index\view\layout\layout.html";i:1526567743;s:59:"C:\web\WWW\charge\application\index\view\layout\header.html";i:1526567743;s:59:"C:\web\WWW\charge\application\index\view\layout\footer.html";i:1526567743;}*/ ?>
 
 <!DOCTYPE html>
 <base href="/index/" />
