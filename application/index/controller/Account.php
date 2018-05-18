@@ -14,6 +14,7 @@ class Account extends Common
 //	余额
 	public function balance()
 	{
+		
 		$u_id = cookie('u_id');
 		$usermsg = new UserMsg();
 		$money = $usermsg->checkMsg(['u_id'=>$u_id],'u_money');
@@ -27,7 +28,6 @@ class Account extends Common
 		
 		if(Request::instance()->isPost()){
 			$data = $_POST;
-			
 			$money = $data['money'];
 			$usermsg = new UserMsg();
 			$res = $usermsg->moneyInc($u_id,$money);
