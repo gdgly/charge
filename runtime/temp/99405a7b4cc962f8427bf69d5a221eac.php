@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:82:"D:\wamp\wamp\www\mouth12\charge\public/../application/index\view\comment\show.html";i:1526562025;s:73:"D:\wamp\wamp\www\mouth12\charge\application\index\view\layout\layout.html";i:1526471542;s:73:"D:\wamp\wamp\www\mouth12\charge\application\index\view\layout\header.html";i:1526471542;s:73:"D:\wamp\wamp\www\mouth12\charge\application\index\view\layout\footer.html";i:1526540113;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:82:"D:\wamp\wamp\www\mouth12\charge\public/../application/index\view\comment\show.html";i:1526605957;s:73:"D:\wamp\wamp\www\mouth12\charge\application\index\view\layout\layout.html";i:1526471542;s:73:"D:\wamp\wamp\www\mouth12\charge\application\index\view\layout\header.html";i:1526471542;s:73:"D:\wamp\wamp\www\mouth12\charge\application\index\view\layout\footer.html";i:1526540113;}*/ ?>
 
 <!DOCTYPE html>
 <base href="/index/" />
@@ -22,34 +22,9 @@
 </head>
 <body  >
 
-	<!DOCTYPE html>
-<html>
-<head>
-	<!--<base href="/index/" />-->
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
-<meta content="yes" name="apple-mobile-web-app-capable" />
-<meta content="black" name="apple-mobile-web-app-status-bar-style" />
-<meta content="telephone=no" name="format-detection" />
-<title>用户评价</title>
-<!--标准mui.css-->
-<link rel="stylesheet" href="js/mui/css/mui.min.css">
-<!--标准mui.css-->
-<!--App自定义的css-->
-<link rel="stylesheet" href="js/mui/css/mui.diy.css">
-<!--App自定义的css-->
-<link rel="stylesheet" type="text/css" href="css/base.css">
-<link rel="stylesheet" type="text/css" href="css/common.css">
-<script type="text/javascript" src="js/jquery.min.js" ></script>
-<script src="js/common.js"></script>
-<style type="text/css">
-html,body{ background-color:#fff; }
-</style>
-</head>
-
-<body>
+	<body>
 <header class="header" id="header">
-<a href="javascript:history.go(-3)" target=_self class="back">返回</a>
+<a href="javascript:history.go(-1)" target=_self class="back">返回</a>
 <h1>用户评论</h1>
 </header>
 <!--header-end-->
@@ -80,18 +55,7 @@ html,body{ background-color:#fff; }
 <!--列表1结束-->
   
 </div>
-<!----图片点击放大滑动效果---->
-<script src="js/mui/js/mui.min.js"></script>
-<script src="js/mui/js/mui.zoom.js"></script>
-<script src="js/mui/js/mui.previewimage.js"></script>
-<script>
-  mui.previewImage();
-</script>
-<!----图片点击放大滑动效果---->
-</div>
-<!--container-end-->
-</body>
-</html>
+
 
 
 
