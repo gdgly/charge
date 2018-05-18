@@ -12,7 +12,7 @@ use app\index\model\UserMsg;
 
 class Now extends Common
 {
-	//展示充电站的充电口
+	//展示充电站充电口
 	public function index()
 	{
 		$request = request();
@@ -24,17 +24,17 @@ class Now extends Common
 		
 		$model_c = new Charge();
 		$charge = $model_c->showyi($c_id);
-//		var_dump($charge);exit;
 	
 		$u_id = Cookie::get("u_id");
 		$model_o = new OrderModel();
 		$order = $model_o->onderOne($u_id);
 		$findstatus = $model_o->findstatus($u_id);
-//		var_dump($findstatus);exit;
+		//判断有无支付的 订单
 		if(!empty($findstatus))
 		{
 			echo "<script>alert('有未支付订单，请先支付');location.href='http://www.charge.com/index/order/order.html';</script>";die;
 		}
+		//判断有无正在进行中的订单
 		if(!empty($order)){
 
 			$money = round($order['dur_time']/60*$charge['c_money']);
@@ -98,7 +98,7 @@ class Now extends Common
 					$t = $m.'分钟';
 				}
 			}
-//		var_dump($quan);die;
+
 		$m = $time/60;
 		$money = $charge['c_money']*$m;
 		
