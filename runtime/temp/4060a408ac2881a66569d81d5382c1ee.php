@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:67:"C:\web\WWW\charge\public/../application/index\view\users\index.html";i:1526563755;s:59:"C:\web\WWW\charge\application\index\view\layout\layout.html";i:1526563755;s:59:"C:\web\WWW\charge\application\index\view\layout\header.html";i:1526563755;s:59:"C:\web\WWW\charge\application\index\view\layout\footer.html";i:1526563755;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:69:"C:\web\WWW\charge\public/../application/index\view\users\my_nick.html";i:1526563755;s:59:"C:\web\WWW\charge\application\index\view\layout\layout.html";i:1526563755;s:59:"C:\web\WWW\charge\application\index\view\layout\header.html";i:1526563755;s:59:"C:\web\WWW\charge\application\index\view\layout\footer.html";i:1526563755;}*/ ?>
 
 <!DOCTYPE html>
 <base href="/index/" />
@@ -22,36 +22,45 @@
 </head>
 <body  >
 
-	
+	<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
+<meta content="yes" name="apple-mobile-web-app-capable" />
+<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+<meta content="telephone=no" name="format-detection" />
+<title>我的姓名</title>
+<link rel="stylesheet" type="text/css" href="css/base.css">
+<link rel="stylesheet" type="text/css" href="css/common.css">
+<script type="text/javascript" src="js/jquery.min.js" ></script>
+<script src="js/common.js"></script>
+</head>
+
+<body>
+
+<form action="users/myNick" method="post">
+<header class="header header-save" id="header">
+<a href="javascript:history.go(-1)" target=_self class="back">返回</a>
+<h1>我的姓名</h1>
+<button type="submit">保存</button>
+</header>
+<!--header-end-->
+
 <div class="container" id="container"> 
-<div class="my-face">
-  <div class="my-face-con">
-    <div class="my-face-pic">
-    	<?php if($data['u_img']==""){?>
-    		<a href="users/myImg"><img src="images/my-face-pic.jpg"></a>
-    	<?php }else{?>
-    		<a href="users/myImg"><img src="<?php echo $data['u_img']; ?>"></a>
-    	<?php }?>
-    </div>
-    <p><a href="users/myNick" style="color: black;"><?php echo $data['u_nick']; ?></a></p>
-  </div>
+	<div class="registered">
+		<div class="field">
+			<span style="font-size: 30px;">我的昵称:</span>
+			<input type="text" name="u_nick" value="<?php echo $data; ?>" style="font-size: 25px;">
+		</div>
+	</div>
 </div>
-
-<div class="personal-list">
-     <ul>
-       <li><a class="my-icon-wddd" href="<?php echo url('index/order/order'); ?>">我的订单</a></li>
-       <li><a class="my-icon-grzl" href="users/userMsg">个人资料</a></li>
-     </ul>
-      <ul>
-      	<li><a class="my-icon-kfzx" href="<?php echo url('build/mypile'); ?>">我的电桩</a></li>
-       <li><a class="my-icon-yhq" href="account/balance">我的账户</a></li>
-       <li><a class="my-icon-wdjf" href="integral/index">我的积分</a></li>
-        <li><a class="my-icon-gsjj" href="users/loginout">退出登录</a></li>
-     	</ul>
-  </div>
+<!--container-end-->
+</form>
+</body>
+</html>
 
 
-</div>
 
 
 

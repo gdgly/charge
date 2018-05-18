@@ -59,42 +59,46 @@ class Index extends Controller
           else
           {
         
-          $data = request()->get();
+              $data = request()->get();
 
-          $array = array(
-          'c_content'  =>$data['content'],
-          'c_time'     =>time(),
-          'u_id'       =>$cookie_id,
-          'p_id'       =>isset($data['p_id'])?$data['p_id']:0, 
-          );
+              $array = array(
+              'c_content'  =>$data['content'],
+              'c_time'     =>time(),
+              'u_id'       =>$cookie_id,
+              'p_id'       =>isset($data['p_id'])?$data['p_id']:0, 
+              );
         
           }
 
             $arr = $chat_model->adddata($array);
             $us_model = model('UserMsg');
-            if(!empty($arr))
-            {
-              $c_data = $us_model->showone($cookie_id);
+                if(!empty($arr))
+                {
+                    $c_data = $us_model->showone($cookie_id);
 
-              $n_data = array_merge($array,$c_data);
-              $arr_n = array(
-                'c_id'=>$arr,
-                );
-              $a_data = array_merge($n_data,$arr_n);
-                return $a_data;//成功
-            }
-            else
-            {
-                return 2;//失败
-            }
+                    $n_data = array_merge($array,$c_data);
+
+                    $arr_n = array(
+                    'c_id'=>$arr,
+                    );
+
+                    $a_data = array_merge($n_data,$arr_n);
+                    //将数据返回到前台
+                    return $a_data;//成功
+                }
+                else
+                {
+                    return 2;//失败
+                }
         }
         else
         {
+
           $cookie =  cookie("u_id");
           $data = $chat_model->showall();
-      
+          //调取递归
           $n_data = $this->digui($data);
-          // var_dump($n_data);die;
+
           $this->assign('data',$n_data);
           $this->assign('u_id',$cookie);
           return $this->fetch('chat');
@@ -103,24 +107,82 @@ class Index extends Controller
     }
     //删除评论
     public function dchat()
-    {
+    {   
         if(request()->get())
         {
             $data = request()->get();
-            $chat_model = model('Chat'); 
-            $delete = array(
-              'c_id'=>$data['where'],
-              'p_id'=>$data['where']
-              );
-            $one_c = $chat_model->del_c($delete);
-            if($one_c)
+            $chat_model = model('Chat');
+            $showall = $chat_model->showChat();
+            $n_del =array();
+            $n_one = array();
+            $n_two =array();
+            $n_t =array();
+            foreach ($showall as $k => $v) {
+                 if($v['p_id'] == $data['where'])
+                 {
+                     $n_del[] = $n_one[] =$v['c_id'];
+                 }
+
+                if(!empty($n_one))
+                {
+                      foreach ($n_one as $ke => $va) 
+                      {
+                            if($v['p_id'] == $va)
+                            {
+                               $n_del[] =  $n_two[] = $v['c_id'];
+                            }
+                      }
+                 }
+
+                 if(!empty($n_two))
+                 {
+                        foreach($n_two as $kk => $vv )
+                        {
+                              if($vv ==$v['p_id'] )
+                              {
+
+                                  $n_del[] = $v['c_id'];
+                              }
+                        }
+                 }
+               
+            }
+
+            if(empty($n_del))
             {
-              return 1;
+                //单条进行删除
+                $n_delete = array(
+                  'c_id'=>$data['where'],
+                  );
+                $arr = $chat_model->delOne($n_delete);
+                if($arr)
+                {
+                  return 1;//成功
+                }
+                else
+                {
+                  return 2;//失败
+                }
+
             }
             else
-            {
-              return 2;
+            {   //多条进行循环删除
+                $n_n_del = '';
+                foreach ($n_del as $k => $v) {
+                    $n_n_del .=", ".$v;
+                }
+                $n_delete = $data['where'].$n_n_del;
+                $arr = $chat_model->delAll($n_delete);
+                if($arr)
+                {
+                  return 1;//成功
+                }
+                else
+                {
+                  return 2;//失败
+                }
             }
+                 
         }
         else
         {
