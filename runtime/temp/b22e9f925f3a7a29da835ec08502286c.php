@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:91:"D:\phpStudy\PHPTutorial\WWW\month12\charge\public/../application/index\view\index\chat.html";i:1526603529;s:84:"D:\phpStudy\PHPTutorial\WWW\month12\charge\application\index\view\layout\layout.html";i:1526461474;s:84:"D:\phpStudy\PHPTutorial\WWW\month12\charge\application\index\view\layout\header.html";i:1526461474;s:84:"D:\phpStudy\PHPTutorial\WWW\month12\charge\application\index\view\layout\footer.html";i:1526538286;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:91:"D:\phpStudy\PHPTutorial\WWW\month12\charge\public/../application/index\view\index\chat.html";i:1526610479;s:84:"D:\phpStudy\PHPTutorial\WWW\month12\charge\application\index\view\layout\layout.html";i:1526461474;s:84:"D:\phpStudy\PHPTutorial\WWW\month12\charge\application\index\view\layout\header.html";i:1526626741;s:84:"D:\phpStudy\PHPTutorial\WWW\month12\charge\application\index\view\layout\footer.html";i:1526626769;}*/ ?>
 
 <!DOCTYPE html>
 <base href="/index/" />
@@ -110,7 +110,7 @@
 
 <script src="/index/chat/demos/googlegg.js"></script>
 
-<div class="container" style="margin-top: 100px;position:absolute; height:400px; overflow:auto" >
+<div class="container" style="margin-top: 100px;position:absolute; height:550px; overflow:auto" >
 	<div class="commentbox" >
 		<textarea cols="80" rows="50" placeholder="说出你的问题，快让大家帮助你把。。。。" style="border:1px #145b7d solid;"  class="mytextarea" id="content"></textarea>
 		<div class="btn btn-info pull-right" id="comment">评论</div>
@@ -123,13 +123,13 @@
 		<header><?php if($v['u_img'] !=""){ ?><img src="<?php echo $v['u_img']; ?>" alt="" style="height:40px;width:40px;float: left;margin-top: 4px;"  ><?php  }else{   ?>  <img src="/index/chat/images/0.png" alt="" style="height:40px;width:40px;float: left;margin-top: 4px;"  > <?php }  ?></header>
 			<div class="comment-right">
 				<h5>发表人：<?php echo $v['u_tel'];  ?></h5>
-				<div class="comment-content-header" style="margin-left: 30px;"  ><span style='float:left;' ><i class="glyphicon glyphicon-time"></i>&nbsp&nbsp<?php echo date("Y-m-d H:i:s",$v['c_time']); ?></span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <span  wh="1"    style='float:left;margin-left: 300px;'  w_id='<?php   echo $v["c_id"];  ?>'  class='showall' p_id ='<?php  echo $v["p_id"];  ?>'  p_where='<?php echo $v["c_id"]  ?>'  >
+				<div class="comment-content-header" style="margin-left: 30px;"  ><span style='float:left;' ><i class="glyphicon glyphicon-time"></i>&nbsp&nbsp<?php echo date("Y-m-d H:i:s",$v['c_time']); ?></span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <span  wh="1"    style='float:left;margin-left: 300px;cursor:pointer'  w_id='<?php   echo $v["c_id"];  ?>'  class='showall' p_id ='<?php  echo $v["p_id"];  ?>'  p_where='<?php echo $v["c_id"]  ?>'  >
 			<?php $a=""; foreach($data  as $ke => $val){  if($v['c_id'] == $val['p_id']){ $a = "1"; } } if($a==1){ ?>
 			<img src="/index/chat/images/xx.jpg"   alt="" style="width: 20px;height: 20px;" > <?php  } ?>   </span></div>
 				<p class="content" style="margin-left: 30px;font-size:20px;">说：<?php echo $v['c_content'];  ?></p>
 				<div class="comment-content-footer">
 					<div class="row">
-						<div class="col-md-2" style='float: right;margin-right:200px; '   ><span  class="del" where='<?php echo $v["c_id"];  ?>' ><?php  $u_id; if($v['u_id'] == $u_id){  ?> 删除 <?php } ?> &nbsp&nbsp&nbsp</span><span class="reply-btn one-btn"  > 回复</span></div><br>
+						<div class="col-md-2" style='float: right;margin-right:200px; '   ><span  style="cursor:pointer" class="del" where='<?php echo $v["c_id"];  ?>' ><?php  $u_id; if($v['u_id'] == $u_id){  ?> 删除 <?php } ?> &nbsp&nbsp&nbsp</span><span class="reply-btn one-btn" style="cursor:pointer" > 回复</span></div><br>
 						<div style="float:right;margin-right: 200px;display: none" class='textqu' >  <input type="text" name="fabao" class="fabao"  style="border: 1px  	#C4C4C4 solid;width: 300px;" placeholder="快说些吧。。" ><button class='send' pid="<?php echo $v['c_id'];  ?>" pn ="<?php echo $v['u_tel']; ?>" w_id='<?php   echo $v["c_id"];  ?>' >&nbsp&nbsp发表&nbsp&nbsp</button><button class="quxiao" >&nbsp&nbsp取消&nbsp&nbsp</button></div>
 					</div>
 				</div>
@@ -141,13 +141,13 @@
 		<header><?php if($v['u_img'] !=""){ ?><img src="<?php echo $v['u_img']; ?>" alt="" style="height:40px;width:40px;float: left;margin-top: 4px;"  ><?php  }else{   ?>  <img src="/index/chat/images/0.png" alt="" style="height:40px;width:40px;float: left;margin-top: 4px;"  > <?php }  ?></header>
 			<div class="comment-right">
 				<h5>发表人：<?php echo $v['u_tel'];  ?>&nbsp&nbsp@&nbsp<?php foreach($data  as $ke => $val){  if($v['p_id']== $val['c_id']){echo $val['u_tel'];}   } ?></span></h5>
-				<div class="comment-content-header" style="margin-left: 30px;"><span  style='float:left;' ><i class="glyphicon glyphicon-time"></i>&nbsp<?php echo date("Y-m-d H:i:s",$v['c_time']); ?></span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <span   style='float:left;margin-left: 300px; '  w_id='<?php  echo $v["p_id"];  ?>' p_id ='<?php  echo $v["p_id"];  ?>' class='showall'  p_where='<?php echo $v["c_id"]  ?>'  >
+				<div class="comment-content-header" style="margin-left: 30px;"><span  style='float:left;' ><i class="glyphicon glyphicon-time"></i>&nbsp<?php echo date("Y-m-d H:i:s",$v['c_time']); ?></span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <span   style='float:left;margin-left: 300px;cursor:pointer'  w_id='<?php  echo $v["p_id"];  ?>' p_id ='<?php  echo $v["p_id"];  ?>' class='showall'  p_where='<?php echo $v["c_id"]  ?>'  >
 			<?php $a=""; foreach($data  as $ke => $val){  if($v['c_id'] == $val['p_id']){ $a = "1"; } } if($a==1){ ?>
 			<img src="/index/chat/images/xx.jpg"   alt="" style="width: 20px;height: 20px;" > <?php  } ?>   </span></div>
 				<p class="content" style="margin-left: 30px;font-size:20px;">说：<?php echo $v['c_content'];  ?></p>
 				<div class="comment-content-footer">
 					<div class="row">
-						<div class="col-md-2" style='float: right;margin-right:200px;' ><span where='<?php echo $v["c_id"];  ?>'  class="del" ><?php  $u_id; if($v['u_id'] == $u_id){  ?> 删除 <?php } ?> &nbsp&nbsp&nbsp</span><span class="reply-btn one-btn" p_id='<?php if($v["f"] == 0 ){   echo $v["c_id"]; } ?>'>回复</span></div>
+						<div class="col-md-2" style='float: right;margin-right:200px;' ><span style="cursor:pointer" where='<?php echo $v["c_id"];  ?>'  class="del" ><?php  $u_id; if($v['u_id'] == $u_id){  ?> 删除 <?php } ?> &nbsp&nbsp&nbsp</span><span class="reply-btn one-btn" p_id='<?php if($v["f"] == 0 ){   echo $v["c_id"]; } ?>'  style="cursor:pointer" >回复</span></div>
 						<br>
 						<div style="float:right;margin-right: 200px;display: none"  class='textqu'>  <input type="text" name="fabao"  class="fabao"   style="border: 1px 	#C4C4C4 solid;width: 300px;" placeholder="快说些吧。。" ><button class='two-send' pid="<?php echo $v['c_id'];  ?>" pn ="<?php echo $v['u_tel']; ?>" w_id='<?php  echo $v["p_id"];  ?>'  >&nbsp&nbsp发表</button><button class="quxiao" >&nbsp&nbsp取消&nbsp&nbsp</button></div>
 					
@@ -160,13 +160,13 @@
 		<header><?php if($v['u_img'] !=""){ ?><img src="<?php echo $v['u_img']; ?>" alt="" style="height:40px;width:40px;float: left;margin-top: 4px;"  ><?php  }else{   ?>  <img src="/index/chat/images/0.png" alt="" style="height:40px;width:40px;float: left;margin-top: 4px;"  > <?php }  ?></header>
 			<div class="comment-right">
 				<h5>发表人：<?php echo $v['u_tel'];  ?>&nbsp&nbsp@&nbsp<?php foreach($data  as $ke => $val){  if($v['p_id']== $val['c_id']){echo $val['u_tel'];}   } ?></span></h5>
-				<div class="comment-content-header" style="margin-left: 30px;"><span style='float:left;'><i class="glyphicon glyphicon-time"></i>&nbsp<?php echo date("Y-m-d H:i:s",$v['c_time']); ?></span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <span  where="3" style='float:left;margin-left: 300px; '  w_id='<?php  foreach($data  as $ke => $val ){ if($val["c_id"] == $v["p_id"] ){   echo $val["p_id"]; } } ?>' p_id ='<?php  echo $v["p_id"];  ?>' class='showall'  p_where='<?php echo $v["c_id"]  ?>'  >
+				<div class="comment-content-header" style="margin-left: 30px;"><span style='float:left;'><i class="glyphicon glyphicon-time"></i>&nbsp<?php echo date("Y-m-d H:i:s",$v['c_time']); ?></span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <span  where="3" style='float:left;margin-left: 300px;cursor:pointer'  w_id='<?php  foreach($data  as $ke => $val ){ if($val["c_id"] == $v["p_id"] ){   echo $val["p_id"]; } } ?>' p_id ='<?php  echo $v["p_id"];  ?>' class='showall'  p_where='<?php echo $v["c_id"]  ?>'  >
 			<?php $a=""; foreach($data  as $ke => $val){  if($v['c_id'] == $val['p_id']){ $a = "1"; } } if($a==1){ ?>
 			<img src="/index/chat/images/xx.jpg"   alt="" style="width: 20px;height: 20px;" > <?php  } ?>   </span></div>
 				<p class="content" style="margin-left: 30px;font-size:20px;">说：<?php echo $v['c_content'];  ?></p>
 				<div class="comment-content-footer">
 					<div class="row">
-						<div class="col-md-2" style='float: right;margin-right:200px;' ><span class='del' where='<?php echo $v["c_id"];  ?>'><?php  $u_id; if($v['u_id'] == $u_id){  ?> 删除 <?php } ?> &nbsp&nbsp&nbsp</span><span class="reply-btn one-btn" p_id='<?php if($v["f"] == 0 ){   echo $v["c_id"]; } ?>' ></span></div>
+						<div class="col-md-2" style='float: right;margin-right:200px;' ><span style="cursor:pointer" class='del' where='<?php echo $v["c_id"];  ?>'><?php  $u_id; if($v['u_id'] == $u_id){  ?> 删除 <?php } ?> &nbsp&nbsp&nbsp</span><span style="cursor:pointer" class="reply-btn one-btn" p_id='<?php if($v["f"] == 0 ){   echo $v["c_id"]; } ?>' ></span></div>
 						<br>
 						<div style="float:right;margin-right: 200px;display: none" class='textqu'  >  <input type="text" name="fabao"  class="fabao"   style="border: 1px 	#C4C4C4 solid;width: 300px;" placeholder="快说些吧。。" ><button class='therr-send' pid="<?php echo $v['c_id'];  ?>" pn="<?php echo $v['u_tel']; ?>" w_id='<?php  foreach($data  as $ke => $val ){ if($val["c_id"] == $v["p_id"] ){   echo $val["p_id"]; } } ?>' >&nbsp&nbsp发表</button><button class="quxiao" >&nbsp&nbsp取消&nbsp&nbsp</button></div>
 					</div>
@@ -183,7 +183,7 @@
 				<p class="content" style="margin-left: 30px;font-size:20px;">说：<?php echo $v['c_content'];  ?></p>
 				<div class="comment-content-footer">
 					<div class="row">
-						<div class="col-md-2" style='float: right;margin-right:200px;' ><span  class='del' where='<?php echo $v["c_id"];  ?>'><?php  $u_id; if($v['u_id'] == $u_id){  ?> 删除 <?php } ?> &nbsp&nbsp&nbsp</span><span class="reply-btn one-btn"></span></div>
+						<div class="col-md-2" style='float: right;margin-right:200px;' ><span style="cursor:pointer" class='del' where='<?php echo $v["c_id"];  ?>'><?php  $u_id; if($v['u_id'] == $u_id){  ?> 删除 <?php } ?> &nbsp&nbsp&nbsp</span><span class="reply-btn one-btn"></span></div>
 						<br>
 						<div style="float:right;margin-right: 200px;display: none"  class='textqu' >  <input type="text" name="fabao"  class="fabao"  style="border: 1px 	#C4C4C4 solid;width: 300px;" placeholder="快说些吧。。" ><button class='four-send' pid="<?php echo $v['c_id'];  ?>" pn="<?php echo $v['u_tel']; ?>"  >&nbsp&nbsp发表</button><button class="quxiao" >&nbsp&nbsp取消&nbsp&nbsp</button></div>
 					</div>
@@ -198,14 +198,13 @@
 <script type="text/javascript" src="/index/chat/js/jquery.comment.js" ></script>
 <script type="text/javascript" src="/index/chat/js/bootstrap.min.js"></script>
 <script type="text/javascript">
-
 	
 	$(document).on('click','.showall',function(){
 		p_id = $(this).attr("p_where")
 		w_id =$(this).attr('w_id');
 		$("."+p_id+"").css("display",'block');
 		$("."+p_id+"").addClass(w_id);
-})
+	})
 		$(document).on('click','.quxiao',function(){
 			$(this).prev().prev().val("")
 			$(this).parent().parent().children("span:first-child").show()
@@ -215,7 +214,7 @@
 			wh = $(this).parent().parent().parent().prev().prev().children().next().attr("wh");
 			if(wh == 1)
 			{
-				$(this).parent().parent().parent().prev().prev().children().next().html("")
+				// $(this).parent().parent().parent().prev().prev().children().next().html("")
 				$(this).parent().parent().children().children("span:first-child").html("删除&nbsp&nbsp&nbsp")
 			}
 		})
@@ -397,11 +396,11 @@
 					text +='<header> <img src="'+img+'" alt="" style="height:40px;width:40px;float: left;margin-top: 4px;"  ></header>'
 					text +='<div class="comment-right">'
 					text +='<h5>发表人：'+e.u_tel+'&nbsp&nbsp@&nbsp'+pn+'</h5>'
-					text +='<div class="comment-content-header" style="margin-left: 30px;" ><span style="float:left;"><i class="glyphicon glyphicon-time"></i>&nbsp&nbsp'+day+'</span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <span style="float:left;margin-left: 300px;"  w_id='+e.c_id+' p_id='+aa+' class="showall"  p_where='+e.c_id+'  ></span></div>'
+					text +='<div class="comment-content-header" style="margin-left: 30px;" ><span style="float:left;"><i class="glyphicon glyphicon-time"></i>&nbsp&nbsp'+day+'</span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <span style="float:left;margin-left: 300px;cursor:pointer"  w_id='+e.c_id+' p_id='+aa+' class="showall"  p_where='+e.c_id+'  ></span></div>'
 					text +='<p class="content"  style="margin-left: 30px;font-size:20px;">说：'+content+'</p>'
 					text +='<div class="comment-content-footer">'
 					text +='<div class="row">'
-					text +='<div class="col-md-2" style="float: right;margin-right:200px;" ><span class="del" where='+e.c_id+' >'+del+'&nbsp&nbsp&nbsp</span><span class="reply-btn one-btn">回复</span></div><br><div style="float:right;margin-right: 200px;display: none"  class="textqu"  >  <input type="text"  class="fabao"  name="fabao"  style="border: 1px 	#C4C4C4 solid;width: 300px;" placeholder="快说些吧。。" ><button class="two-send" pid="'+e.c_id+'"  pn='+pn+' w_id='+aa+' >&nbsp&nbsp发表</button><button class="quxiao" >&nbsp&nbsp取消&nbsp&nbsp</button></div>'
+					text +='<div class="col-md-2" style="float: right;margin-right:200px;" ><span style="cursor:pointer" class="del" where='+e.c_id+' >'+del+'&nbsp&nbsp&nbsp</span><span class="reply-btn one-btn" style="cursor:pointer" >回复</span></div><br><div style="float:right;margin-right: 200px;display: none"  class="textqu"  >  <input type="text"  class="fabao"  name="fabao"  style="border: 1px 	#C4C4C4 solid;width: 300px;" placeholder="快说些吧。。" ><button class="two-send" pid="'+e.c_id+'"  pn='+pn+' w_id='+aa+' >&nbsp&nbsp发表</button><button class="quxiao" >&nbsp&nbsp取消&nbsp&nbsp</button></div>'
 					text +='</div>'
 					text +='</div>'
 					text +='</div>'
@@ -499,7 +498,7 @@
 					text +='<p class="content"  style="margin-left: 30px;font-size:20px;">说：'+content+'</p>'
 					text +='<div class="comment-content-footer">'
 					text +='<div class="row">'
-					text +='<div class="col-md-2" style="float: right;margin-right:200px;" ><span  class="del" where='+e.c_id+'>'+del+'&nbsp&nbsp&nbsp</span><span class="reply-btn one-btn"></span></div><br><div style="float:right;margin-right: 200px;display: none" class="textqu"  >  <input type="text"  class="fabao"  name="fabao"  style="border: 1px 	#C4C4C4 solid;width: 300px;" placeholder="快说些吧。。" ><button class="therr-send" pid="'+e.c_id+'" w_id='+aa+'  pn='+pn+' >&nbsp&nbsp发表</button><button class="quxiao" >&nbsp&nbsp取消&nbsp&nbsp</button></div>'
+					text +='<div class="col-md-2" style="float: right;margin-right:200px;" ><span style="cursor:pointer" class="del" where='+e.c_id+'>'+del+'&nbsp&nbsp&nbsp</span><span style="cursor:pointer" class="reply-btn one-btn"></span></div><br><div style="float:right;margin-right: 200px;display: none" class="textqu"  >  <input type="text"  class="fabao"  name="fabao"  style="border: 1px 	#C4C4C4 solid;width: 300px;" placeholder="快说些吧。。" ><button class="therr-send" pid="'+e.c_id+'" w_id='+aa+'  pn='+pn+' >&nbsp&nbsp发表</button><button class="quxiao" >&nbsp&nbsp取消&nbsp&nbsp</button></div>'
 					text +='</div>'
 					text +='</div>'
 					text +='</div>'
@@ -594,7 +593,7 @@
 					text +='<p class="content"  style="margin-left: 30px;font-size:20px;">说：'+content+'</p>'
 					text +='<div class="comment-content-footer">'
 					text +='<div class="row">'
-					text +='<div class="col-md-2" style="float: right;margin-right:200px;" ><span  class="del" where='+e.c_id+' >'+del+'&nbsp&nbsp&nbsp</span><span class="reply-btn one-btn"></span></div><br><div style="float:right;margin-right: 200px;display: none" class="textqu"  > <input type="text"  class="fabao"  name="fabao"  style="border: 1px 	#C4C4C4 solid;width: 300px;" placeholder="快说些吧。。" ><button class="four-send" pid="'+e.c_id+'" w_id='+aa+'   pn='+pn+' >&nbsp&nbsp发表</button></div>'
+					text +='<div class="col-md-2" style="float: right;margin-right:200px;" ><span style="cursor:pointer" class="del" where='+e.c_id+' >'+del+'&nbsp&nbsp&nbsp</span><span style="cursor:pointer" class="reply-btn one-btn"></span></div><br><div style="float:right;margin-right: 200px;display: none" class="textqu"  > <input type="text"  class="fabao"  name="fabao"  style="border: 1px 	#C4C4C4 solid;width: 300px;" placeholder="快说些吧。。" ><button class="four-send" pid="'+e.c_id+'" w_id='+aa+'   pn='+pn+' >&nbsp&nbsp发表</button></div>'
 					text +='</div>'
 					text +='</div>'
 					text +='</div>'
@@ -683,11 +682,11 @@
 					text +='<header><img src="'+img+'" alt="" style="height:40px;width:40px;float: left;margin-top: 4px;"  ></header>'
 					text +='<div class="comment-right">'
 					text +='<h5>发表人：'+e.u_tel+'</h5>'
-					text +='<div class="comment-content-header" style="margin-left: 30px;" ><span style="float:left;" ><i class="glyphicon glyphicon-time"></i>&nbsp&nbsp'+day+'</span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <span  wh="1"    style="float:left;margin-left: 300px;" wh="1" w_id="'+e.c_id+'"  class="showall"   p_where="'+e.c_id+'"  ></span></div>'
+					text +='<div class="comment-content-header" style="margin-left: 30px;" ><span style="float:left;" ><i class="glyphicon glyphicon-time"></i>&nbsp&nbsp'+day+'</span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <span  wh="1"    style="float:left;margin-left: 300px;cursor:pointer" wh="1" w_id="'+e.c_id+'"  class="showall"   p_where="'+e.c_id+'"  ></span></div>'
 					text +='<p class="content"  style="margin-left: 30px;font-size:20px;">说：'+content+'</p>'
 					text +='<div class="comment-content-footer">'
 					text +='<div class="row">'
-					text +='<div class="col-md-2" style="float: right;margin-right:200px" ><span  class="del" where='+e.c_id+' >'+del+'&nbsp&nbsp&nbsp</span><span class="reply-btn one-btn"   >回复</span></div><br><div style="float:right;margin-right: 200px;display: none" class="textqu"  >  <input type="text"  class="fabao"  name="fabao"  style="border: 1px 	#C4C4C4 solid;width: 300px;" placeholder="快说些吧。。" ><button class="send" pid="'+e.c_id+'" w_id="'+e.c_id+'" pn="'+e.u_tel+'"  >&nbsp&nbsp发表</button><button class="quxiao" >&nbsp&nbsp取消&nbsp&nbsp</button></div>'
+					text +='<div class="col-md-2" style="float: right;margin-right:200px" ><span style="cursor:pointer" class="del" where='+e.c_id+' >'+del+'&nbsp&nbsp&nbsp</span><span class="reply-btn one-btn" style="cursor:pointer"  >回复</span></div><br><div style="float:right;margin-right: 200px;display: none" class="textqu"  >  <input type="text"  class="fabao"  name="fabao"  style="border: 1px 	#C4C4C4 solid;width: 300px;" placeholder="快说些吧。。" ><button class="send" pid="'+e.c_id+'" w_id="'+e.c_id+'" pn="'+e.u_tel+'"  >&nbsp&nbsp发表</button><button class="quxiao" >&nbsp&nbsp取消&nbsp&nbsp</button></div>'
 					text +='</div>'
 					text +='</div>'
 					text +='</div>'
@@ -708,7 +707,6 @@
 	
 </body>
 </html>
-
 
 <footer class="footer" id="footer">
   <ul class="footnav box-flex">

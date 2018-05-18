@@ -24,7 +24,6 @@ class Order extends Common
 				$arr = $this->going($data[$key]);
 			}
 		}
-		
 //		echo "<pre>";
 //		print_r($arr);exit;
 		//查询订单
@@ -134,8 +133,6 @@ class Order extends Common
 			//支付失败 密码错误
 			echo 2;
 		}
-		
-		
 	}
 	
 	

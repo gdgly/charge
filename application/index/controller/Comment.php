@@ -8,6 +8,7 @@ use think\Cookie;
 use think\Db;
 class Comment extends Controller
 {
+	//评价页
 	public function index()
 	{
 		$request = Request::instance();
@@ -17,7 +18,7 @@ class Comment extends Controller
 
 		return view('comment/index',['o_id'=>$o_id]);
 	}
-	
+	//添加评价页
 	public function add()
 	{
 		$data = $_POST;
@@ -49,11 +50,11 @@ class Comment extends Controller
 			return $this->redirect('comment/show');
 		}
 	}
-	
+	//展示评价页
 	public function show()
 	{
 		$res = Db::table('comment')->alias('co')->join('pile p','co.p_id = p.p_id')->join('charge c','p.cid = c.c_id')->join('user_msg u','co.u_id=u.u_id')->order('co.co_id','desc')->select();
-//		var_dump($res);die;
+		//var_dump($res);die;
 		return view('comment/show',['res'=>$res]);
 	}
 	

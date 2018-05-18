@@ -49,7 +49,7 @@ class Index extends Controller
                 if(!empty($arr))
                 {
                     $c_data = $us_model->showone($cookie_id);
-
+//					var_dump($c_data);exit;
                     $n_data = array_merge($array,$c_data);
 
                     $arr_n = array(
