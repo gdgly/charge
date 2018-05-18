@@ -135,8 +135,6 @@ class Now extends Common
 			echo "<script>alert('账户余额不足，请先充值。'),location.href='http://www.charge.com/index/account/balance'</script>";exit;
 		}
 		
-//		var_dump($data);exit;
-		
 		if($data['time']=='0')
 		{
 			//需要的时间

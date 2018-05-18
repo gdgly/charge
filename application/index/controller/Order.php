@@ -5,8 +5,10 @@ use think\model;
 use think\Cookie;
 
 use app\index\model\Charge; 
+use app\index\model\Bills;
 
 use app\index\controller\Common;
+use think\Db;
 
 class Order extends Common
 {
@@ -69,7 +71,7 @@ class Order extends Common
 		$uid = Cookie::get('u_id');
 		$o_id = $_POST['o_id'];
 		$pwd = md5($_POST['pwd']);
-//		var_dump($pwd);die;
+
 		$user = model('UserMsg');
 		$order = model('OrderModel');
 		
@@ -91,14 +93,29 @@ class Order extends Common
 					{
 					//添加账单
 					$bil = array(
-						'money'=>'-'.$money,
+						'money'=>'+'.$money,
 						'actime'=>time(),
 						'way'=>3,
 						'u_id'=>$uid
 					);
-					$bills = $order->addbills($bil);
+					$order->addbills($bil);
 					$upds = $order->updstatus($o_id);
 					if($upds){
+						$model = new Bills();
+						$model_c = new Charge();
+						
+						$ass = $model_c->showyi($ord['cid']);
+						
+						$bil = array(
+							'money'=>'-'.$money,
+							'actime'=>time(),
+							'way'=>5,
+							'u_id'=>$ass['u_id'],
+						);
+						$order->addbills($bil);	
+						
+						Db::table('user_msg')->where('u_id', $ass['u_id'])->setInc('u_money',$money);
+
 						//支付成功
 						echo 1;
 					}else{
@@ -124,6 +141,3 @@ class Order extends Common
 	
 }
 
-
-//$user = model('UserMsg');
-//$res = $user->reduce($uid,$mon);

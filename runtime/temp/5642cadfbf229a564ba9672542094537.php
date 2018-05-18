@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:92:"D:\phpStudy\PHPTutorial\WWW\month12\charge\public/../application/index\view\order\order.html";i:1526558980;s:84:"D:\phpStudy\PHPTutorial\WWW\month12\charge\application\index\view\layout\layout.html";i:1526461474;s:84:"D:\phpStudy\PHPTutorial\WWW\month12\charge\application\index\view\layout\header.html";i:1526461474;s:84:"D:\phpStudy\PHPTutorial\WWW\month12\charge\application\index\view\layout\footer.html";i:1526538286;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:92:"D:\phpStudy\PHPTutorial\WWW\month12\charge\public/../application/index\view\order\order.html";i:1526613077;s:84:"D:\phpStudy\PHPTutorial\WWW\month12\charge\application\index\view\layout\layout.html";i:1526461474;s:84:"D:\phpStudy\PHPTutorial\WWW\month12\charge\application\index\view\layout\header.html";i:1526461474;s:84:"D:\phpStudy\PHPTutorial\WWW\month12\charge\application\index\view\layout\footer.html";i:1526538286;}*/ ?>
 
 <!DOCTYPE html>
 <base href="/index/" />
@@ -72,8 +72,7 @@
       		<div class="my-order-item">
           <div class="my-order-item-tit clearfix">
           <h3>订单号：<?php echo $vo['o_number']; ?></h3>
-          <span class="my-order-wait-zf">
-          	
+          <span class="my-order-wait-zf">	
           	<?php switch($vo['o_status']): case "1": ?>订单进行中<?php break; case "2": ?>待支付<?php break; case "3": ?>交易完成<?php break; default: ?>default
           	<?php endswitch; ?>
           	/<?php echo $vo['money']; ?>元

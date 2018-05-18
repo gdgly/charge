@@ -27,7 +27,6 @@ class Index extends Controller
       $chat_model = model('Chat');
       if(request()->get())
       {
-          
           $cookie_id = cookie("u_id");
           if(empty($cookie_id))
           {
