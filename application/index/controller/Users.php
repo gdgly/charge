@@ -180,7 +180,6 @@ class Users extends Controller
 		if (Request::instance()->isPost()){
 			
 			$nick = $_POST['u_nick'];
-			$nick = trim(substr($nick,strrpos($nick,":")+1));
 			
 			if(!$usermsg->checkMsg(['u_id'=>$u_id])){
 				$data = ['u_nick'=>$nick,'u_id'=>$u_id];
@@ -199,7 +198,6 @@ class Users extends Controller
 			$this->assign('data',$data[0]);
 			return $this->fetch();
 		}
-		
 	}
 	
 	//	头像管理
@@ -232,7 +230,7 @@ class Users extends Controller
 		return $this->fetch();
 	}
 	
-//	修改密码
+//	修改登录密码
 	public function upPwd()
 	{
 		
