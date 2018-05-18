@@ -7,6 +7,7 @@ use app\index\model\UserMsg;
 use app\index\model\Cards;
 use app\index\model\Bills;
 use think\Request;
+use think\Cookie;
 
 use app\index\controller\Common;
 
@@ -27,8 +28,26 @@ class Integral extends Common
 		$uid = cookie("u_id");
 		//处理数据
 		$data = Db::table('user_msg')->where('u_id',$uid)->find();
-		Db::table('user_msg')->where('u_id',$uid)->setField('m_num',$data['m_num']-100);
-		Db::table('user_msg')->where('u_id',$uid)->setField('u_money',$data['u_money']+1);
+		
+		$remainder = $data['m_num']%100;
+		
+		$num = $data['m_num']-$remainder;
+		
+		$money = $num/100;
+		
+		$arr = array(
+			'm_num'=>$data['m_num']-$num,
+			'u_money'=>$data['u_money']+$money,
+		);
+		Db::table('user_msg')->where('u_id',$uid)->setField($arr);
+		$data = array(
+			'money'=>$money,
+			'actime'=>time(),
+			'way'=>4,
+			'u_id'=>Cookie::get('u_id'), 
+		);
+		$model = new Bills();
+		$model->billAdd($data);
 	}
 	
 }
