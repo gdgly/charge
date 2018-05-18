@@ -198,7 +198,6 @@ class Users extends Controller
 			$this->assign('data',$data[0]);
 			return $this->fetch();
 		}
-		
 	}
 	
 	//	头像管理
@@ -231,7 +230,7 @@ class Users extends Controller
 		return $this->fetch();
 	}
 	
-//	修改密码
+//	修改登录密码
 	public function upPwd()
 	{
 		

@@ -12,7 +12,6 @@ class Bills extends Model
 	}
 
 	//	账单展示
-
 	public function selBill($u_id)
 	{
 		return self::where('u_id',$u_id)->paginate(10);

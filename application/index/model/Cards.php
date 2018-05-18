@@ -5,7 +5,7 @@ use think\Db;
 use think\Model;
 
 class Cards extends Model
-{
+{	
 	public function selCard($u_id)
 	{
 		$res = self::where('u_id',$u_id)->select();
@@ -18,7 +18,7 @@ class Cards extends Model
 		}
 		return $res;
 	}
-//	修改银行卡状态
+	//修改银行卡状态
 	public function cardSav($data,$where=''){
 		return self::save($data,$where);
 	}
