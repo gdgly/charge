@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:85:"D:\wamp\wamp\www\mouth12\charge\public/../application/index\view\build\pile_list.html";i:1526558277;s:73:"D:\wamp\wamp\www\mouth12\charge\application\index\view\layout\layout.html";i:1526471542;s:73:"D:\wamp\wamp\www\mouth12\charge\application\index\view\layout\header.html";i:1526471542;s:73:"D:\wamp\wamp\www\mouth12\charge\application\index\view\layout\footer.html";i:1526540113;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:83:"D:\wamp\wamp\www\mouth12\charge\public/../application/index\view\users\my_nick.html";i:1526549786;s:73:"D:\wamp\wamp\www\mouth12\charge\application\index\view\layout\layout.html";i:1526471542;s:73:"D:\wamp\wamp\www\mouth12\charge\application\index\view\layout\header.html";i:1526471542;s:73:"D:\wamp\wamp\www\mouth12\charge\application\index\view\layout\footer.html";i:1526540113;}*/ ?>
 
 <!DOCTYPE html>
 <base href="/index/" />
@@ -30,7 +30,7 @@
 <meta content="yes" name="apple-mobile-web-app-capable" />
 <meta content="black" name="apple-mobile-web-app-status-bar-style" />
 <meta content="telephone=no" name="format-detection" />
-<title><?php echo $name ?></title>
+<title>我的姓名</title>
 <link rel="stylesheet" type="text/css" href="css/base.css">
 <link rel="stylesheet" type="text/css" href="css/common.css">
 <script type="text/javascript" src="js/jquery.min.js" ></script>
@@ -38,57 +38,29 @@
 </head>
 
 <body>
-<header class="header" id="header">
+
+<form action="users/myNick" method="post">
+<header class="header header-save" id="header">
 <a href="javascript:history.go(-1)" target=_self class="back">返回</a>
-<h1><?php echo $name ?>充电桩</h1>
+<h1>我的姓名</h1>
+<button type="submit">保存</button>
 </header>
 <!--header-end-->
 
 <div class="container" id="container"> 
-<?php foreach($data as $k=>$v){ ?>
-	<div class="pro-list">
-		<ul>
-		  <li>
-	      <p>
-	      	插孔编号：<?= $v['a_num'] ?>　　　
-	      	<?php if($v['p_status']==1){ ?>
-	      		<span style="cursor:pointer" class="bx" me="<?= $c_status ?>" id="<?= $v['p_id'] ?>">报修</span>
-	      	<?php }else{ ?>
-	      		<span style="color:red">已报修</span>
-	      	<?php } ?>
-	      </p>
-		  </li>
-		</ul>
+	<div class="registered">
+		<div class="field">
+			<span style="font-size: 30px;">我的昵称:</span>
+			<input type="text" name="u_nick" value="<?php echo $data; ?>" style="font-size: 25px;">
+		</div>
 	</div>
-<?php } ?>
 </div>
 <!--container-end-->
+</form>
 </body>
 </html>
-<script src="/index/js/js.js"></script>
-<script>
-	$(document).on("click",".bx",function(){
-		var $c_status = $(this).attr("me");
-		//判断是否在审核中
-		if($c_status==1){
-			alert("该电桩正在审核中");
-			return false;
-		}
-		if(confirm("确定报修该插孔?")){
- 　　		//点击确定后操作
-	　　		var pid = $(this).attr("id");
-			$.ajax({
-				type:"post",
-				url:"build/repairs",
-				data:{pid:pid}
-			})
-			$(this).attr("style","color:red");
-			$(this).attr("class","");
-			$(this).html("已报修");
-		}
-	})
 
-</script>
+
 
 
 

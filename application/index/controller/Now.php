@@ -72,7 +72,6 @@ class Now extends Common
 		
 		$model->uppile($charge['p_id']);
 		
-		$model = new Pilemodel();
 		$dur = $model->showdur();
 		//随机电量
 		if(empty(Cookie::get('quan'.$p_id)))
@@ -161,8 +160,6 @@ class Now extends Common
 				'o_status'=>1,
 				'dur_time'=>$need_time,
 			);
-
-			$order = model('pilemodel');
 			$o_id = $order->addord($arr);
 		}
 		$orde = $order->showord($uid);
