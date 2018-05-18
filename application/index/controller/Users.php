@@ -180,7 +180,6 @@ class Users extends Controller
 		if (Request::instance()->isPost()){
 			
 			$nick = $_POST['u_nick'];
-			$nick = trim(substr($nick,strrpos($nick,":")+1));
 			
 			if(!$usermsg->checkMsg(['u_id'=>$u_id])){
 				$data = ['u_nick'=>$nick,'u_id'=>$u_id];
