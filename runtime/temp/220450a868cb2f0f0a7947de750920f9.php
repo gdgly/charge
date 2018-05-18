@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:82:"D:\wamp\wamp\www\mouth12\charge\public/../application/index\view\build\mypile.html";i:1526378008;s:73:"D:\wamp\wamp\www\mouth12\charge\application\index\view\layout\layout.html";i:1526378008;s:73:"D:\wamp\wamp\www\mouth12\charge\application\index\view\layout\header.html";i:1526378008;s:73:"D:\wamp\wamp\www\mouth12\charge\application\index\view\layout\footer.html";i:1526378008;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:82:"D:\wamp\wamp\www\mouth12\charge\public/../application/index\view\build\mypile.html";i:1526471542;s:73:"D:\wamp\wamp\www\mouth12\charge\application\index\view\layout\layout.html";i:1526471542;s:73:"D:\wamp\wamp\www\mouth12\charge\application\index\view\layout\header.html";i:1526471542;s:73:"D:\wamp\wamp\www\mouth12\charge\application\index\view\layout\footer.html";i:1526540113;}*/ ?>
 
 <!DOCTYPE html>
 <base href="/index/" />
@@ -56,12 +56,17 @@
           <p>地址：<?= $v['c_site'] ?></p>
           <p>
           	使用状态：
-          	<?php if($v['c_state']==0){
+          	<?php if($v['c_state']==0&&$v['c_status']==0){
+          		//未损坏且审核通过
           		echo "<span style='color:green'>正常使用</span>";
-          	}else{
-          		echo "<span style='color:red'>已停用</span>";
+          	}else if($v['c_state']==1&&$v['c_status']==0){
+          		//正在维修且审核通过
+          		echo "<span style=' color:red'>正在维修</span>";
+          	}else if($v['c_state']==0&&$v['c_status']==1){
+          		//未损坏但审核未通过
+          		echo "<span style=' color:blue'>正在审核</span>";
           	}
-          	 ?>
+          	?>
           </p>
         </div>
       </a>
@@ -76,6 +81,8 @@
 </body>
 </html>
 
+
+
 <footer class="footer" id="footer">
   <ul class="footnav box-flex">
   <?php
@@ -83,30 +90,39 @@
   	
   	$request = Request::instance();
 	 	$controller = $request->controller();
-  switch($name=$controller): case "Index": ?>
-    	<li class="on"><a href="index.html" class="home"><i></i><span class="full-block">首页</span></a></li>
-	    <li><a href="<?php echo url('build/index'); ?>" class="foot-worker"><i></i><span class="full-block">申请建桩</span></a></li>
-	    <li><a href="<?php echo url('index/order/order'); ?>" class="foot-order"><i></i><span class="full-block">订单</span></a></li>
-	    <li><a href="users/index" class="my"><i></i><span class="full-block">我的</span></a></li>
-    <?php break; case "Build": ?>
+    $action = $request->action();
+  switch($name=$controller): case "Index": switch($name=$action): case "index": ?>
+      <li class="on" ><a href="index.html" class="home"><i></i><span class="full-block">首页</span></a></li>
+      <li ><a href="<?php echo url('index/chat'); ?>" class="hz" ><i></i><span class="full-block">互助</span></a></li>
+      <li><a href="<?php echo url('build/index'); ?>" class="foot-worker"><i></i><span class="full-block">申请建桩</span></a></li>
+      <li ><a href="<?php echo url('index/order/order'); ?>" class="foot-order"><i></i><span class="full-block">订单</span></a></li>
+      <li><a href="users/index" class="my"><i></i><span class="full-block">我的</span></a></li>
+          <?php break; case "chat": ?>
+            <li ><a href="index.html" class="home"><i></i><span class="full-block">首页</span></a></li>
+            <li class="on" ><a href="<?php echo url('index/chat'); ?>" class="hz" ><i></i><span class="full-block">互助</span></a></li>
+            <li><a href="<?php echo url('build/index'); ?>" class="foot-worker"><i></i><span class="full-block">申请建桩</span></a></li>
+            <li ><a href="<?php echo url('index/order/order'); ?>" class="foot-order"><i></i><span class="full-block">订单</span></a></li>
+            <li><a href="users/index" class="my"><i></i><span class="full-block">我的</span></a></li>
+          <?php break; endswitch; break; case "Build": ?>
     	<li><a href="index.html" class="home"><i></i><span class="full-block">首页</span></a></li>
+      <li><a href="<?php echo url('index/chat'); ?>" class="hz" ><i></i><span class="full-block">互助</span></a></li>
 	    <li class="on"><a href="<?php echo url('build/index'); ?>" class="foot-worker"><i></i><span class="full-block">申请建桩</span></a></li>
 	    <li><a href="<?php echo url('index/order/order'); ?>" class="foot-order"><i></i><span class="full-block">订单</span></a></li>
 	    <li><a href="users/index" class="my"><i></i><span class="full-block">我的</span></a></li>
     <?php break; case "Users": ?>
     	<li><a href="index.html" class="home"><i></i><span class="full-block">首页</span></a></li>
+      <li><a href="<?php echo url('index/chat'); ?>" class="hz" ><i></i><span class="full-block">互助</span></a></li>
 	    <li><a href="<?php echo url('build/index'); ?>" class="foot-worker"><i></i><span class="full-block">申请建桩</span></a></li>
 	    <li><a href="<?php echo url('index/order/order'); ?>" class="foot-order"><i></i><span class="full-block">订单</span></a></li>
 	    <li class="on"><a href="users/index" class="my"><i></i><span class="full-block">我的</span></a></li>
     <?php break; case "Order": ?>
     	<li><a href="index.html" class="home"><i></i><span class="full-block">首页</span></a></li>
+      <li><a href="<?php echo url('index/chat'); ?>" class="hz" ><i></i><span class="full-block">互助</span></a></li>
 	    <li><a href="<?php echo url('build/index'); ?>" class="foot-worker"><i></i><span class="full-block">申请建桩</span></a></li>
 	    <li class="on"><a href="<?php echo url('index/order/order'); ?>" class="foot-order"><i></i><span class="full-block">订单</span></a></li>
 	    <li><a href="users/index" class="my"><i></i><span class="full-block">我的</span></a></li>
     <?php break; endswitch; ?>
 
-  
-  
   
 	
   	
@@ -114,6 +130,7 @@
     
   </ul>
 </footer>
+
 <!--footer-end-->
 <!--栏目更多-->
 <script type="text/javascript">
