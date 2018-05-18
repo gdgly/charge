@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:98:"D:\phpStudy\PHPTutorial\WWW\month12\charge\public/../application/index\view\integral\integral.html";i:1526461474;s:84:"D:\phpStudy\PHPTutorial\WWW\month12\charge\application\index\view\layout\layout.html";i:1526461474;s:84:"D:\phpStudy\PHPTutorial\WWW\month12\charge\application\index\view\layout\header.html";i:1526461474;s:84:"D:\phpStudy\PHPTutorial\WWW\month12\charge\application\index\view\layout\footer.html";i:1526538286;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:98:"D:\phpStudy\PHPTutorial\WWW\month12\charge\public/../application/index\view\integral\integral.html";i:1526611910;s:84:"D:\phpStudy\PHPTutorial\WWW\month12\charge\application\index\view\layout\layout.html";i:1526461474;s:84:"D:\phpStudy\PHPTutorial\WWW\month12\charge\application\index\view\layout\header.html";i:1526461474;s:84:"D:\phpStudy\PHPTutorial\WWW\month12\charge\application\index\view\layout\footer.html";i:1526538286;}*/ ?>
 
 <!DOCTYPE html>
 <base href="/index/" />
@@ -50,7 +50,7 @@
   <p><em class="jf"><?= $sum ?></em>分</p>
   <p>小小积分，有大用，努力多赚一些吧！</p>
   <br /><br />
-  <input type='button' value='兑换1余额' id='open' class="tixian"> 
+  <input type='button' value='兑换到余额' id='open' class="tixian"> 
 </div>
 <div class="integral-rule">
 <div class="integral-rule-tit"><h2>积分使用规则</h2></div>
@@ -70,6 +70,8 @@
 	$(document).on("click","#open",function(){
 		//获取总积分
 		var m_num = $(".jf").html();
+		
+		var remainder = m_num%100;
 		//判断积分是否低于100
 		if(m_num<100){
 			alert("积分低于100不予兑换！");
@@ -80,7 +82,7 @@
 			url:"<?php echo url('integral/convert'); ?>",
 		})
 		alert("兑换成功！");
-		var num = m_num-100;
+		var num = remainder;
 		$(".jf").html(num);
 	})
 </script>
