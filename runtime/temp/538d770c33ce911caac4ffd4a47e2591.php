@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:93:"D:\phpStudy\PHPTutorial\WWW\month12\charge\public/../application/index\view\now\charging.html";i:1526555272;s:84:"D:\phpStudy\PHPTutorial\WWW\month12\charge\application\index\view\layout\layout.html";i:1526461474;s:84:"D:\phpStudy\PHPTutorial\WWW\month12\charge\application\index\view\layout\header.html";i:1526461474;s:84:"D:\phpStudy\PHPTutorial\WWW\month12\charge\application\index\view\layout\footer.html";i:1526538286;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:93:"D:\phpStudy\PHPTutorial\WWW\month12\charge\public/../application/index\view\now\charging.html";i:1526555272;s:84:"D:\phpStudy\PHPTutorial\WWW\month12\charge\application\index\view\layout\layout.html";i:1526461474;s:84:"D:\phpStudy\PHPTutorial\WWW\month12\charge\application\index\view\layout\header.html";i:1526632941;s:84:"D:\phpStudy\PHPTutorial\WWW\month12\charge\application\index\view\layout\footer.html";i:1526626769;}*/ ?>
 
 <!DOCTYPE html>
 <base href="/index/" />
@@ -11,6 +11,7 @@
 <meta content="black" name="apple-mobile-web-app-status-bar-style" />
 <meta content="telephone=no" name="format-detection" />
 <title>首页</title>
+<link href="/index/qq/css/lanrenzhijia.css" rel="stylesheet" type="text/css" />
     <!--<link type="text/css" rel="stylesheet" href="css/mall.css"/>-->
 <link rel="stylesheet" type="text/css" href="css/base.css">
 <link rel="stylesheet" type="text/css" href="css/common.css">
@@ -21,6 +22,8 @@
 <!--banner 脚本-->
 </head>
 <body  >
+	
+
 
 	
 <header class="header" id="header">
@@ -93,7 +96,6 @@
             tim = setInterval("dians()", 60000); 
             
         </SCRIPT>
-
 
 <footer class="footer" id="footer">
   <ul class="footnav box-flex">

@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:93:"D:\phpStudy\PHPTutorial\WWW\month12\charge\public/../application/index\view\build\mypile.html";i:1526461474;s:84:"D:\phpStudy\PHPTutorial\WWW\month12\charge\application\index\view\layout\layout.html";i:1526461474;s:84:"D:\phpStudy\PHPTutorial\WWW\month12\charge\application\index\view\layout\header.html";i:1526461474;s:84:"D:\phpStudy\PHPTutorial\WWW\month12\charge\application\index\view\layout\footer.html";i:1526538286;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:93:"D:\phpStudy\PHPTutorial\WWW\month12\charge\public/../application/index\view\build\mypile.html";i:1526461474;s:84:"D:\phpStudy\PHPTutorial\WWW\month12\charge\application\index\view\layout\layout.html";i:1526461474;s:84:"D:\phpStudy\PHPTutorial\WWW\month12\charge\application\index\view\layout\header.html";i:1526631270;s:84:"D:\phpStudy\PHPTutorial\WWW\month12\charge\application\index\view\layout\footer.html";i:1526626769;}*/ ?>
 
 <!DOCTYPE html>
 <base href="/index/" />
@@ -11,6 +11,7 @@
 <meta content="black" name="apple-mobile-web-app-status-bar-style" />
 <meta content="telephone=no" name="format-detection" />
 <title>首页</title>
+<link href="/index/qq/css/lanrenzhijia.css" rel="stylesheet" type="text/css" />
     <!--<link type="text/css" rel="stylesheet" href="css/mall.css"/>-->
 <link rel="stylesheet" type="text/css" href="css/base.css">
 <link rel="stylesheet" type="text/css" href="css/common.css">
@@ -21,6 +22,47 @@
 <!--banner 脚本-->
 </head>
 <body  >
+	
+<!-- 代码部分 begin -->
+<div class="main-im">
+	<div id="open_im" class="open-im">&nbsp;</div>  
+	<div class="im_main" id="im_main">
+		<div id="close_im" class="close-im"><a href="javascript:void(0);" title="点击关闭">&nbsp;</a></div>
+		<a href="http://wpa.qq.com/msgrd?v=3&uin=2565465762&site=qq&menu=yes" target="_blank" class="im-qq qq-a" title="在线QQ客服">
+			<div class="qq-container"></div>
+			<div class="qq-hover-c"><img class="img-qq" src="http://demo.lanrenzhijia.com/2015/service0119/images/qq.png"></div>
+			<span> QQ在线咨询</span>
+		</a>
+		
+		
+	</div>
+</div>
+<script src="http://www.lanrenzhijia.com/ajaxjs/jquery.min.js"></script>
+<script>
+$(function(){
+	$('#close_im').bind('click',function(){
+		$('#main-im').css("height","0");
+		$('#im_main').hide();
+		$('#open_im').show();
+	});
+	$('#open_im').bind('click',function(e){
+		$('#main-im').css("height","272");
+		$('#im_main').show();
+		$(this).hide();
+	});
+	$('.go-top').bind('click',function(){
+		$(window).scrollTop(0);
+	});
+	$(".weixing-container").bind('mouseenter',function(){
+		$('.weixing-show').show();
+	})
+	$(".weixing-container").bind('mouseleave',function(){        
+		$('.weixing-show').hide();
+	});
+});
+</script>
+<!-- 代码部分 end-->
+
 
 	<!DOCTYPE html>
 <html>
@@ -80,7 +122,6 @@
 <!--container-end-->
 </body>
 </html>
-
 
 
 <footer class="footer" id="footer">
