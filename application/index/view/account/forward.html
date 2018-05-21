@@ -1,10 +1,10 @@
 <header class="header" id="header">
 <a href="javascript:history.go(-1)" target=_self class="back">返回</a>
 <h1>账户提现</h1>
-<a href="account/billShow" style="padding-right: 20px;"><span>账户明细</span></a>
+<a href="{:url('account/billShow')}" style="padding-right: 20px;"><span>账户明细</span></a>
 </header>
 <div class="container" id="container">
-	<form action="account/forward" method="post">
+	<form action="{:url('account/forward')}" method="post">
 		<div class="registered">
 			<div class="field">
 				<span style="font-size: 30px;">银行卡号</span>

@@ -23,7 +23,7 @@
 
 <div class="container" id="container"> 
 
-<form method="post" class="login-form" action="users/login" id="login" autocomplete="off">
+<form method="post" class="login-form" action="{:url('users/login')}" id="login" autocomplete="off">
   <div class="registered">
     <div class="field">
       <input id="username" type="text" name="u_tel" class="username" placeholder="请输入手机号" >
@@ -37,7 +37,7 @@
     <button type="submit" class="submit-btn">登录</button>
   </div>
 </form>
-     <div style="font-size: 14px;"><center>还没有注册，去<a href="users/reg" style="display: inline;">注册</a></center></div>
+     <div style="font-size: 14px;"><center>还没有注册，去<a href="{:url('users/reg')}" style="display: inline;">注册</a></center></div>
 
 </div>
 <!--container-end-->

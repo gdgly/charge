@@ -1,10 +1,10 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:92:"D:\phpStudy\PHPTutorial\WWW\month12\charge\public/../application/index\view\index\index.html";i:1526633386;s:84:"D:\phpStudy\PHPTutorial\WWW\month12\charge\application\index\view\layout\layout.html";i:1526461474;s:84:"D:\phpStudy\PHPTutorial\WWW\month12\charge\application\index\view\layout\header.html";i:1526633371;s:84:"D:\phpStudy\PHPTutorial\WWW\month12\charge\application\index\view\layout\footer.html";i:1526626769;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:92:"D:\phpStudy\PHPTutorial\WWW\month12\charge\public/../application/index\view\index\index.html";i:1526633386;s:84:"D:\phpStudy\PHPTutorial\WWW\month12\charge\application\index\view\layout\layout.html";i:1526461474;s:84:"D:\phpStudy\PHPTutorial\WWW\month12\charge\application\index\view\layout\header.html";i:1526633371;s:84:"D:\phpStudy\PHPTutorial\WWW\month12\charge\application\index\view\layout\footer.html";i:1526819303;}*/ ?>
 
 <!DOCTYPE html>
-<base href="/index/" />
+<base href="/month12/charge/public/index/" />
 <html>
 <head>
-	<base href="/index/" />
+	<base href="/month12/charge/public/index/" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
 <meta content="yes" name="apple-mobile-web-app-capable" />
@@ -29,7 +29,7 @@
 	﻿
 
 
-<base href="/index/" />
+<base href="/month12/charge/public/index/" />
 <link href="qq/css/lanrenzhijia.css" rel="stylesheet" type="text/css" />
 <!--header-end-->
 <header class="header" id="header">
@@ -94,7 +94,7 @@ $(function(){
                     <div id="r-result"></div>
                     <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=fdekcE0GUm4Rfwsb9ZXGEiRTSXevABoG"></script>
                     <script src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
-                    <script src='/index/js/jquery.min.js' ></script>
+                    <script src='/month12/charge/public/index/js/jquery.min.js' ></script>
                     <script>
                     // 百度地图API功能
                     var map = new BMap.Map("allmap");    // 创建Map实例
@@ -219,7 +219,7 @@ $(function(){
                         enableMessage:true//设置允许信息窗发送短息
                          };
          
-                      var content = "充电桩站名：<span style='font-weight:bold'  ><?php echo $v['c_name'];  ?></span><br><?php echo $v['c_site'];  ?><a href='<?php echo url('index/now/index'); ?>?c_id="+"<?php echo $v['c_id']?>"+"' ><span style='color:black;' ></span> <span style='color:red;float:right' >>>详情</span></a><br><img  src='/index/images/status_lv.png' style='width:5%;height=5%;'  >当前充电桩：可用"; 
+                      var content = "充电桩站名：<span style='font-weight:bold'  ><?php echo $v['c_name'];  ?></span><br><?php echo $v['c_site'];  ?><a href='<?php echo url('index/now/index'); ?>?c_id="+"<?php echo $v['c_id']?>"+"' ><span style='color:black;' ></span> <span style='color:red;float:right' >>>详情</span></a><br><img  src='/month12/charge/public/index/images/status_lv.png' style='width:5%;height=5%;'  >当前充电桩：可用"; 
                       map.centerAndZoom(marker,25);
                       map.addOverlay(marker); 
                       addClickHandler(content,marker);
@@ -235,7 +235,7 @@ $(function(){
                         enableMessage:true//设置允许信息窗发送短息
                          };
          
-                      var content = "充电桩站名：<span style='font-weight:bold'  ><?php echo $v['c_name'];  ?></span><br><?php echo $v['c_site'];  ?><a href='<?php echo url('index/ch_details'); ?>?c_id="+"<?php echo $v['c_id']?>"+"' ><span style='color:black;' ></span> <span style='color:red;float:right' ></span></a><br><?php  if($v['c_state'] == 1){ ?><img  src='/index/images/bky.png' style='width:5%;height=5%;'  >当前充电桩：不可用<?php }else if($v['c_state'] == 2){ ?><img  src='/index/images/gz.png' style='width:5%;height=5%;'  >当前充电桩：故障 <?php } ?>"; 
+                      var content = "充电桩站名：<span style='font-weight:bold'  ><?php echo $v['c_name'];  ?></span><br><?php echo $v['c_site'];  ?><a href='<?php echo url('index/ch_details'); ?>?c_id="+"<?php echo $v['c_id']?>"+"' ><span style='color:black;' ></span> <span style='color:red;float:right' ></span></a><br><?php  if($v['c_state'] == 1){ ?><img  src='/month12/charge/public/index/images/bky.png' style='width:5%;height=5%;'  >当前充电桩：不可用<?php }else if($v['c_state'] == 2){ ?><img  src='/month12/charge/public/index/images/gz.png' style='width:5%;height=5%;'  >当前充电桩：故障 <?php } ?>"; 
                       map.centerAndZoom(marker,25);
                       map.addOverlay(marker); 
                       addClickHandler(content,marker);
@@ -312,35 +312,35 @@ $(function(){
 	 	$controller = $request->controller();
     $action = $request->action();
   switch($name=$controller): case "Index": switch($name=$action): case "index": ?>
-      <li class="on" ><a href="index.html" class="home"><i></i><span class="full-block">首页</span></a></li>
+      <li class="on" ><a href="<?php echo url('index/index'); ?>" class="home"><i></i><span class="full-block">首页</span></a></li>
       <li ><a href="<?php echo url('index/chat'); ?>" class="hz" ><i></i><span class="full-block">互助</span></a></li>
       <li><a href="<?php echo url('build/index'); ?>" class="foot-worker"><i></i><span class="full-block">申请建桩</span></a></li>
       <li ><a href="<?php echo url('index/order/order'); ?>" class="foot-order"><i></i><span class="full-block">订单</span></a></li>
-      <li><a href="users/index" class="my"><i></i><span class="full-block">我的</span></a></li>
+      <li><a href="<?php echo url('users/index'); ?>" class="my"><i></i><span class="full-block">我的</span></a></li>
           <?php break; case "chat": ?>
-            <li ><a href="index.html" class="home"><i></i><span class="full-block">首页</span></a></li>
+            <li ><a href="<?php echo url('index/index'); ?>" class="home"><i></i><span class="full-block">首页</span></a></li>
             <li class="on" ><a href="<?php echo url('index/chat'); ?>" class="hz" ><i></i><span class="full-block">互助</span></a></li>
             <li><a href="<?php echo url('build/index'); ?>" class="foot-worker"><i></i><span class="full-block">申请建桩</span></a></li>
             <li ><a href="<?php echo url('index/order/order'); ?>" class="foot-order"><i></i><span class="full-block">订单</span></a></li>
-            <li><a href="users/index" class="my"><i></i><span class="full-block">我的</span></a></li>
+            <li><a href="<?php echo url('users/index'); ?>" class="my"><i></i><span class="full-block">我的</span></a></li>
           <?php break; endswitch; break; case "Build": ?>
-    	<li><a href="index.html" class="home"><i></i><span class="full-block">首页</span></a></li>
+    	<li><a href="<?php echo url('index/index'); ?>" class="home"><i></i><span class="full-block">首页</span></a></li>
       <li><a href="<?php echo url('index/chat'); ?>" class="hz" ><i></i><span class="full-block">互助</span></a></li>
 	    <li class="on"><a href="<?php echo url('build/index'); ?>" class="foot-worker"><i></i><span class="full-block">申请建桩</span></a></li>
 	    <li><a href="<?php echo url('index/order/order'); ?>" class="foot-order"><i></i><span class="full-block">订单</span></a></li>
-	    <li><a href="users/index" class="my"><i></i><span class="full-block">我的</span></a></li>
+	    <li><a href="<?php echo url('users/index'); ?>" class="my"><i></i><span class="full-block">我的</span></a></li>
     <?php break; case "Users": ?>
-    	<li><a href="index.html" class="home"><i></i><span class="full-block">首页</span></a></li>
+    	<li><a href="<?php echo url('index/index'); ?>" class="home"><i></i><span class="full-block">首页</span></a></li>
       <li><a href="<?php echo url('index/chat'); ?>" class="hz" ><i></i><span class="full-block">互助</span></a></li>
 	    <li><a href="<?php echo url('build/index'); ?>" class="foot-worker"><i></i><span class="full-block">申请建桩</span></a></li>
 	    <li><a href="<?php echo url('index/order/order'); ?>" class="foot-order"><i></i><span class="full-block">订单</span></a></li>
-	    <li class="on"><a href="users/index" class="my"><i></i><span class="full-block">我的</span></a></li>
+	    <li class="on"><a href="<?php echo url('users/index'); ?>" class="my"><i></i><span class="full-block">我的</span></a></li>
     <?php break; case "Order": ?>
-    	<li><a href="index.html" class="home"><i></i><span class="full-block">首页</span></a></li>
+    	<li><a href="<?php echo url('index/index'); ?>" class="home"><i></i><span class="full-block">首页</span></a></li>
       <li><a href="<?php echo url('index/chat'); ?>" class="hz" ><i></i><span class="full-block">互助</span></a></li>
 	    <li><a href="<?php echo url('build/index'); ?>" class="foot-worker"><i></i><span class="full-block">申请建桩</span></a></li>
 	    <li class="on"><a href="<?php echo url('index/order/order'); ?>" class="foot-order"><i></i><span class="full-block">订单</span></a></li>
-	    <li><a href="users/index" class="my"><i></i><span class="full-block">我的</span></a></li>
+	    <li><a href="<?php echo url('users/index'); ?>" class="my"><i></i><span class="full-block">我的</span></a></li>
     <?php break; endswitch; ?>
 
   

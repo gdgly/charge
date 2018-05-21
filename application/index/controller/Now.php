@@ -32,7 +32,7 @@ class Now extends Common
 		//判断有无支付的 订单
 		if(!empty($findstatus))
 		{
-			echo "<script>alert('有未支付订单，请先支付');location.href='http://www.charge.com/index/order/order.html';</script>";die;
+			echo "<script>alert('有未支付订单，请先支付');location.href='http://39.106.148.14/month12/charge/public/index.php/index/order/order.html';</script>";die;
 		}
 		//判断有无正在进行中的订单
 		if(!empty($order)){
@@ -51,7 +51,7 @@ class Now extends Common
 			
 			$pur = Cookie::get('quan'.$order['pid']);
 
-			echo "<script>alert('正在充电中···');location.href='http://www.charge.com/index/now/charging.html?pay_time=".$order['dur_time']."&money=".$money."&pur=".$pur."&time=".$time."&pid=".$order['pid']."&cid=".$order['cid']."'</script>";
+			echo "<script>alert('正在充电中···');location.href='http://39.106.148.14/month12/charge/public/index.php/index/now/charging.html?pay_time=".$order['dur_time']."&money=".$money."&pur=".$pur."&time=".$time."&pid=".$order['pid']."&cid=".$order['cid']."'</script>";
 			exit;
 		}
 		
@@ -73,8 +73,9 @@ class Now extends Common
 		$model->uppile($charge['p_id']);
 		
 		$dur = $model->showdur();
+		$dians = Cookie::get('quan'.$p_id);
 		//随机电量
-		if(empty(Cookie::get('quan'.$p_id)))
+		if(empty($dians))
 		{
 			$quantity = rand(1,50);
 //			var_dump($quantity);

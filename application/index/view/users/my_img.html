@@ -33,7 +33,7 @@
 </head>
 <body>
 
-<form action="users/myImg" method="post" enctype="multipart/form-data">
+<form action="{:url('users/myImg')}" method="post" enctype="multipart/form-data">
 <header class="header header-save" id="header">
 <a href="javascript:history.go(-1)" target=_self class="back">返回</a>
 <h1>我的头像</h1>
@@ -49,7 +49,7 @@
 		    	<?php if($img==""){?>
 		    		<img src="images/my-face-pic.jpg">
 		    	<?php }else{?>
-		    		<img src="{$img}">
+		    		<img src="__ROOT__/{$img}">
 		    	<?php }?>
 		    </div>
 		  	</div>

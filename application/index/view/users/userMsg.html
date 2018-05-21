@@ -25,23 +25,24 @@
 
 <div class="personal-data1">
 <ul>
-  <li><a href="users/myNick"><span>我的昵称</span><em><?php if($data['u_nick']){echo $data['u_nick'];}?></em></a></li>
+  <li><a href="{:url('users/myNick')}"><span>我的昵称</span><em><?php if($data['u_nick']){echo $data['u_nick'];}?></em></a></li>
   <li>
-  	<a href="users/myImg"><span>我的头像</span>
+  	<a href="{:url('users/myImg')}"><span>我的头像</span>
   		<em>
   			<?php 
   				if($data['u_img']){
-  					echo "<img src='".$data['u_img']."' style='width:100px;height:100px;'>";
-  				}else{
-  					echo "<img src='images/my-face-pic.jpg' style='width:100px;height:100px;'>";
-  				}
-  			?> 
+  			?>		
+  					<img src="__ROOT__/{$data.u_img}" style='width:100px;height:100px;'>;
+  			<?php	}else{ ?>
+  					<img src='images/my-face-pic.jpg' style='width:100px;height:100px;'>;
+  					
+  			<?php	} ?> 
   		</em>
   	</a>
   </li>
-  <li><a href="users/upPwd"><span>修改密码</span><em>******</em></a></li>
-  <li><a href="users/payPwd"><span>支付密码</span><em>******</em></a></li>
-  <li><a href="account/cardAdd"><span>绑定银行卡</span></a></li>
+  <li><a href="{:url('users/upPwd')}"><span>修改密码</span><em>******</em></a></li>
+  <li><a href="{:url('users/payPwd')}"><span>支付密码</span><em>******</em></a></li>
+  <li><a href="{:url('account/cardAdd')}"><span>绑定银行卡</span></a></li>
 </ul>
 </div>
 

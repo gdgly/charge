@@ -4,25 +4,25 @@
   <div class="my-face-con">
     <div class="my-face-pic">
     	<?php if($data['u_img']==""){?>
-    		<a href="users/myImg"><img src="images/my-face-pic.jpg"></a>
+    		<a href="{:url('users/myImg')}"><img src="images/my-face-pic.jpg"></a>
     	<?php }else{?>
-    		<a href="users/myImg"><img src="{$data.u_img}"></a>
+    		<a href="{:url('users/myImg')}"><img src="__ROOT__/{$data.u_img}"></a>
     	<?php }?>
     </div>
-    <p><a href="users/myNick" style="color: black;">{$data.u_nick}</a></p>
+    <p><a href="{:url('users/myNick')}" style="color: black;">{$data.u_nick}</a></p>
   </div>
 </div>
 
 <div class="personal-list">
      <ul>
        <li><a class="my-icon-wddd" href="{:url('index/order/order')}">我的订单</a></li>
-       <li><a class="my-icon-grzl" href="users/userMsg">个人资料</a></li>
+       <li><a class="my-icon-grzl" href="{:url('users/userMsg')}">个人资料</a></li>
      </ul>
       <ul>
       	<li><a class="my-icon-kfzx" href="{:url('build/mypile')}">我的电桩</a></li>
-       <li><a class="my-icon-yhq" href="account/balance">我的账户</a></li>
-       <li><a class="my-icon-wdjf" href="integral/index">我的积分</a></li>
-        <li><a class="my-icon-gsjj" href="users/loginout">退出登录</a></li>
+       <li><a class="my-icon-yhq" href="{:url('account/balance')}">我的账户</a></li>
+       <li><a class="my-icon-wdjf" href="{:url('integral/index')}">我的积分</a></li>
+        <li><a class="my-icon-gsjj" href="{:url('users/loginout')}">退出登录</a></li>
      	</ul>
 		
 		
