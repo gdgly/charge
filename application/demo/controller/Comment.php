@@ -14,7 +14,7 @@ class Comment extends Controller
 
         if(!$id)
         {
-        	$this->error('请先登录','login/index');
+        	$this->error('请先登录！','login/index');
         }
 
     }
